@@ -9,6 +9,7 @@
 :root {
   --black:      #000000;
   --white:      #ffffff;
+  --purple:     #2b0e48;
   --teal:       #40b8a2;
   --teal-dim:   rgba(64,184,162,0.12);
   --muted:      rgba(0,0,0,0.45);
@@ -56,6 +57,7 @@ ul { list-style: none; }
   font-weight: 600;
   line-height: 0.92;
   letter-spacing: -0.04em;
+  color: var(--purple);
 }
 /* Title — for large section headings */
 .t-title {
@@ -63,6 +65,7 @@ ul { list-style: none; }
   font-weight: 600;
   line-height: 1.0;
   letter-spacing: -0.03em;
+  color: var(--purple);
 }
 /* Sub-title */
 .t-sub {
@@ -70,6 +73,7 @@ ul { list-style: none; }
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.025em;
+  color: var(--purple);
 }
 /* Lead — large body */
 .t-lead {
@@ -97,6 +101,7 @@ ul { list-style: none; }
   font-weight: 600;
   line-height: 1.0;
   letter-spacing: -0.03em;
+  color: var(--purple);
 }
 
 /* ── Utility classes ── */
@@ -126,21 +131,21 @@ ul { list-style: none; }
   transition: background 0.25s var(--ease-spring), color 0.25s var(--ease-spring), border-color 0.25s;
 }
 .btn-black {
-  background: var(--black);
+  background: var(--purple);
   color: var(--white);
-  border-color: var(--black);
+  border-color: var(--purple);
 }
 .btn-black:hover {
   background: transparent;
-  color: var(--black);
+  color: var(--purple);
 }
 .btn-outline {
   background: transparent;
-  color: var(--black);
-  border-color: var(--black);
+  color: var(--purple);
+  border-color: var(--purple);
 }
 .btn-outline:hover {
-  background: var(--black);
+  background: var(--purple);
   color: var(--white);
 }
 .btn-white {
