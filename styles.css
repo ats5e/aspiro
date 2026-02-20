@@ -522,7 +522,7 @@ ul { list-style: none; }
 
 /* Location line — hero headline style */
 .intro-location {
-  font-size: clamp(54px, 9.5vw, 140px);
+  font-size: clamp(38px, 6.6vw, 98px);
   font-weight: 600;
   line-height: 0.9;
   letter-spacing: -0.045em;
