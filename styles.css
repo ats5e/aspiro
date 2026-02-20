@@ -1479,7 +1479,7 @@ ul { list-style: none; }
 .cta-big-link-text {
   position: relative;
   z-index: 1;
-  font-size: clamp(28px, 5vw, 72px);
+  font-size: clamp(20px, 3.5vw, 50px);
   font-weight: 600;
   letter-spacing: -0.04em;
   color: var(--white);
