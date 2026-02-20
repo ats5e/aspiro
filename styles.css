@@ -652,7 +652,7 @@ ul { list-style: none; }
 
 .svc-row-inner {
   display: grid;
-  grid-template-columns: 80px 1fr 52px 1fr auto;
+  grid-template-columns: 80px 1fr 72px 1fr auto;
   gap: 28px;
   align-items: start;
   padding: 36px 0;
@@ -676,9 +676,8 @@ ul { list-style: none; }
 }
 .svc-glyph {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding-top: 4px;
-  transform: translateX(-8px);
 }
 .svc-icon {
   width: 44px;
