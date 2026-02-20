@@ -422,6 +422,8 @@ ul { list-style: none; }
   position: relative;
   overflow: hidden;
   vertical-align: bottom;
+  padding-inline: 0.08em;
+  margin-inline: -0.08em;
   /* height matches parent line-height so clip works */
 }
 .word-slot-inner {
