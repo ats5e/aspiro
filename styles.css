@@ -1256,6 +1256,8 @@ ul { list-style: none; }
 }
 .marquee-track {
   display: flex;
+  align-items: center;
+  height: 80px;
   gap: 0;
   width: max-content;
   animation: marqueeScroll 36s linear infinite;
@@ -1266,18 +1268,18 @@ ul { list-style: none; }
   to   { transform: translateX(-50%); }
 }
 .client-logo {
-  height: 40px;
-  width: auto;
+  height: 44px;
+  width: 160px;
   flex-shrink: 0;
   object-fit: contain;
-  padding: 0 48px;
+  padding: 0 24px;
   border-right: 1px solid rgba(0,0,0,0.08);
   opacity: 0.85;
   transition: opacity 0.2s ease;
 }
 .client-logo:hover { opacity: 1; }
-.client-logo-lg  { height: 90px; }
-.client-logo-xl  { height: 140px; }
+.client-logo-lg  { height: 56px; }
+.client-logo-xl  { height: 72px; }
 .client-logo:first-child { border-left: 1px solid rgba(0,0,0,0.08); }
 
 
