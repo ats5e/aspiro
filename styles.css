@@ -90,7 +90,7 @@ ul { list-style: none; }
 }
 /* Label — small uppercase tag */
 .t-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -122,7 +122,7 @@ ul { list-style: none; }
   padding: 0 26px;
   border-radius: 99px;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.03em;
   cursor: pointer;
@@ -169,12 +169,12 @@ ul { list-style: none; }
 .btn-sm {
   height: 40px;
   padding: 0 20px;
-  font-size: 12px;
+  font-size: 13px;
 }
 .btn-lg {
   height: 56px;
   padding: 0 36px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 
@@ -254,7 +254,7 @@ ul { list-style: none; }
   position: relative;
 }
 .header-contact {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--purple);
   letter-spacing: 0.02em;
@@ -342,7 +342,7 @@ ul { list-style: none; }
 }
 .menu-secondary a:hover { color: var(--black); }
 .menu-address {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   line-height: 1.7;
   margin-top: 24px;
@@ -388,7 +388,7 @@ ul { list-style: none; }
 }
 
 .hero-eyebrow {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -537,7 +537,8 @@ ul { list-style: none; }
   color: var(--teal);
   position: relative;
   overflow: hidden;
-  vertical-align: bottom;
+  vertical-align: baseline;
+  top: 0.09em;
 }
 .word-slot-inner--location {
   display: block;
@@ -574,26 +575,26 @@ ul { list-style: none; }
 }
 .adv-item:hover::after { transform: scaleX(1); }
 .adv-num {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--teal);
-  padding-top: 4px;
+  padding-top: 2px;
   flex-shrink: 0;
-  width: 24px;
+  width: 34px;
 }
 .adv-content {}
 .adv-content h5 {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--purple);
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 .adv-content p {
-  font-size: 13px;
+  font-size: 18px;
   color: var(--muted);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 
@@ -621,7 +622,7 @@ ul { list-style: none; }
   color: #2b0e48;
 }
 .services-head-note {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   max-width: 280px;
   line-height: 1.65;
@@ -660,7 +661,7 @@ ul { list-style: none; }
 .svc-row:hover .svc-row-inner { padding-left: 12px; }
 
 .svc-num {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--teal);
@@ -674,7 +675,7 @@ ul { list-style: none; }
   color: var(--purple);
 }
 .svc-body {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   line-height: 1.75;
 }
@@ -687,7 +688,7 @@ ul { list-style: none; }
   margin-top: 14px;
 }
 .svc-tag {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
   padding: 4px 12px;
@@ -732,7 +733,7 @@ ul { list-style: none; }
   color: var(--white);
 }
 .process-desc {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted-wht);
   max-width: 300px;
   line-height: 1.7;
@@ -750,7 +751,7 @@ ul { list-style: none; }
 .process-col:first-child { padding-left: 0; }
 .process-col:last-child { border-right: none; padding-right: 0; }
 .proc-step {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -880,7 +881,7 @@ ul { list-style: none; }
 .case-item.case-in::before { transform: scaleX(1); }
 
 .case-cat {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -915,7 +916,7 @@ ul { list-style: none; }
   opacity: 0;
 }
 .case-metric-sub {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -939,7 +940,7 @@ ul { list-style: none; }
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .case-body {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   line-height: 1.7;
   margin-bottom: 24px;
@@ -1053,7 +1054,7 @@ ul { list-style: none; }
   line-height: 1.1;
 }
 .csuite-role-sub {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
   font-weight: 400;
   display: block;
@@ -1061,7 +1062,7 @@ ul { list-style: none; }
   letter-spacing: 0.02em;
 }
 .csuite-pain-label {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1069,13 +1070,13 @@ ul { list-style: none; }
   margin-bottom: 8px;
 }
 .csuite-pain-text {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   line-height: 1.65;
   font-style: italic;
 }
 .csuite-solution {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   line-height: 1.65;
 }
@@ -1131,7 +1132,7 @@ ul { list-style: none; }
   align-items: start;
 }
 .smartops-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1174,7 +1175,7 @@ ul { list-style: none; }
 .str-row:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
 .str-row:hover { padding-left: 8px; }
 .str-n {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--teal);
@@ -1190,7 +1191,7 @@ ul { list-style: none; }
   letter-spacing: -0.01em;
 }
 .str-body p {
-  font-size: 13px;
+  font-size: 15px;
   color: rgba(255,255,255,0.45);
   line-height: 1.65;
 }
@@ -1232,7 +1233,7 @@ ul { list-style: none; }
   margin-bottom: 10px;
 }
 .out-desc {
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255,255,255,0.45);
   line-height: 1.6;
 }
@@ -1319,7 +1320,7 @@ ul { list-style: none; }
   margin-bottom: 6px;
 }
 .team-role {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1327,7 +1328,7 @@ ul { list-style: none; }
   margin-bottom: 20px;
 }
 .team-bio {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   line-height: 1.75;
 }
@@ -1392,7 +1393,7 @@ ul { list-style: none; }
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 .cta-pre {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1482,7 +1483,7 @@ ul { list-style: none; }
   margin-bottom: 60px;
 }
 .footer-brand p {
-  font-size: 13px;
+  font-size: 14px;
   color: rgba(255,255,255,0.4);
   line-height: 1.75;
   margin: 20px 0 28px;
@@ -1490,14 +1491,14 @@ ul { list-style: none; }
 }
 .footer-contact a {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   color: rgba(255,255,255,0.55);
   margin-bottom: 6px;
   transition: color 0.2s ease;
 }
 .footer-contact a:hover { color: var(--teal); }
 .footer-col h4 {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1506,7 +1507,7 @@ ul { list-style: none; }
 }
 .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
 .footer-col ul a {
-  font-size: 13px;
+  font-size: 14px;
   color: rgba(255,255,255,0.5);
   transition: color 0.2s ease;
 }
@@ -1522,7 +1523,7 @@ ul { list-style: none; }
   gap: 12px;
 }
 .footer-bar p {
-  font-size: 12px;
+  font-size: 13px;
   color: rgba(255,255,255,0.25);
 }
 .footer-bar-links {
@@ -1530,7 +1531,7 @@ ul { list-style: none; }
   gap: 20px;
 }
 .footer-bar-links a {
-  font-size: 12px;
+  font-size: 13px;
   color: rgba(255,255,255,0.3);
   transition: color 0.2s ease;
 }
@@ -1589,6 +1590,16 @@ ul { list-style: none; }
   .h-stat { padding: 20px 16px; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
   .h-stat:nth-child(3),.h-stat:nth-child(4) { border-bottom: none; }
   .csuite-head-grid { grid-template-columns: 1fr; }
+  .case-body,
+  .csuite-pain-text,
+  .csuite-solution,
+  .team-bio,
+  .str-body p { font-size: 16px; }
+  .process-desc,
+  .services-head-note,
+  .footer-brand p,
+  .footer-contact a,
+  .footer-col ul a { font-size: 15px; }
 }
 
 @media (max-width: 680px) {
@@ -1605,4 +1616,20 @@ ul { list-style: none; }
   .csuite-row { grid-template-columns: 90px 1fr; gap: 20px; }
   .csuite-arr { display: none; }
   .cta-main-text { font-size: clamp(30px, 8vw, 60px); }
+  .hero-tagline { font-size: 16px; line-height: 1.7; }
+  .h-stat-label { font-size: 15px; line-height: 1.6; }
+  .adv-content h5 { font-size: 22px; }
+  .adv-content p { font-size: 18px; line-height: 1.75; }
+  .svc-num,
+  .proc-step,
+  .case-cat,
+  .case-metric-sub,
+  .csuite-role-sub,
+  .smartops-label,
+  .str-n,
+  .team-role,
+  .cta-pre,
+  .footer-col h4,
+  .footer-bar p,
+  .footer-bar-links a { font-size: 13px; }
 }
