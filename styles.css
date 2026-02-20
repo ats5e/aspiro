@@ -772,8 +772,10 @@ ul { list-style: none; }
 }
 .proc-quote {
   font-size: 16px;
+  line-height: 1.45;
   color: rgba(255,255,255,0.75);
   font-style: italic;
+  min-height: 92px;
   margin-bottom: 36px;
   padding-bottom: 36px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -1578,6 +1580,7 @@ ul { list-style: none; }
     border-right: none;
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
+  .proc-quote { min-height: 0; }
   .process-col:last-child { border-bottom: none; }
   .cases-grid { grid-template-columns: repeat(2,1fr); }
   .hero-stats { grid-template-columns: repeat(2,1fr); }
