@@ -464,7 +464,7 @@ ul { list-style: none; }
   z-index: 1;
 }
 .h-stat {
-  padding: 0 32px 0 0;
+  padding: 0 32px 0 32px;
   border-right: 1px solid rgba(43,14,72,0.12);
 }
 .h-stat:first-child { padding-left: 0; }
