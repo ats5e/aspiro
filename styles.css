@@ -503,7 +503,7 @@ ul { list-style: none; }
    INTRO / ABOUT
    ============================================================= */
 .intro {
-  padding: var(--sec-py) 0;
+  padding: clamp(52px, 6vw, 90px) 0 var(--sec-py);
   background: var(--white);
 }
 .intro-grid {
@@ -652,8 +652,8 @@ ul { list-style: none; }
 
 .svc-row-inner {
   display: grid;
-  grid-template-columns: 80px 1fr 72px 1fr auto;
-  gap: 32px;
+  grid-template-columns: 80px 1fr 52px 1fr auto;
+  gap: 28px;
   align-items: start;
   padding: 36px 0;
   transition: padding 0.25s ease;
@@ -676,8 +676,9 @@ ul { list-style: none; }
 }
 .svc-glyph {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding-top: 4px;
+  transform: translateX(-8px);
 }
 .svc-icon {
   width: 44px;
@@ -1369,7 +1370,7 @@ ul { list-style: none; }
    CLIENTS — marquee
    ============================================================= */
 .clients {
-  padding: 36px 0;
+  padding: 28px 0 10px;
   background: var(--white);
   border-top: 1px solid rgba(0,0,0,0.08);
   overflow: hidden;
@@ -1378,18 +1379,18 @@ ul { list-style: none; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 .marquee-wrap {
   overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);
   mask-image:         linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);
-  padding: 8px 0;
+  padding: 12px 0;
 }
 .marquee-track {
   display: flex;
   align-items: center;
-  height: 80px;
+  height: 108px;
   gap: 0;
   width: max-content;
   animation: marqueeScroll 36s linear infinite;
@@ -1400,18 +1401,18 @@ ul { list-style: none; }
   to   { transform: translateX(-50%); }
 }
 .client-logo {
-  height: 44px;
-  width: 160px;
+  height: 58px;
+  width: 190px;
   flex-shrink: 0;
   object-fit: contain;
-  padding: 0 24px;
+  padding: 0 28px;
   border-right: 1px solid rgba(0,0,0,0.08);
   opacity: 0.85;
   transition: opacity 0.2s ease;
 }
 .client-logo:hover { opacity: 1; }
-.client-logo-lg  { height: 56px; }
-.client-logo-xl  { height: 72px; }
+.client-logo-lg  { height: 72px; }
+.client-logo-xl  { height: 92px; }
 .client-logo:first-child { border-left: 1px solid rgba(0,0,0,0.08); }
 
 
