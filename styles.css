@@ -476,7 +476,7 @@ ul { list-style: none; }
   letter-spacing: -0.04em;
   color: var(--purple);
   line-height: 1;
-  margin-bottom: 20px;
+  margin-bottom: 36px;
 }
 /* Animated underline on stat number — Sofinnova pattern */
 .h-stat-bar {
