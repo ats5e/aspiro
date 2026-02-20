@@ -520,7 +520,7 @@ ul { list-style: none; }
   font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 1.2;
-  color: var(--black);
+  color: var(--purple);
   margin-bottom: 40px;
 }
 .intro-left .btn { margin-top: 40px; }
@@ -568,7 +568,7 @@ ul { list-style: none; }
   font-size: 15px;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: var(--black);
+  color: var(--purple);
   margin-bottom: 6px;
 }
 .adv-content p {
@@ -651,7 +651,7 @@ ul { list-style: none; }
   font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 1.1;
-  color: var(--black);
+  color: var(--purple);
 }
 .svc-body {
   font-size: 13px;
@@ -856,7 +856,7 @@ ul { list-style: none; }
   font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 1;
-  color: var(--black);
+  color: var(--purple);
   margin-bottom: 6px;
 }
 .case-metric-sub {
@@ -874,7 +874,7 @@ ul { list-style: none; }
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.35;
-  color: var(--black);
+  color: var(--purple);
   margin-bottom: 12px;
 }
 .case-body {
@@ -947,7 +947,7 @@ ul { list-style: none; }
   font-size: clamp(18px, 2vw, 26px);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--black);
+  color: var(--purple);
   line-height: 1.1;
 }
 .csuite-role-sub {
@@ -981,7 +981,7 @@ ul { list-style: none; }
   display: block;
   font-size: 14px;
   font-weight: 700;
-  color: var(--black);
+  color: var(--purple);
   letter-spacing: -0.01em;
   margin-bottom: 6px;
 }
@@ -1201,7 +1201,7 @@ ul { list-style: none; }
   font-size: clamp(22px, 2.5vw, 32px);
   font-weight: 600;
   letter-spacing: -0.025em;
-  color: var(--black);
+  color: var(--purple);
   margin-bottom: 6px;
 }
 .team-role {
