@@ -408,8 +408,9 @@ ul { list-style: none; }
 .hero-headline {
   font-size: clamp(54px, 9.5vw, 140px);
   font-weight: 600;
-  line-height: 1.05;
+  line-height: 0.9;
   letter-spacing: -0.045em;
+  word-spacing: 0.06em;
   color: var(--purple);
   margin-bottom: 48px;
 }
