@@ -226,3 +226,66 @@ document.addEventListener('click', e => {
     row.setAttribute('role', 'button');
   });
 })();
+
+/* ─────────────────────────────────────────────
+   CASE METRICS — staggered entrance + metric count-up
+   ───────────────────────────────────────────── */
+(function initCaseMetrics() {
+  const cards = $$('.case-item');
+  if (!cards.length) return;
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function animateMetricValue(el) {
+    const raw = (el.textContent || '').replace(/\u00a0/g, ' ').trim();
+    if (!raw) return;
+
+    // Supports patterns like "$25M", "70%", "Top 5", "SAR 4.75M"
+    const m = raw.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/);
+    if (!m) return;
+
+    const prefix = m[1];
+    const target = Number(m[2]);
+    const suffix = m[3];
+    if (Number.isNaN(target)) return;
+
+    const isInteger = Number.isInteger(target);
+    const dur = 1100;
+    const t0 = performance.now();
+
+    function frame(t) {
+      const p = Math.min((t - t0) / dur, 1);
+      const eased = easeOut(p);
+      const val = isInteger ? Math.round(eased * target) : (eased * target);
+
+      const shown = isInteger
+        ? val.toLocaleString()
+        : val.toFixed(2).replace(/\.00$/, '');
+
+      el.textContent = `${prefix}${shown}${suffix}`;
+      if (p < 1) requestAnimationFrame(frame);
+      else el.textContent = raw;
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const card = entry.target;
+      const idx = cards.indexOf(card);
+      const delay = Math.max(0, idx) * 90;
+
+      setTimeout(() => {
+        card.classList.add('case-in');
+        const metric = $('.case-metric', card);
+        if (metric) animateMetricValue(metric);
+      }, delay);
+
+      io.unobserve(card);
+    });
+  }, { threshold: 0.28, rootMargin: '0px 0px -8% 0px' });
+
+  cards.forEach(card => io.observe(card));
+})();

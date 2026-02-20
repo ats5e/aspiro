@@ -873,7 +873,7 @@ ul { list-style: none; }
   transform-origin: left;
   transition: transform 0.7s var(--ease-spring);
 }
-.case-item.in::before { transform: scaleX(1); }
+.case-item.case-in::before { transform: scaleX(1); }
 
 .case-cat {
   font-size: 11px;
@@ -893,10 +893,22 @@ ul { list-style: none; }
   line-height: 1;
   color: var(--purple);
   margin-bottom: 6px;
+  position: relative;
   opacity: 0;
   transform: translateY(24px) scale(0.96);
   filter: blur(6px);
   transition: opacity 0.75s var(--ease-spring), transform 0.75s var(--ease-spring), filter 0.75s ease;
+}
+.case-metric::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -45%;
+  width: 36%;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(64,184,162,0.28), rgba(255,255,255,0));
+  transform: skewX(-14deg);
+  opacity: 0;
 }
 .case-metric-sub {
   font-size: 11px;
@@ -931,29 +943,43 @@ ul { list-style: none; }
   transform: translateY(10px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.case-item.in .case-cat {
+.case-item.case-in .case-cat {
   opacity: 1;
   transform: translateY(0);
 }
-.case-item.in .case-metric {
+.case-item.case-in .case-metric {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
+  animation: caseMetricPop 0.85s var(--ease-spring) both;
 }
-.case-item.in .case-metric-sub {
+.case-item.case-in .case-metric::after {
+  animation: caseMetricSweep 0.9s ease 0.18s 1;
+}
+.case-item.case-in .case-metric-sub {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.08s;
 }
-.case-item.in .case-title {
+.case-item.case-in .case-title {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.14s;
 }
-.case-item.in .case-body {
+.case-item.case-in .case-body {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.2s;
+}
+@keyframes caseMetricPop {
+  0% { transform: translateY(24px) scale(0.92); }
+  68% { transform: translateY(-2px) scale(1.03); }
+  100% { transform: translateY(0) scale(1); }
+}
+@keyframes caseMetricSweep {
+  0% { left: -45%; opacity: 0; }
+  25% { opacity: 1; }
+  100% { left: 120%; opacity: 0; }
 }
 .case-link {
   display: inline-flex;
