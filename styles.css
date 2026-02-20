@@ -527,7 +527,7 @@ ul { list-style: none; }
   line-height: 0.9;
   letter-spacing: -0.045em;
   color: var(--purple);
-  margin-top: 24px;
+  margin-top: 56px;
 }
 .word-slot--location {
   display: inline-block;
