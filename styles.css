@@ -315,7 +315,7 @@ ul { list-style: none; }
   font-size: clamp(36px, 5vw, 64px);
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--black);
+  color: var(--purple);
   padding: 16px 0;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   display: flex;
@@ -324,7 +324,7 @@ ul { list-style: none; }
   transition: color 0.2s ease;
 }
 .menu-primary a:first-child { border-top: 1px solid rgba(0,0,0,0.1); }
-.menu-primary a:hover { color: var(--teal); }
+.menu-primary a:hover { color: #5fbeb5; }
 .menu-primary a .arr { font-size: 0.6em; transition: transform 0.2s ease; }
 .menu-primary a:hover .arr { transform: translateX(6px) rotate(-45deg); }
 
