@@ -520,6 +520,27 @@ ul { list-style: none; }
 }
 .intro-left .btn { margin-top: 40px; }
 
+/* Location line — hero headline style */
+.intro-location {
+  font-size: clamp(54px, 9.5vw, 140px);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  color: var(--purple);
+  margin-top: 24px;
+}
+.word-slot--location {
+  display: inline-block;
+  color: var(--teal);
+  position: relative;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.word-slot-inner--location {
+  display: block;
+  transition: transform 0.55s var(--ease-spring), opacity 0.35s ease;
+}
+
 .intro-right {}
 .intro-body p {
   font-size: clamp(14px, 1.2vw, 16px);

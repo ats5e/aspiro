@@ -107,6 +107,38 @@ document.addEventListener('click', e => {
 })();
 
 /* ─────────────────────────────────────────────
+   LOCATION SLOT ROTATOR — intro section
+   ───────────────────────────────────────────── */
+(function initLocationSlot() {
+  const slot = $('.word-slot-inner--location');
+  if (!slot) return;
+
+  const locations = ['KSA', 'Qatar', 'UAE', 'South Pacific'];
+  let idx = 0;
+  let busy = false;
+
+  function next() {
+    if (busy) return;
+    busy = true;
+    idx = (idx + 1) % locations.length;
+
+    slot.classList.add('exiting');
+
+    setTimeout(() => {
+      slot.classList.remove('exiting');
+      slot.textContent = locations[idx];
+      slot.classList.add('entering');
+      setTimeout(() => {
+        slot.classList.remove('entering');
+        busy = false;
+      }, 600);
+    }, 420);
+  }
+
+  setInterval(next, 2800);
+})();
+
+/* ─────────────────────────────────────────────
    INTERSECTION OBSERVER — reveal + line-anim + stat bars
    ───────────────────────────────────────────── */
 (function initObservers() {
