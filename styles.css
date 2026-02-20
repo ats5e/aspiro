@@ -742,7 +742,7 @@ ul { list-style: none; }
   gap: 0;
 }
 .process-col {
-  padding: 40px 48px 40px 0;
+  padding: 48px 40px;
   border-right: 1px solid rgba(255,255,255,0.1);
 }
 .process-col:first-child { padding-left: 0; }
@@ -753,7 +753,7 @@ ul { list-style: none; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--teal);
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 .proc-num {
   font-size: clamp(56px, 7vw, 100px);
@@ -761,21 +761,21 @@ ul { list-style: none; }
   letter-spacing: -0.05em;
   color: #5fbeb5;
   line-height: 1;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 .proc-name {
   font-size: clamp(22px, 2.5vw, 32px);
   font-weight: 600;
   letter-spacing: -0.025em;
   color: var(--white);
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 }
 .proc-quote {
   font-size: 16px;
   color: rgba(255,255,255,0.75);
   font-style: italic;
-  margin-bottom: 28px;
-  padding-bottom: 28px;
+  margin-bottom: 36px;
+  padding-bottom: 36px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .proc-items { list-style: none; }
