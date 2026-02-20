@@ -375,63 +375,6 @@ ul { list-style: none; }
   z-index: 0;
 }
 
-.hero-orb-wrap {
-  position: absolute;
-  right: clamp(-320px, -18vw, -120px);
-  top: 34%;
-  width: clamp(900px, 76vw, 1500px);
-  aspect-ratio: 1 / 1;
-  transform: translateY(-50%);
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.96;
-  perspective: 1400px;
-  transform-style: preserve-3d;
-  animation: orbDrift 16s ease-in-out infinite;
-}
-.hero-orb-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 10%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(64,184,162,0.26) 0%, rgba(64,184,162,0.09) 36%, rgba(64,184,162,0) 72%);
-  filter: blur(28px);
-  opacity: 0.75;
-}
-.hero-orb-wrap::before {
-  content: '';
-  position: absolute;
-  inset: 6%;
-  border-radius: 50%;
-  background:
-    radial-gradient(42% 34% at 32% 24%, rgba(255,255,255,0.38), rgba(255,255,255,0) 70%),
-    radial-gradient(65% 55% at 68% 76%, rgba(0,0,0,0.25), rgba(0,0,0,0) 72%);
-  mix-blend-mode: multiply;
-  opacity: 0.52;
-  pointer-events: none;
-}
-.hero-orb {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  transform-origin: 50% 50%;
-  transform: rotateX(19deg) rotateY(-18deg) rotateZ(0deg);
-  filter: drop-shadow(0 40px 70px rgba(43,14,72,0.23));
-  animation: orbTurn 34s linear infinite;
-  will-change: transform;
-}
-@keyframes orbTurn {
-  from { transform: rotateX(19deg) rotateY(-18deg) rotateZ(0deg) scale(1.02); }
-  50% { transform: rotateX(17deg) rotateY(-14deg) rotateZ(180deg) scale(1.04); }
-  to { transform: rotateX(19deg) rotateY(-18deg) rotateZ(360deg) scale(1.02); }
-}
-@keyframes orbDrift {
-  0% { transform: translateY(-50%) translateX(0); }
-  50% { transform: translateY(-53%) translateX(-22px); }
-  100% { transform: translateY(-50%) translateX(0); }
-}
-
 .hero-inner {
   flex: 1;
   display: flex;
@@ -1699,12 +1642,6 @@ ul { list-style: none; }
   .site-header { padding: 0 20px; }
   .header-contact { display: none; }
   .hero-inner { padding: 120px 20px 48px; }
-  .hero-orb-wrap {
-    width: clamp(620px, 130vw, 980px);
-    right: -260px;
-    top: 32%;
-    opacity: 0.55;
-  }
   .svc-row-inner { grid-template-columns: 48px 1fr auto; gap: 16px; }
   .cases-grid { grid-template-columns: 1fr; }
   .team-row { grid-template-columns: 1fr; }
