@@ -221,10 +221,52 @@ document.addEventListener('click', e => {
    ───────────────────────────────────────────── */
 (function initSvcRows() {
   const rows = $$('.svc-row');
+  if (!rows.length) return;
+  const mq = window.matchMedia('(max-width: 1100px)');
+
+  function collapseAll(except) {
+    rows.forEach(row => {
+      if (row === except) return;
+      row.classList.remove('expanded');
+      row.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  function syncMode() {
+    if (!mq.matches) {
+      rows.forEach(row => {
+        row.classList.remove('expanded');
+        row.removeAttribute('aria-expanded');
+      });
+    } else {
+      rows.forEach((row, i) => {
+        row.setAttribute('aria-expanded', i === 0 ? 'true' : 'false');
+        if (i === 0) row.classList.add('expanded');
+      });
+    }
+  }
+
   rows.forEach(row => {
     row.setAttribute('tabindex', '0');
     row.setAttribute('role', 'button');
+    row.addEventListener('click', () => {
+      if (!mq.matches) return;
+      const willExpand = !row.classList.contains('expanded');
+      collapseAll(row);
+      row.classList.toggle('expanded', willExpand);
+      row.setAttribute('aria-expanded', willExpand ? 'true' : 'false');
+    });
+    row.addEventListener('keydown', e => {
+      if (!mq.matches) return;
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault();
+      row.click();
+    });
   });
+
+  if (mq.addEventListener) mq.addEventListener('change', syncMode);
+  else mq.addListener(syncMode);
+  syncMode();
 })();
 
 /* ─────────────────────────────────────────────
