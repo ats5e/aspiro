@@ -1631,6 +1631,7 @@ ul { list-style: none; }
   .svc-body {
     display: block;
     grid-column: 2 / -1;
+    grid-row: 2;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
@@ -1693,6 +1694,7 @@ ul { list-style: none; }
   .hero-inner { padding: 120px 20px 48px; }
   .svc-row-inner { grid-template-columns: 48px minmax(0, 1fr); gap: 16px; }
   .svc-name { padding-right: 58px; }
+  .svc-body { grid-row: 2; }
   .svc-row.expanded .svc-body { max-height: 700px; }
   .cases-grid { grid-template-columns: 1fr; }
   .team-row { grid-template-columns: 1fr; }
