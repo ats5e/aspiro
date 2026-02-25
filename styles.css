@@ -884,7 +884,7 @@ ul { list-style: none; }
    CASE STUDIES — typographic article grid
    ============================================================= */
 .cases {
-  padding: var(--sec-py) 0;
+  padding: var(--sec-py) 0 clamp(40px, 5vw, 60px);
   background: var(--white);
 }
 .cases-head {
@@ -1063,7 +1063,7 @@ ul { list-style: none; }
    C-SUITE SOLUTIONS — typographic rows
    ============================================================= */
 .csuite {
-  padding: var(--sec-py) 0;
+  padding: clamp(40px, 5vw, 60px) 0 var(--sec-py);
   background: var(--white);
   border-top: 1px solid rgba(0,0,0,0.08);
 }
