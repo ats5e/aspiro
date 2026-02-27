@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?base=002" />
 </head>
 
 <body>
@@ -61,43 +61,58 @@
      HERO
      ============================================================ -->
   <section class="hero" id="home" aria-label="Hero">
+    <canvas id="neural-canvas" class="hero-canvas"></canvas>
 
     <div class="hero-inner">
-      <h1 class="hero-headline reveal reveal-d1"
-        aria-label="We Engineer Clarity for the Most Ambitious Financial Institutions.">
-        We Engineer<br>
-        <span class="word-slot" aria-hidden="true">
-          <span class="word-slot-inner">Clarity</span>
-        </span><br>
-        for the Most Ambitious<br>Financial Institutions.
-      </h1>
+      <div class="hero-text-glass liquid-glass">
+        <div class="liquid-glass-0"></div>
+        <div class="liquid-glass-1"></div>
+        <div class="liquid-glass-2"></div>
+        <div class="liquid-glass-content">
+          <h1 class="hero-headline reveal reveal-d1"
+            aria-label="We Engineer Clarity for the Most Ambitious Financial Institutions.">
+            We Engineer<br>
+            <span class="word-slot" aria-hidden="true">
+              <span class="word-slot-inner">Clarity</span>
+            </span><br>
+            for the Most Ambitious<br>Financial Institutions.
+          </h1>
 
-      <p class="hero-tagline reveal reveal-d2">
-        Independent. Practitioner-led. Investor-free.<br>
-        Moving from strategy to execution—fast—so outcomes land sooner, not later.
-      </p>
+          <p class="hero-tagline reveal reveal-d2">
+            Independent. Practitioner-led. Investor-free.<br>
+            Moving from strategy to execution—fast—so outcomes land sooner, not later.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="hero-stats">
-      <div class="h-stat">
-        <div class="h-stat-num" data-count="100+">100+</div>
-        <div class="h-stat-bar"></div>
-        <div class="h-stat-label">Years senior leadership experience</div>
-      </div>
-      <div class="h-stat">
-        <div class="h-stat-num" data-count="8000+">8,000+</div>
-        <div class="h-stat-bar"></div>
-        <div class="h-stat-label">Global specialist network</div>
-      </div>
-      <div class="h-stat">
-        <div class="h-stat-num" data-count="100%">100%</div>
-        <div class="h-stat-bar"></div>
-        <div class="h-stat-label">Independent &amp; investor-free</div>
-      </div>
-      <div class="h-stat">
-        <div class="h-stat-num" data-count="24+">24+</div>
-        <div class="h-stat-bar"></div>
-        <div class="h-stat-label">Major transformation case studies</div>
+    <div class="hero-stats-container">
+      <div class="liquid-glass">
+        <div class="liquid-glass-0"></div>
+        <div class="liquid-glass-1"></div>
+        <div class="liquid-glass-2"></div>
+        <div class="hero-stats liquid-glass-content">
+          <div class="h-stat">
+            <div class="h-stat-num" data-count="100+">100+</div>
+            <div class="h-stat-bar"></div>
+            <div class="h-stat-label">Years senior leadership experience</div>
+          </div>
+          <div class="h-stat">
+            <div class="h-stat-num" data-count="8000+">8,000+</div>
+            <div class="h-stat-bar"></div>
+            <div class="h-stat-label">Global specialist network</div>
+          </div>
+          <div class="h-stat">
+            <div class="h-stat-num" data-count="100%">100%</div>
+            <div class="h-stat-bar"></div>
+            <div class="h-stat-label">Independent &amp; investor-free</div>
+          </div>
+          <div class="h-stat">
+            <div class="h-stat-num" data-count="24+">24+</div>
+            <div class="h-stat-bar"></div>
+            <div class="h-stat-label">Major transformation case studies</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -268,6 +283,7 @@
 
         <!-- 01 -->
         <div class="svc-row" role="listitem">
+          <div class="svc-row-bg"></div>
           <div class="svc-row-inner">
             <span class="svc-num">01</span>
             <div class="svc-name">Transformation<br>&amp; Strategy</div>
@@ -295,6 +311,7 @@
 
         <!-- 02 -->
         <div class="svc-row" role="listitem">
+          <div class="svc-row-bg"></div>
           <div class="svc-row-inner">
             <span class="svc-num">02</span>
             <div class="svc-name">AI, Automation<br>&amp; Digital</div>
@@ -322,6 +339,7 @@
 
         <!-- 03 -->
         <div class="svc-row" role="listitem">
+          <div class="svc-row-bg"></div>
           <div class="svc-row-inner">
             <span class="svc-num">03</span>
             <div class="svc-name">Revenue &amp; Cost<br>Optimisation</div>
@@ -349,6 +367,7 @@
 
         <!-- 04 -->
         <div class="svc-row" role="listitem">
+          <div class="svc-row-bg"></div>
           <div class="svc-row-inner">
             <span class="svc-num">04</span>
             <div class="svc-name">Risk, Control<br>&amp; ESG</div>
@@ -376,6 +395,7 @@
 
         <!-- 05 -->
         <div class="svc-row" role="listitem">
+          <div class="svc-row-bg"></div>
           <div class="svc-row-inner">
             <span class="svc-num">05</span>
             <div class="svc-name">Human Capital<br>&amp; Change</div>
@@ -412,6 +432,9 @@
      HOW WE WORK — dark, 3 columns
      ============================================================ -->
   <section class="process" id="approach">
+    <div class="approach-bg-fixed"
+      style="background-image: url('public/Imagery/20260217_1513_Image_Generation_remix_01khnmvkw8fha8ehmvxvrp9690.png');">
+    </div>
     <div class="container">
       <span class="line-anim line-anim--w reveal" style="margin-bottom: 60px;"></span>
 
@@ -426,42 +449,63 @@
       <div class="process-cols">
 
         <div class="process-col reveal">
-          <div class="proc-step">Strategy</div>
-          <div class="proc-num">01</div>
-          <div class="proc-name">The "What"</div>
-          <div class="proc-quote">Validating the business case before a single dollar is spent.</div>
-          <ul class="proc-items">
-            <li class="proc-item">M&amp;A Due Diligence</li>
-            <li class="proc-item">Market Entry Strategy</li>
-            <li class="proc-item">Synergy Modelling</li>
-            <li class="proc-item">ESG Framework Design</li>
-          </ul>
+          <div class="liquid-glass-card">
+            <div class="lgc-bend"></div>
+            <div class="lgc-face"></div>
+            <div class="lgc-edge"></div>
+            <div class="lgc-content">
+              <div class="proc-step">Strategy</div>
+              <div class="proc-num">01</div>
+              <div class="proc-name">The "What"</div>
+              <div class="proc-quote">Validating the business case before a single dollar is spent.</div>
+              <ul class="proc-items">
+                <li class="proc-item">M&amp;A Due Diligence</li>
+                <li class="proc-item">Market Entry Strategy</li>
+                <li class="proc-item">Synergy Modelling</li>
+                <li class="proc-item">ESG Framework Design</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="process-col reveal reveal-d2">
-          <div class="proc-step">Design</div>
-          <div class="proc-num">02</div>
-          <div class="proc-name">The "How"</div>
-          <div class="proc-quote">Translating strategic intent into detailed operating models.</div>
-          <ul class="proc-items">
-            <li class="proc-item">Target Operating Model</li>
-            <li class="proc-item">Customer Journey Mapping</li>
-            <li class="proc-item">Digital Architecture</li>
-            <li class="proc-item">HR Harmonisation Logic</li>
-          </ul>
+          <div class="liquid-glass-card">
+            <div class="lgc-bend"></div>
+            <div class="lgc-face"></div>
+            <div class="lgc-edge"></div>
+            <div class="lgc-content">
+              <div class="proc-step">Design</div>
+              <div class="proc-num">02</div>
+              <div class="proc-name">The "How"</div>
+              <div class="proc-quote">Translating strategic intent into detailed operating models.</div>
+              <ul class="proc-items">
+                <li class="proc-item">Target Operating Model</li>
+                <li class="proc-item">Customer Journey Mapping</li>
+                <li class="proc-item">Digital Architecture</li>
+                <li class="proc-item">HR Harmonisation Logic</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="process-col reveal reveal-d4">
-          <div class="proc-step">Implementation</div>
-          <div class="proc-num">03</div>
-          <div class="proc-name">The "Now"</div>
-          <div class="proc-quote">Ensuring strategy survives contact with reality.</div>
-          <ul class="proc-items">
-            <li class="proc-item">PMO Execution</li>
-            <li class="proc-item">Post-Merger Integration</li>
-            <li class="proc-item">Smart Ops (Process Factory)</li>
-            <li class="proc-item">Automation Deployment</li>
-          </ul>
+          <div class="liquid-glass-card">
+            <div class="lgc-bend"></div>
+            <div class="lgc-face"></div>
+            <div class="lgc-edge"></div>
+            <div class="lgc-content">
+              <div class="proc-step">Implementation</div>
+              <div class="proc-num">03</div>
+              <div class="proc-name">The "Now"</div>
+              <div class="proc-quote">Ensuring strategy survives contact with reality.</div>
+              <ul class="proc-items">
+                <li class="proc-item">PMO Execution</li>
+                <li class="proc-item">Post-Merger Integration</li>
+                <li class="proc-item">Smart Ops (Process Factory)</li>
+                <li class="proc-item">Automation Deployment</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -667,6 +711,9 @@
      SMART OPS — dark, large M³ display
      ============================================================ -->
   <section class="smartops" id="smartops">
+    <div class="smartops-bg-fixed"
+      style="background-image: url('public/Imagery/20260217_1516_Image_Generation_remix_01khnn15enehfrr034k33n4vyy.png');">
+    </div>
     <div class="container">
       <span class="smartops-display" aria-hidden="true">M³</span>
 
@@ -1126,7 +1173,30 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <!-- SVG Filter Component for Liquid Glass -->
+  <svg style="display: none;">
+    <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.001 0.005" numOctaves="1" seed="17" result="turbulence" />
+      <feComponentTransfer in="turbulence" result="mapped">
+        <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+        <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+        <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+      </feComponentTransfer>
+      <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+      <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100"
+        lightingColor="white" result="specLight">
+        <fePointLight x="-200" y="-200" z="300" />
+      </feSpecularLighting>
+      <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
+      <feDisplacementMap in="SourceGraphic" in2="softMap" scale="200" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="glass-blur" x="0" y="0" width="100%" height="100%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.003 0.007" numOctaves="1" result="turbulence" />
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="200" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+
+  <script src="main.js?v=20"></script>
 </body>
 
 </html>
