@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import SITE, NAV, STATS, CLIENT_LOGOS, ICONS, SERVICES, CASES, TEAM, INSIGHTS  # noqa
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "11"
+V = "13"
 TODAY = datetime.date.today().isoformat()
 
 PHOTOS = {"hero": (1024, 640), "smartops": (1200, 700)}  # portrait hero; every other photo is 1536x1024 landscape
@@ -115,22 +115,20 @@ def header(active):
 
 def footer():
     svc = "".join(f'<li><a href="/services/{s["slug"]}.html">{s["name"].replace("&", "&amp;")}</a></li>' for s in SERVICES)
-    ins = "".join(f'<li><a href="/insights/{i["slug"]}.html">{H.escape(i["title"][:48])}{"…" if len(i["title"]) > 48 else ""}</a></li>' for i in INSIGHTS[:4])
     return f'''
   </main>
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-inner footer-inner--5">
+      <div class="footer-inner footer-inner--4">
         <div class="footer-brand">
           <a href="/" class="logo" aria-label="Aspiro home"><img class="logo-img" src="/public/LogoAspiro.png" alt="Aspiro" width="464" height="120" /></a>
           <p>Independent management consultancy engineering transformation outcomes for GCC financial services since {SITE['founded']}. Practitioner-led. Investor-free.</p>
-          <p class="footer-strap"><em>{SITE['strapline']}</em></p>
+          <p class="footer-strap"><em>Leading with clarity.<br>Delivering the difference.</em></p>
         </div>
         <div class="footer-col"><h4>Services</h4><ul>{svc}</ul></div>
         <div class="footer-col"><h4>Company</h4><ul>
           <li><a href="/about.html">About</a></li><li><a href="/approach.html">Our approach</a></li><li><a href="/work.html">Our work</a></li>
           <li><a href="/people.html">Our people</a></li><li><a href="/insights.html">Insights</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
-        <div class="footer-col"><h4>Latest insights</h4><ul>{ins}</ul></div>
         <div class="footer-col"><h4>Offices</h4><ul>
           <li>Dubai (HQ)</li><li>Riyadh</li><li>London</li>
           <li><a href="mailto:{SITE['email']}">{SITE['email']}</a></li><li><a href="tel:{SITE['phone_tel']}">{SITE['phone_display']}</a></li>
