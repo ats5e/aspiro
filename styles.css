@@ -3885,7 +3885,7 @@ a.case {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding-block: 0 10px;
+  padding: 0 calc(var(--gutter) + 12px) 12px;
   font-size: 13px;
   color: var(--muted);
 }
@@ -3893,7 +3893,7 @@ a.case {
 .ins-summary [data-ins-count] {
   font-weight: 700;
   color: var(--purple);
-  margin-right: 4px;
+  margin-right: 5px;
 }
 
 .ins-clear {

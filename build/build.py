@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import SITE, NAV, STATS, CLIENT_LOGOS, ICONS, SERVICES, CASES, TEAM, INSIGHTS, WHITEPAPERS  # noqa
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "20"
+V = "21"
 TODAY = datetime.date.today().isoformat()
 
 PHOTOS = {"hero": (1024, 640), "smartops": (1200, 700)}  # portrait hero; every other photo is 1536x1024 landscape
