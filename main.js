@@ -327,6 +327,94 @@
   })();
 
   /* ─────────────────────────────────────────────
+     GATED WHITEPAPER DOWNLOADS
+     One lead form unlocks all papers for the visitor (remembered in
+     localStorage). Leads POST to data-endpoint when configured.
+     ───────────────────────────────────────────── */
+  (function initGate() {
+    const dialog = $('#gate-dialog');
+    const triggers = $$('[data-gate]');
+    if (!triggers.length) return;
+    const KEY = 'aspiro_wp_lead';
+    const read = () => { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } };
+    const save = v => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) { /* ignore */ } };
+
+    function download(file, title) {
+      const a = document.createElement('a');
+      a.href = file;
+      a.download = (title || 'Aspiro whitepaper').replace(/[^\w\s-]/g, '') + '.pdf';
+      a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    async function recordLead(data) {
+      const endpoint = $('#gate-form')?.dataset.endpoint;
+      if (!endpoint) return true;
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ ...data, source: location.pathname })
+        });
+        return res.ok;
+      } catch (e) { return false; }
+    }
+
+    let current = null;
+    triggers.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        current = { slug: btn.dataset.wpSlug, title: btn.dataset.wpTitle, file: btn.dataset.wpFile };
+        const lead = read();
+        if (lead && lead.email) {
+          recordLead({ ...lead, whitepaper: current.slug, repeat: true });
+          download(current.file, current.title);
+          return;
+        }
+        if (!dialog || typeof dialog.showModal !== 'function') { download(current.file, current.title); return; }
+        $('[data-gate-title]', dialog).textContent = current.title;
+        $('[data-gate-slug]', dialog).value = current.slug;
+        dialog.showModal();
+        setTimeout(() => $('#g-name', dialog)?.focus(), 50);
+      });
+    });
+
+    if (!dialog) return;
+    const form = $('#gate-form', dialog);
+    const status = $('.form-status', form);
+    const submitBtn = $('button[type="submit"]', form);
+    $('[data-gate-close]', dialog).addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', e => {
+      const r = $('.gate-inner', dialog).getBoundingClientRect();
+      const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      if (!inside) dialog.close();
+    });
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      let valid = true;
+      $$('[required]', form).forEach(f => {
+        const ok = f.type === 'checkbox' ? f.checked : (f.type === 'email' ? f.validity.valid && f.value.trim() : f.value.trim().length > 0);
+        if (f.type !== 'checkbox') f.setAttribute('aria-invalid', ok ? 'false' : 'true');
+        if (!ok) valid = false;
+      });
+      if (!valid) { status.textContent = 'Please complete every field and accept the privacy policy.'; status.classList.add('error'); return; }
+      status.classList.remove('error');
+      status.textContent = 'Preparing your download…';
+      submitBtn.disabled = true;
+      const data = Object.fromEntries(new FormData(form).entries());
+      delete data.consent;
+      await recordLead(data);
+      save({ name: data.name, email: data.email, company: data.company, role: data.role, at: new Date().toISOString() });
+      submitBtn.disabled = false;
+      status.textContent = 'Thank you. Your download has started.';
+      download(current.file, current.title);
+      setTimeout(() => { dialog.close(); status.textContent = ''; form.reset(); }, 1600);
+    });
+  })();
+
+  /* ─────────────────────────────────────────────
      COPY LINK (insight articles)
      ───────────────────────────────────────────── */
   $$('[data-copy]').forEach(btn => {

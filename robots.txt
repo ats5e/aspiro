@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /404.html
+Disallow: /public/whitepapers/
 
 Sitemap: https://aspiro.me/sitemap.xml

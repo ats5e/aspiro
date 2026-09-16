@@ -3,10 +3,10 @@
 import os, sys, datetime, html as H
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from content import SITE, NAV, STATS, CLIENT_LOGOS, ICONS, SERVICES, CASES, TEAM, INSIGHTS  # noqa
+from content import SITE, NAV, STATS, CLIENT_LOGOS, ICONS, SERVICES, CASES, TEAM, INSIGHTS, WHITEPAPERS  # noqa
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "14"
+V = "15"
 TODAY = datetime.date.today().isoformat()
 
 PHOTOS = {"hero": (1024, 640), "smartops": (1200, 700)}  # portrait hero; every other photo is 1536x1024 landscape
@@ -19,6 +19,7 @@ def photo_dims(name):
 SERVICE_BY_SLUG = {s["slug"]: s for s in SERVICES}
 CASE_BY_SLUG = {c["slug"]: c for c in CASES}
 INSIGHT_BY_SLUG = {i["slug"]: i for i in INSIGHTS}
+WP_BY_INSIGHT = {w["insight"]: w for w in WHITEPAPERS}
 
 
 def picture(name, alt, sizes, cls="", pos=None, loading="lazy", priority=False):
@@ -41,7 +42,7 @@ def fmt_date(iso):
 # LAYOUT
 # ---------------------------------------------------------------------------
 def head(title, desc, path, og_image="/public/og-image.jpg", jsonld="", noindex=False, body_class=""):
-    url = SITE["domain"] + path
+    url = SITE["domain"] + ("/" if path == "/index.html" else path)
     robots = '<meta name="robots" content="noindex, follow" />' if noindex else ""
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -128,7 +129,7 @@ def footer():
         <div class="footer-col"><h4>Services</h4><ul>{svc}</ul></div>
         <div class="footer-col"><h4>Company</h4><ul>
           <li><a href="/about.html">About</a></li><li><a href="/approach.html">Our approach</a></li><li><a href="/work.html">Our work</a></li>
-          <li><a href="/people.html">Our people</a></li><li><a href="/insights.html">Insights</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+          <li><a href="/people.html">Our people</a></li><li><a href="/insights.html">Insights</a></li><li><a href="/whitepapers.html">Whitepapers</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
         <div class="footer-col"><h4>Offices</h4><ul>
           <li>Dubai (HQ)</li><li>Riyadh</li><li>London</li>
           <li><a href="mailto:{SITE['email']}">{SITE['email']}</a></li><li><a href="tel:{SITE['phone_tel']}">{SITE['phone_display']}</a></li>
@@ -237,6 +238,52 @@ def insight_card(i, d="", featured=False):
     <span class="link-arrow">Read <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
   </div>
 </a>'''
+
+
+def wp_card(w, d="", compact=False):
+    return f'''
+<article class="wp-card{' wp-card--compact' if compact else ''} reveal{d}" id="{w['slug']}">
+  <figure class="wp-cover">
+    <picture>
+      <source type="image/webp" srcset="/public/whitepapers/{w['slug']}-cover.webp" />
+      <img src="/public/whitepapers/{w['slug']}-cover.jpg" alt="Cover of {H.escape(w['plain'])}" width="960" height="540" loading="lazy" />
+    </picture>
+  </figure>
+  <div class="wp-body">
+    <p class="insight-meta"><span class="insight-cat">{w['cat']}</span><span>{w['series']}</span></p>
+    <h3>{w['title']}</h3>
+    <p class="wp-audience">{w['audience']}</p>
+    <p class="wp-dek">{w['dek']}</p>
+    <div class="wp-foot">
+      <button type="button" class="btn btn-primary" data-gate data-wp-slug="{w['slug']}" data-wp-title="{H.escape(w['plain'])}" data-wp-file="/public/whitepapers/{w['slug']}.pdf">Download PDF</button>
+      <span class="wp-meta">PDF · {w['pages']} pages · {w['size']}</span>
+    </div>
+  </div>
+</article>'''
+
+
+GATE_DIALOG = f'''
+<dialog class="bio-dialog gate-dialog" id="gate-dialog" aria-labelledby="gate-title">
+  <div class="gate-inner">
+    <button class="bio-close" type="button" aria-label="Close" data-gate-close><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <p class="label">Download the whitepaper</p>
+    <h3 id="gate-title" data-gate-title>Whitepaper</h3>
+    <p class="gate-note">Tell us who you are and the PDF will download straight away. We will only use your details to follow up on this paper.</p>
+    <form class="gate-form" id="gate-form" novalidate data-endpoint="{SITE['gate_endpoint']}">
+      <input type="hidden" name="whitepaper" data-gate-slug />
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+      <div class="form-row">
+        <div class="field"><label for="g-name">Name</label><input id="g-name" name="name" type="text" autocomplete="name" required /></div>
+        <div class="field"><label for="g-company">Organisation</label><input id="g-company" name="company" type="text" autocomplete="organization" required /></div>
+      </div>
+      <div class="field"><label for="g-email">Work email</label><input id="g-email" name="email" type="email" autocomplete="email" required /></div>
+      <div class="field"><label for="g-role">Role</label><input id="g-role" name="role" type="text" autocomplete="organization-title" /></div>
+      <label class="gate-consent"><input type="checkbox" name="consent" required /> <span>I agree to Aspiro contacting me about this paper and related insights, per the <a href="/privacy-policy.html" target="_blank" rel="noopener">privacy policy</a>.</span></label>
+      <div class="form-foot"><button type="submit" class="btn btn-primary btn-lg">Get the PDF</button></div>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</dialog>'''
 
 
 def person_card(first, name, role, bio, d=""):
@@ -394,6 +441,18 @@ def build_home():
     <p class="section-more reveal"><a href="/insights.html" class="btn btn-ghost">All insights</a></p>
   </div>
 </section>
+
+<section class="section section--tint">
+  <div class="container">
+    <div class="section-head section-head--split reveal">
+      <div>{label("Whitepapers")}<h2 class="t-title">Points of view, in <em>depth</em>.</h2></div>
+      <p class="section-note">Six short papers for the executive agenda: execution, automation, disclosure, efficiency, nationalisation and integration.</p>
+    </div>
+    <div class="wp-grid">{"".join(wp_card(w, D[i], compact=True) for i, w in enumerate(WHITEPAPERS[:3]))}</div>
+    <p class="section-more reveal"><a href="/whitepapers.html" class="btn btn-ghost">All whitepapers</a></p>
+  </div>
+</section>
+{GATE_DIALOG}
 {cta_band()}
 '''
     return page("/index.html", "Aspiro — Management Consultancy for GCC Financial Services",
@@ -751,6 +810,7 @@ def build_insights_index():
   <div class="container">
     {featured}
     <div class="insights-grid insights-grid--index">{rest}</div>
+    <p class="section-more reveal"><a href="/whitepapers.html" class="btn btn-ghost">Download our whitepapers</a></p>
   </div>
 </section>
 {cta_band("Want a point of view on <em>your</em> agenda?", "A conversation with a partner costs nothing and usually saves a quarter.")}
@@ -775,6 +835,8 @@ def build_insight_pages():
         nav += f'<a class="article-nav-link article-nav-link--next" href="/insights/{next_i["slug"]}.html"><span>Older</span>{next_i["title"]}</a>' if next_i else "<span></span>"
         nav += "</nav>"
         url = f"{SITE['domain']}/insights/{i['slug']}.html"
+        wp = WP_BY_INSIGHT.get(i["slug"])
+        wp_aside = f'''<div class="aside-card aside-card--wp"><h4>Whitepaper</h4><p class="aside-wp-title">{wp['title']}</p><p>{wp['audience']}. {wp['pages']} pages.</p><button type="button" class="btn btn-primary btn-sm" data-gate data-wp-slug="{wp['slug']}" data-wp-title="{H.escape(wp['plain'])}" data-wp-file="/public/whitepapers/{wp['slug']}.pdf">Download PDF</button></div>''' if wp else ""
         share = f'''<div class="share"><h4>Share</h4>
           <a href="https://www.linkedin.com/sharing/share-offsite/?url={url}" target="_blank" rel="noopener">LinkedIn</a>
           <a href="mailto:?subject={H.escape(i['title'])}&amp;body={url}">Email</a>
@@ -796,6 +858,7 @@ def build_insight_pages():
       <p class="article-byline">By {SITE['name']}. Aspiro is an independent, practitioner-led consultancy for GCC financial institutions.</p>
     </div>
     <aside class="article-aside">
+      {wp_aside}
       {share}
       <div class="aside-card"><h4>Talk to a partner</h4><p>If this is on your agenda, a thirty-minute conversation is the fastest way to test it.</p><a href="/contact.html" class="btn btn-primary btn-sm">Get in touch</a></div>
     </aside>
@@ -811,11 +874,26 @@ def build_insight_pages():
     <div class="insights-grid insights-grid--2">{related}</div>
   </div>
 </section>
+{GATE_DIALOG if wp else ""}
 {cta_band()}
 '''
         paths.append(page(f"/insights/{i['slug']}.html", f"{i['title']} — Aspiro Insights", i["dek"][:155], "Insights", body,
                           og_image=f"/public/photos/{i['photo']}.jpg", jsonld=jsonld))
     return paths
+
+
+def build_whitepapers():
+    cards = "".join(wp_card(w, D[i % 2]) for i, w in enumerate(WHITEPAPERS))
+    body = page_hero("Whitepapers", "Points of view, in <em>depth</em>.",
+                     "Six short papers on the questions GCC financial services leaders are asking now. Each one states an argument, shows the evidence, sets out a framework and closes with four moves you can make on Monday.") + f'''
+<section class="section">
+  <div class="container"><div class="wp-grid wp-grid--index">{cards}</div></div>
+</section>
+{GATE_DIALOG}
+{cta_band("Want a point of view on <em>your</em> agenda?", "A conversation with a partner costs nothing and usually saves a quarter.")}
+'''
+    return page("/whitepapers.html", "Whitepapers — Aspiro Management Consultants",
+                "Download Aspiro points of view on execution, automation, IFRS S1/S2 disclosure, cost-to-income, Saudization and post-merger integration.", "Whitepapers", body)
 
 
 def build_contact():
@@ -837,7 +915,8 @@ def build_contact():
           <div><dt>Also in</dt><dd>Riyadh · London</dd></div>
         </dl>
       </div>
-      <form class="contact-form reveal reveal-d1" id="contact-form" novalidate data-endpoint="">
+      <form class="contact-form reveal reveal-d1" id="contact-form" novalidate data-endpoint="{SITE['form_endpoint']}">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
         <div class="form-row">
           <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" autocomplete="name" required /></div>
           <div class="field"><label for="cf-company">Organisation</label><input id="cf-company" name="company" type="text" autocomplete="organization" /></div>
@@ -915,7 +994,7 @@ def build_sitemap(paths):
 
 if __name__ == "__main__":
     paths = [build_home(), build_about(), build_services(), *build_service_pages(), build_approach(), build_work(),
-             build_people(), build_insights_index(), *build_insight_pages(), build_contact(), build_privacy(), build_404()]
+             build_people(), build_insights_index(), *build_insight_pages(), build_whitepapers(), build_contact(), build_privacy(), build_404()]
     build_sitemap(paths)
     print(f"built {len(paths)} pages")
     for p in paths:

@@ -13,6 +13,10 @@ SITE = {
     "offices": ["Dubai", "Riyadh", "London"],
     "founded": 2015,
     "strapline": "Leading with clarity. Delivering the difference.",
+    # Formspree endpoints, e.g. "https://formspree.io/f/XXXXXXXX". Empty contact endpoint = mailto fallback;
+    # empty gate endpoint = whitepapers still unlock but no lead is recorded.
+    "form_endpoint": "",   # Contact form
+    "gate_endpoint": "",   # Whitepaper downloads
 }
 
 NAV = [
@@ -21,6 +25,7 @@ NAV = [
     ("Approach", "/approach.html"),
     ("Work", "/work.html"),
     ("Insights", "/insights.html"),
+    ("Whitepapers", "/whitepapers.html"),
     ("People", "/people.html"),
 ]
 
@@ -594,5 +599,89 @@ INSIGHTS = [
 <p>Pricing gains erode unless somebody owns them. A pricing committee, an exceptions policy with limits by role and a quarterly review of waivers are unglamorous but essential. The revenue recovered in the first year is the easy part. Keeping it is the discipline.</p>
 """,
         "related": ["cost-to-income-levers", "open-finance-incumbents"],
+    },
+]
+
+# ---------------------------------------------------------------------------
+# WHITEPAPERS (gated PDFs in public/whitepapers/)
+# ---------------------------------------------------------------------------
+WHITEPAPERS = [
+    {
+        "slug": "closing-the-execution-gap",
+        "title": "Closing the <em>execution</em> gap",
+        "plain": "Closing the execution gap",
+        "series": "Point of view · 2026",
+        "cat": "Transformation",
+        "audience": "For chief executives",
+        "dek": "Why execution certainty, not another strategy refresh, is the scarce asset on the GCC board agenda, and how a Transformation Management Office changes the physics of delivery.",
+        "stat": ("Top 5", "Market positioning in KSA, six initiatives ahead of Board dates"),
+        "pages": 4, "size": "1.8 MB",
+        "insight": "strategy-execution-gap",
+        "service": "transformation",
+    },
+    {
+        "slug": "dont-digitise-the-mess",
+        "title": "Don't digitise the <em>mess</em>",
+        "plain": "Don't digitise the mess",
+        "series": "Point of view · 2026",
+        "cat": "Smart Ops",
+        "audience": "For operations and technology leaders",
+        "dek": "Why the sequencing of Lean and automation decides whether the digital budget compounds or evaporates, and the M³ framework that puts the process before the tool.",
+        "stat": ("$25M", "Cost savings realised through front-to-back Lean before automation"),
+        "pages": 4, "size": "1.9 MB",
+        "insight": "lean-before-automation",
+        "service": "digital",
+    },
+    {
+        "slug": "disclosure-has-outgrown-the-spreadsheet",
+        "title": "Disclosure has outgrown the <em>spreadsheet</em>",
+        "plain": "Disclosure has outgrown the spreadsheet",
+        "series": "Point of view · 2026",
+        "cat": "Risk &amp; ESG",
+        "audience": "For chief risk officers",
+        "dek": "Why sustainability reporting now belongs to the risk function under IFRS S1/S2 and UAE Decree-Law No. 11, and the four phases to audit-ready disclosure.",
+        "stat": ("70%", "Reduction in ESG processing time at a large UAE bank"),
+        "pages": 4, "size": "1.7 MB",
+        "insight": "ifrs-s1-s2-gcc-banks",
+        "service": "risk-esg",
+    },
+    {
+        "slug": "efficiency-is-the-new-margin",
+        "title": "Efficiency is the new <em>margin</em>",
+        "plain": "Efficiency is the new margin",
+        "series": "Point of view · Volume II · 2026",
+        "cat": "Cost optimisation",
+        "audience": "For finance and digital officers",
+        "dek": "As GCC interest margins compress, the cost-to-income ratio becomes the margin you can control. Four levers on the ratio, with the evidence in numbers.",
+        "stat": ("32.0%", "GCC average cost-to-income ratio, H1 2025"),
+        "pages": 6, "size": "2.6 MB",
+        "insight": "cost-to-income-levers",
+        "service": "revenue-cost",
+    },
+    {
+        "slug": "saudization-is-a-capability-strategy",
+        "title": "Saudization is a <em>capability</em> strategy",
+        "plain": "Saudization is a capability strategy",
+        "series": "Point of view · Volume II · 2026",
+        "cat": "Human capital",
+        "audience": "For human capital leaders",
+        "dek": "Why the institutions that treat nationalisation as workforce design will out-hire, out-retain and out-perform those that treat it as compliance.",
+        "stat": ("SAR 4.75M", "Annual HR synergies validated by Board and SAMA"),
+        "pages": 6, "size": "2.4 MB",
+        "insight": "saudization-workforce-transition",
+        "service": "human-capital",
+    },
+    {
+        "slug": "the-first-hundred-days-decide-the-deal",
+        "title": "The first <em>hundred</em> days decide the deal",
+        "plain": "The first hundred days decide the deal",
+        "series": "Point of view · Volume II · 2026",
+        "cat": "M&amp;A integration",
+        "audience": "For chief executives and finance officers",
+        "dek": "Why value is won or lost between signature and day one, what the integration record actually shows, and four disciplines of a clean integration.",
+        "stat": ("Zero", "Customer disruption across a four-business, 200,000-customer integration"),
+        "pages": 6, "size": "2.5 MB",
+        "insight": "post-merger-day-one",
+        "service": "transformation",
     },
 ]

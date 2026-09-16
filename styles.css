@@ -3510,3 +3510,235 @@ a.case {
 .t-display.t-title--light em {
   color: var(--teal-bright);
 }
+
+/* ============================================================
+   WHITEPAPERS + GATED DOWNLOAD
+   ============================================================ */
+.wp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.wp-grid--index {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.wp-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s, border-color 0.3s;
+}
+
+.wp-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--teal);
+  box-shadow: 0 24px 50px -30px rgba(43, 14, 72, 0.35);
+}
+
+.wp-cover {
+  margin: 0;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--purple-deep);
+  overflow: hidden;
+}
+
+.wp-cover img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wp-body {
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.wp-body h3 {
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--purple);
+  text-wrap: balance;
+}
+
+.wp-body h3 em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.08em;
+  color: var(--teal-2);
+}
+
+.wp-audience {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--purple);
+}
+
+.wp-dek {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  flex: 1;
+  text-wrap: pretty;
+}
+
+.wp-card--compact .wp-dek {
+  display: none;
+}
+
+.wp-foot {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.wp-meta {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* Gate dialog */
+.gate-dialog {
+  width: min(640px, calc(100vw - 32px));
+}
+
+.gate-inner {
+  position: relative;
+  padding: clamp(28px, 4vw, 44px);
+}
+
+.gate-inner .label {
+  margin-bottom: 12px;
+}
+
+.gate-inner h3 {
+  font-size: clamp(24px, 2.4vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--purple);
+  margin-bottom: 10px;
+  padding-right: 48px;
+}
+
+.gate-note {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.gate-form .field label {
+  color: var(--muted);
+}
+
+.gate-form .field input,
+.gate-form .field select,
+.gate-form .field textarea {
+  background: #fff;
+  border-color: var(--line-strong);
+  color: var(--text);
+}
+
+.gate-form .field input:focus {
+  border-color: var(--teal);
+  background: #fff;
+}
+
+.gate-form .field input[aria-invalid="true"] {
+  border-color: #d64b4b;
+}
+
+.gate-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 4px 0 20px;
+}
+
+.gate-consent input {
+  margin-top: 3px;
+  accent-color: var(--purple);
+  flex-shrink: 0;
+}
+
+.gate-consent a {
+  color: var(--purple);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.gate-form .form-status {
+  color: var(--teal-2);
+}
+
+.gate-form .form-status.error {
+  color: #c43c3c;
+}
+
+.aside-card--wp {
+  background: var(--purple);
+  color: #fff;
+}
+
+.aside-card--wp h4 {
+  color: var(--teal-bright);
+}
+
+.aside-wp-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: #fff !important;
+  margin-bottom: 8px !important;
+}
+
+.aside-wp-title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--teal-bright);
+}
+
+.aside-card--wp p {
+  color: var(--muted-w);
+}
+
+.aside-card--wp .btn-primary {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--purple);
+}
+
+@media (max-width: 1024px) {
+  .wp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .wp-grid,
+  .wp-grid--index {
+    grid-template-columns: 1fr;
+  }
+}
