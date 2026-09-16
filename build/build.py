@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import SITE, NAV, STATS, CLIENT_LOGOS, ICONS, SERVICES, CASES, TEAM, INSIGHTS, WHITEPAPERS  # noqa
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "15"
+V = "16"
 TODAY = datetime.date.today().isoformat()
 
 PHOTOS = {"hero": (1024, 640), "smartops": (1200, 700)}  # portrait hero; every other photo is 1536x1024 landscape
@@ -129,7 +129,7 @@ def footer():
         <div class="footer-col"><h4>Services</h4><ul>{svc}</ul></div>
         <div class="footer-col"><h4>Company</h4><ul>
           <li><a href="/about.html">About</a></li><li><a href="/approach.html">Our approach</a></li><li><a href="/work.html">Our work</a></li>
-          <li><a href="/people.html">Our people</a></li><li><a href="/insights.html">Insights</a></li><li><a href="/whitepapers.html">Whitepapers</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+          <li><a href="/people.html">Our people</a></li><li><a href="/insights.html">Insights</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
         <div class="footer-col"><h4>Offices</h4><ul>
           <li>Dubai (HQ)</li><li>Riyadh</li><li>London</li>
           <li><a href="mailto:{SITE['email']}">{SITE['email']}</a></li><li><a href="tel:{SITE['phone_tel']}">{SITE['phone_display']}</a></li>
@@ -244,6 +244,7 @@ def wp_card(w, d="", compact=False):
     return f'''
 <article class="wp-card{' wp-card--compact' if compact else ''} reveal{d}" id="{w['slug']}">
   <figure class="wp-cover">
+    <span class="wp-badge">Whitepaper · PDF</span>
     <picture>
       <source type="image/webp" srcset="/public/whitepapers/{w['slug']}-cover.webp" />
       <img src="/public/whitepapers/{w['slug']}-cover.jpg" alt="Cover of {H.escape(w['plain'])}" width="960" height="540" loading="lazy" />
@@ -449,7 +450,7 @@ def build_home():
       <p class="section-note">Six short papers for the executive agenda: execution, automation, disclosure, efficiency, nationalisation and integration.</p>
     </div>
     <div class="wp-grid">{"".join(wp_card(w, D[i], compact=True) for i, w in enumerate(WHITEPAPERS[:3]))}</div>
-    <p class="section-more reveal"><a href="/whitepapers.html" class="btn btn-ghost">All whitepapers</a></p>
+    <p class="section-more reveal"><a href="/insights.html#whitepapers" class="btn btn-ghost">All whitepapers</a></p>
   </div>
 </section>
 {GATE_DIALOG}
@@ -804,15 +805,29 @@ def build_people():
 def build_insights_index():
     featured = insight_card(INSIGHTS[0], "", featured=True)
     rest = "".join(insight_card(i, D[n % 3]) for n, i in enumerate(INSIGHTS[1:]))
+    wps = "".join(wp_card(w, D[i % 3]) for i, w in enumerate(WHITEPAPERS))
     body = page_hero("Insights", "Perspectives from the <em>practitioners</em>.",
                      "Points of view on the questions GCC financial services leaders are asking now: execution, automation, regulation, cost and growth. Written by people who have done the work.") + f'''
-<section class="section insights-index">
+<section class="section section--tint insights-wps" id="whitepapers">
   <div class="container">
-    {featured}
-    <div class="insights-grid insights-grid--index">{rest}</div>
-    <p class="section-more reveal"><a href="/whitepapers.html" class="btn btn-ghost">Download our whitepapers</a></p>
+    <div class="section-head section-head--split reveal">
+      <div>{label("Whitepapers")}<h2 class="t-title">Points of view, in <em>depth</em>.</h2></div>
+      <p class="section-note">Six short papers, each with an argument, the evidence, a framework and four moves for Monday. Downloadable as PDF.</p>
+    </div>
+    <div class="wp-grid">{wps}</div>
   </div>
 </section>
+<section class="section insights-index" id="articles">
+  <div class="container">
+    <div class="section-head section-head--split reveal">
+      <div>{label("Articles")}<h2 class="t-title">Shorter reads from the <em>practice</em>.</h2></div>
+      <p class="section-note">Ten pieces on what GCC financial services leaders are asking now.</p>
+    </div>
+    {featured}
+    <div class="insights-grid insights-grid--index">{rest}</div>
+  </div>
+</section>
+{GATE_DIALOG}
 {cta_band("Want a point of view on <em>your</em> agenda?", "A conversation with a partner costs nothing and usually saves a quarter.")}
 '''
     return page("/insights.html", "Insights — Aspiro Management Consultants",
@@ -994,7 +1009,7 @@ def build_sitemap(paths):
 
 if __name__ == "__main__":
     paths = [build_home(), build_about(), build_services(), *build_service_pages(), build_approach(), build_work(),
-             build_people(), build_insights_index(), *build_insight_pages(), build_whitepapers(), build_contact(), build_privacy(), build_404()]
+             build_people(), build_insights_index(), *build_insight_pages(), build_contact(), build_privacy(), build_404()]
     build_sitemap(paths)
     print(f"built {len(paths)} pages")
     for p in paths:

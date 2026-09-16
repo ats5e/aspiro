@@ -3742,3 +3742,23 @@ a.case {
     grid-template-columns: 1fr;
   }
 }
+
+/* Whitepaper badge on covers */
+.wp-badge {
+  position: absolute;
+  z-index: 1;
+  top: 14px;
+  left: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--purple);
+  background: var(--teal);
+  padding: 6px 12px;
+  border-radius: 99px;
+}
+
+.insights-wps {
+  scroll-margin-top: var(--header-h);
+}

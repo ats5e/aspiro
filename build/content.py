@@ -25,7 +25,6 @@ NAV = [
     ("Approach", "/approach.html"),
     ("Work", "/work.html"),
     ("Insights", "/insights.html"),
-    ("Whitepapers", "/whitepapers.html"),
     ("People", "/people.html"),
 ]
 

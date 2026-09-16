@@ -63,5 +63,17 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/whitepapers",
+      "destination": "/insights#whitepapers",
+      "permanent": true
+    },
+    {
+      "source": "/whitepapers.html",
+      "destination": "/insights#whitepapers",
+      "permanent": true
+    }
   ]
 }
