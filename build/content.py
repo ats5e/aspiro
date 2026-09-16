@@ -15,8 +15,8 @@ SITE = {
     "strapline": "Leading with clarity. Delivering the difference.",
     # Formspree endpoints, e.g. "https://formspree.io/f/XXXXXXXX". Empty contact endpoint = mailto fallback;
     # empty gate endpoint = whitepapers still unlock but no lead is recorded.
-    "form_endpoint": "",   # Contact form
-    "gate_endpoint": "",   # Whitepaper downloads
+    "form_endpoint": "https://formspree.io/f/mvkgpdog",   # Contact form
+    "gate_endpoint": "https://formspree.io/f/mgavwrwg",   # Whitepaper downloads
 }
 
 NAV = [

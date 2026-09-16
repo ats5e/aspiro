@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import SITE, NAV, STATS, CLIENT_LOGOS, ICONS, SERVICES, CASES, TEAM, INSIGHTS, WHITEPAPERS  # noqa
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "21"
+V = "23"
 TODAY = datetime.date.today().isoformat()
 
 PHOTOS = {"hero": (1024, 640), "smartops": (1200, 700)}  # portrait hero; every other photo is 1536x1024 landscape
@@ -249,7 +249,7 @@ def wp_card(w, d="", compact=False):
 <article class="wp-card{' wp-card--compact' if compact else ''} reveal{d}" id="{w['slug']}" data-ins-item data-type="whitepaper" data-topic="{topic_slug(w['cat'])}" data-text="{H.escape((w['plain'] + ' ' + w['dek'] + ' ' + w['audience']).lower())}">
   <figure class="wp-cover">{picture(w['photo'], '', '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw', pos=w['pos'])}</figure>
   <div class="wp-body">
-    <p class="insight-meta"><span class="insight-cat">{w['cat']}</span><span>{w['series']}</span></p>
+    <p class="insight-meta"><span class="insight-cat">{w['cat']}</span></p>
     <h3>{w['title']}</h3>
     <p class="wp-audience">{w['audience']}</p>
     <p class="wp-dek">{w['dek']}</p>
@@ -266,7 +266,7 @@ def wp_slide(w, idx):
 <li class="wp-slide" data-ins-item data-type="whitepaper" data-topic="{topic_slug(w['cat'])}" data-text="{H.escape((w['plain'] + ' ' + w['dek'] + ' ' + w['audience']).lower())}" id="{w['slug']}">
   <figure class="wp-slide-cover">{picture(w['photo'], '', '(max-width: 900px) 86vw, 460px', pos=w['pos'], priority=idx < 2)}</figure>
   <div class="wp-slide-body">
-    <p class="insight-meta"><span class="insight-cat">{w['cat']}</span><span>{w['series']}</span><span>{w['pages']} pages</span></p>
+    <p class="insight-meta"><span class="insight-cat">{w['cat']}</span><span>{w['pages']} pages</span></p>
     <h3>{w['title']}</h3>
     <p class="wp-audience">{w['audience']}</p>
     <p class="wp-dek">{w['dek']}</p>
