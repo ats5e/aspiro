@@ -607,6 +607,7 @@ INSIGHTS = [
 WHITEPAPERS = [
     {
         "slug": "closing-the-execution-gap",
+        "photo": "svc-transformation", "pos": "center",
         "title": "Closing the <em>execution</em> gap",
         "plain": "Closing the execution gap",
         "series": "Point of view · 2026",
@@ -620,6 +621,7 @@ WHITEPAPERS = [
     },
     {
         "slug": "dont-digitise-the-mess",
+        "photo": "svc-digital", "pos": "center",
         "title": "Don't digitise the <em>mess</em>",
         "plain": "Don't digitise the mess",
         "series": "Point of view · 2026",
@@ -633,6 +635,7 @@ WHITEPAPERS = [
     },
     {
         "slug": "disclosure-has-outgrown-the-spreadsheet",
+        "photo": "svc-risk-esg", "pos": "center 40%",
         "title": "Disclosure has outgrown the <em>spreadsheet</em>",
         "plain": "Disclosure has outgrown the spreadsheet",
         "series": "Point of view · 2026",
@@ -646,6 +649,7 @@ WHITEPAPERS = [
     },
     {
         "slug": "efficiency-is-the-new-margin",
+        "photo": "svc-revenue-cost", "pos": "center 60%",
         "title": "Efficiency is the new <em>margin</em>",
         "plain": "Efficiency is the new margin",
         "series": "Point of view · Volume II · 2026",
@@ -659,6 +663,7 @@ WHITEPAPERS = [
     },
     {
         "slug": "saudization-is-a-capability-strategy",
+        "photo": "svc-human-capital", "pos": "center",
         "title": "Saudization is a <em>capability</em> strategy",
         "plain": "Saudization is a capability strategy",
         "series": "Point of view · Volume II · 2026",
@@ -672,6 +677,7 @@ WHITEPAPERS = [
     },
     {
         "slug": "the-first-hundred-days-decide-the-deal",
+        "photo": "about-hero", "pos": "center",
         "title": "The first <em>hundred</em> days decide the deal",
         "plain": "The first hundred days decide the deal",
         "series": "Point of view · Volume II · 2026",

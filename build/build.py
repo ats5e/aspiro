@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """Static site generator for aspiro.me.  Run:  python3 build/build.py"""
-import os, sys, datetime, html as H
+import os, sys, re, datetime, html as H
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import SITE, NAV, STATS, CLIENT_LOGOS, ICONS, SERVICES, CASES, TEAM, INSIGHTS, WHITEPAPERS  # noqa
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "16"
+V = "20"
 TODAY = datetime.date.today().isoformat()
 
 PHOTOS = {"hero": (1024, 640), "smartops": (1200, 700)}  # portrait hero; every other photo is 1536x1024 landscape
@@ -31,6 +31,10 @@ def picture(name, alt, sizes, cls="", pos=None, loading="lazy", priority=False):
   <source type="image/webp" srcset="/public/photos/{name}-{small}.webp {small}w, /public/photos/{name}.webp {big}w" sizes="{sizes}" />
   <img src="/public/photos/{name}.jpg" srcset="/public/photos/{name}-{small}.jpg {small}w, /public/photos/{name}.jpg {big}w" sizes="{sizes}" alt="{H.escape(alt)}" width="{big}" height="{h_big}"{extra}{style} />
 </picture>'''
+
+
+def topic_slug(cat):
+    return re.sub(r'[^a-z0-9]+', '-', H.unescape(cat).lower()).strip('-')
 
 
 def fmt_date(iso):
@@ -229,7 +233,7 @@ def case_card(c, d="", link=True):
 def insight_card(i, d="", featured=False):
     sizes = "(max-width: 900px) 100vw, 60vw" if featured else "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
     return f'''
-<a class="insight-card{' insight-card--featured' if featured else ''} reveal{d}" href="/insights/{i['slug']}.html">
+<a class="insight-card{' insight-card--featured' if featured else ''} reveal{d}" href="/insights/{i['slug']}.html" data-ins-item data-type="article" data-topic="{topic_slug(i['cat'])}" data-text="{H.escape((i['title'] + ' ' + i['dek']).lower())}">
   <figure class="insight-media">{picture(i['photo'], '', sizes, pos=i['pos'])}</figure>
   <div class="insight-body">
     <p class="insight-meta"><span class="insight-cat">{i['cat']}</span><span>{fmt_date(i['date'])}</span><span>{i['read']} min read</span></p>
@@ -242,14 +246,8 @@ def insight_card(i, d="", featured=False):
 
 def wp_card(w, d="", compact=False):
     return f'''
-<article class="wp-card{' wp-card--compact' if compact else ''} reveal{d}" id="{w['slug']}">
-  <figure class="wp-cover">
-    <span class="wp-badge">Whitepaper · PDF</span>
-    <picture>
-      <source type="image/webp" srcset="/public/whitepapers/{w['slug']}-cover.webp" />
-      <img src="/public/whitepapers/{w['slug']}-cover.jpg" alt="Cover of {H.escape(w['plain'])}" width="960" height="540" loading="lazy" />
-    </picture>
-  </figure>
+<article class="wp-card{' wp-card--compact' if compact else ''} reveal{d}" id="{w['slug']}" data-ins-item data-type="whitepaper" data-topic="{topic_slug(w['cat'])}" data-text="{H.escape((w['plain'] + ' ' + w['dek'] + ' ' + w['audience']).lower())}">
+  <figure class="wp-cover">{picture(w['photo'], '', '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw', pos=w['pos'])}</figure>
   <div class="wp-body">
     <p class="insight-meta"><span class="insight-cat">{w['cat']}</span><span>{w['series']}</span></p>
     <h3>{w['title']}</h3>
@@ -261,6 +259,23 @@ def wp_card(w, d="", compact=False):
     </div>
   </div>
 </article>'''
+
+
+def wp_slide(w, idx):
+    return f'''
+<li class="wp-slide" data-ins-item data-type="whitepaper" data-topic="{topic_slug(w['cat'])}" data-text="{H.escape((w['plain'] + ' ' + w['dek'] + ' ' + w['audience']).lower())}" id="{w['slug']}">
+  <figure class="wp-slide-cover">{picture(w['photo'], '', '(max-width: 900px) 86vw, 460px', pos=w['pos'], priority=idx < 2)}</figure>
+  <div class="wp-slide-body">
+    <p class="insight-meta"><span class="insight-cat">{w['cat']}</span><span>{w['series']}</span><span>{w['pages']} pages</span></p>
+    <h3>{w['title']}</h3>
+    <p class="wp-audience">{w['audience']}</p>
+    <p class="wp-dek">{w['dek']}</p>
+    <div class="wp-foot">
+      <button type="button" class="btn btn-primary" data-gate data-wp-slug="{w['slug']}" data-wp-title="{H.escape(w['plain'])}" data-wp-file="/public/whitepapers/{w['slug']}.pdf">Download PDF</button>
+      <span class="wp-meta">PDF · {w['size']}</span>
+    </div>
+  </div>
+</li>'''
 
 
 GATE_DIALOG = f'''
@@ -803,35 +818,70 @@ def build_people():
 
 
 def build_insights_index():
-    featured = insight_card(INSIGHTS[0], "", featured=True)
-    rest = "".join(insight_card(i, D[n % 3]) for n, i in enumerate(INSIGHTS[1:]))
-    wps = "".join(wp_card(w, D[i % 3]) for i, w in enumerate(WHITEPAPERS))
+    topics = {}
+    for w in WHITEPAPERS:
+        topics.setdefault(topic_slug(w["cat"]), [w["cat"], 0])[1] += 1
+    for i in INSIGHTS:
+        topics.setdefault(topic_slug(i["cat"]), [i["cat"], 0])[1] += 1
+    topic_opts = "".join(f'<option value="{k}">{v[0]}</option>' for k, v in sorted(topics.items(), key=lambda kv: H.unescape(kv[1][0])))
+    slides = "".join(wp_slide(w, i) for i, w in enumerate(WHITEPAPERS))
+    cards = "".join(insight_card(i, D[n % 3]) for n, i in enumerate(INSIGHTS))
+    total = len(WHITEPAPERS) + len(INSIGHTS)
     body = page_hero("Insights", "Perspectives from the <em>practitioners</em>.",
-                     "Points of view on the questions GCC financial services leaders are asking now: execution, automation, regulation, cost and growth. Written by people who have done the work.") + f'''
-<section class="section section--tint insights-wps" id="whitepapers">
+                     f"{len(WHITEPAPERS)} whitepapers and {len(INSIGHTS)} articles on the questions GCC financial services leaders are asking now: execution, automation, regulation, cost and growth. Written by people who have done the work.") + f'''
+<div class="ins-toolbar" data-ins-toolbar>
+  <div class="container ins-toolbar-inner">
+    <div class="ins-types" role="group" aria-label="Type">
+      <button type="button" data-type="all" aria-pressed="true">All</button>
+      <button type="button" data-type="whitepaper" aria-pressed="false">Whitepapers</button>
+      <button type="button" data-type="article" aria-pressed="false">Articles</button>
+    </div>
+    <div class="ins-controls">
+      <label class="ins-select">
+        <select aria-label="Topic" data-ins-topic>
+          <option value="all">All topics</option>{topic_opts}
+        </select>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </label>
+      <label class="ins-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" placeholder="Search" aria-label="Search insights" data-ins-search />
+      </label>
+    </div>
+  </div>
+  <div class="container ins-summary" aria-live="polite" data-ins-summary hidden><span data-ins-count>{total}</span> results<button type="button" class="ins-clear" data-ins-clear>Clear filters</button></div>
+</div>
+
+<section class="section ins-section" id="whitepapers" data-ins-section="whitepaper">
   <div class="container">
     <div class="section-head section-head--split reveal">
       <div>{label("Whitepapers")}<h2 class="t-title">Points of view, in <em>depth</em>.</h2></div>
-      <p class="section-note">Six short papers, each with an argument, the evidence, a framework and four moves for Monday. Downloadable as PDF.</p>
+      <p class="section-note">Short papers with an argument, the evidence, a framework and four moves for Monday. Free to download.</p>
     </div>
-    <div class="wp-grid">{wps}</div>
   </div>
+  <div class="wp-rail-wrap">
+    <button type="button" class="rail-btn rail-btn--prev" data-rail-prev aria-label="Previous whitepaper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+    <ul class="wp-rail" data-rail tabindex="0" aria-label="Whitepapers">{slides}</ul>
+    <button type="button" class="rail-btn rail-btn--next" data-rail-next aria-label="Next whitepaper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </div>
+  <div class="container"><div class="rail-dots" data-rail-dots aria-hidden="true"></div></div>
 </section>
-<section class="section insights-index" id="articles">
+
+<section class="section section--tint ins-section" id="articles" data-ins-section="article">
   <div class="container">
     <div class="section-head section-head--split reveal">
       <div>{label("Articles")}<h2 class="t-title">Shorter reads from the <em>practice</em>.</h2></div>
-      <p class="section-note">Ten pieces on what GCC financial services leaders are asking now.</p>
+      <p class="section-note">Five to eight minutes each. Every one ends with what to do on Monday.</p>
     </div>
-    {featured}
-    <div class="insights-grid insights-grid--index">{rest}</div>
+    <div class="insights-grid insights-grid--index">{cards}</div>
   </div>
 </section>
+<div class="container"><p class="ins-empty" data-ins-empty hidden>Nothing matches those filters. <button type="button" class="link-arrow" data-ins-clear>Clear filters</button></p></div>
 {GATE_DIALOG}
 {cta_band("Want a point of view on <em>your</em> agenda?", "A conversation with a partner costs nothing and usually saves a quarter.")}
 '''
     return page("/insights.html", "Insights — Aspiro Management Consultants",
-                "Practitioner perspectives on transformation, AI and automation, risk and ESG, cost and growth for GCC financial institutions.", "Insights", body)
+                "Practitioner perspectives and downloadable whitepapers on transformation, AI and automation, risk and ESG, cost and growth for GCC financial institutions.", "Insights", body)
 
 
 def build_insight_pages():
@@ -858,6 +908,7 @@ def build_insight_pages():
           <button type="button" data-copy="{url}">Copy link</button></div>'''
         jsonld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Article","headline":{H.escape(i['title']).__repr__().replace("'", '"')},"datePublished":"{i['date']}","dateModified":"{i['date']}","author":{{"@type":"Organization","name":"{SITE['name']}"}},"publisher":{{"@type":"Organization","name":"{SITE['name']}","logo":{{"@type":"ImageObject","url":"{SITE['domain']}/public/icon-512.png"}}}},"image":"{SITE['domain']}/public/photos/{i['photo']}.jpg","mainEntityOfPage":"{url}"}}</script>'''
         body = f'''
+<div class="read-progress" aria-hidden="true"><span data-read-progress></span></div>
 <article class="article">
   <header class="article-head">
     <div class="container">

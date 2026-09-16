@@ -327,6 +327,138 @@
   })();
 
   /* ─────────────────────────────────────────────
+     INSIGHTS LIBRARY: filters, search, rail, URL sync
+     ───────────────────────────────────────────── */
+  (function initInsightsLibrary() {
+    const bar = $('[data-ins-toolbar]');
+    if (!bar) return;
+    const items = $$('[data-ins-item]');
+    const sections = $$('[data-ins-section]');
+    const typeBtns = $$('.ins-types button', bar);
+    const topicSel = $('[data-ins-topic]', bar);
+    const search = $('[data-ins-search]', bar);
+    const count = $('[data-ins-count]');
+    const empty = $('[data-ins-empty]');
+    const state = { type: 'all', topic: 'all', q: '' };
+
+    const params = new URLSearchParams(location.search);
+    if (params.get('type')) state.type = params.get('type');
+    if (params.get('topic')) { state.topic = params.get('topic'); if (topicSel) topicSel.value = state.topic; }
+    if (params.get('q')) { state.q = params.get('q'); search.value = state.q; }
+    if (location.hash === '#whitepapers' && !params.get('type')) state.type = 'all';
+
+    function apply(pushUrl = true) {
+      const q = state.q.trim().toLowerCase();
+      let visible = 0;
+      const seen = new Set();
+      items.forEach(el => {
+        const ok = (state.type === 'all' || el.dataset.type === state.type)
+          && (state.topic === 'all' || el.dataset.topic === state.topic)
+          && (!q || el.dataset.text.includes(q));
+        el.hidden = !ok;
+        if (ok) { el.classList.add('in'); const key = el.id || el.getAttribute('href'); if (!seen.has(key)) { seen.add(key); visible++; } }
+      });
+      sections.forEach(sec => {
+        const anyVisible = $$('[data-ins-item]', sec).some(el => !el.hidden);
+        sec.hidden = !anyVisible;
+      });
+      typeBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.type === state.type ? 'true' : 'false'));
+      if (topicSel && topicSel.value !== state.topic) topicSel.value = state.topic;
+      if (count) count.textContent = visible;
+      if (empty) empty.hidden = visible > 0;
+      const filtered = state.type !== 'all' || state.topic !== 'all' || q;
+      const summary = $('[data-ins-summary]');
+      if (summary) summary.hidden = !filtered;
+      if (pushUrl) {
+        const p = new URLSearchParams();
+        if (state.type !== 'all') p.set('type', state.type);
+        if (state.topic !== 'all') p.set('topic', state.topic);
+        if (q) p.set('q', q);
+        const qs = p.toString();
+        history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + (filtered ? '' : location.hash));
+      }
+      updateRail();
+    }
+
+    typeBtns.forEach(b => b.addEventListener('click', () => { state.type = b.dataset.type; apply(); }));
+    topicSel?.addEventListener('change', () => { state.topic = topicSel.value; apply(); });
+    let t;
+    search.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { state.q = search.value; apply(); }, 120); });
+    $$('[data-ins-clear]').forEach(b => b.addEventListener('click', () => {
+      state.type = 'all'; state.topic = 'all'; state.q = ''; search.value = ''; if (topicSel) topicSel.value = 'all'; apply();
+    }));
+
+    // Rail
+    const rail = $('[data-rail]');
+    const prev = $('[data-rail-prev]');
+    const next = $('[data-rail-next]');
+    const dots = $('[data-rail-dots]');
+    function slides() { return $$('.wp-slide', rail).filter(s => !s.hidden); }
+    function slideWidth() { const s = slides()[0]; return s ? s.getBoundingClientRect().width + parseFloat(getComputedStyle(rail).columnGap || getComputedStyle(rail).gap || 24) : 400; }
+    function activeIndex() {
+      const list = slides();
+      const origin = rail.getBoundingClientRect().left + parseFloat(getComputedStyle(rail).paddingLeft);
+      let best = 0, bestD = Infinity;
+      list.forEach((s, i) => { const d = Math.abs(s.getBoundingClientRect().left - origin); if (d < bestD) { bestD = d; best = i; } });
+      return best;
+    }
+    function updateRail() {
+      if (!rail) return;
+      const list = slides();
+      if (dots) {
+        dots.innerHTML = list.map((_, i) => `<button type="button" aria-label="Whitepaper ${i + 1}"></button>`).join('');
+        $$('button', dots).forEach((d, i) => d.addEventListener('click', () => scrollTo(i)));
+      }
+      syncRail();
+    }
+    function syncRail() {
+      if (!rail) return;
+      const list = slides();
+      const idx = activeIndex();
+      if (dots) $$('button', dots).forEach((d, i) => d.setAttribute('aria-current', i === idx ? 'true' : 'false'));
+      const max = rail.scrollWidth - rail.clientWidth - 2;
+      if (prev) prev.disabled = rail.scrollLeft <= 2;
+      if (next) next.disabled = rail.scrollLeft >= max || list.length < 2;
+    }
+    function scrollTo(i) {
+      const s = slides()[i];
+      if (!s) return;
+      const origin = rail.getBoundingClientRect().left + parseFloat(getComputedStyle(rail).paddingLeft);
+      rail.scrollTo({ left: rail.scrollLeft + (s.getBoundingClientRect().left - origin), behavior: reducedMotion ? 'auto' : 'smooth' });
+    }
+    if (rail) {
+      prev?.addEventListener('click', () => scrollTo(Math.max(0, activeIndex() - 1)));
+      next?.addEventListener('click', () => scrollTo(Math.min(slides().length - 1, activeIndex() + 1)));
+      let rt; rail.addEventListener('scroll', () => { clearTimeout(rt); rt = setTimeout(syncRail, 80); }, { passive: true });
+      rail.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); next?.click(); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); prev?.click(); }
+      });
+      window.addEventListener('resize', syncRail);
+    }
+
+    apply(false);
+  })();
+
+  /* ─────────────────────────────────────────────
+     READING PROGRESS (articles)
+     ───────────────────────────────────────────── */
+  (function initReadProgress() {
+    const bar = $('[data-read-progress]');
+    const body = $('.article-body');
+    if (!bar || !body) return;
+    const update = () => {
+      const r = body.getBoundingClientRect();
+      const total = r.height - window.innerHeight * 0.5;
+      const done = Math.min(Math.max(-r.top + window.innerHeight * 0.5, 0), Math.max(total, 1));
+      bar.style.width = (total > 0 ? (done / total) * 100 : 100) + '%';
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  /* ─────────────────────────────────────────────
      GATED WHITEPAPER DOWNLOADS
      One lead form unlocks all papers for the visitor (remembered in
      localStorage). Leads POST to data-endpoint when configured.
