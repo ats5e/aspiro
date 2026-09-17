@@ -332,7 +332,7 @@ TEAM = [
      "Chris has over 30 years of strategic and operational leadership experience at one of the GCC's major sovereign wealth funds and one of the GCC's leading listed corporations. He advises on enterprise performance, value creation and strategic change in large, complex organisations."),
     ("David", "David Goodyear", "Partner", "leadership",
      "David has over 25 years of strategic and operational banking and consultancy experience at one of South Africa's and the GCC's major banks and one of Europe's and the GCC's major management consultancies. He focuses on end-to-end transformation, capability uplift and operational performance in financial services."),
-    ("Jack", "Jack Donaldson", "Head of Marketing &amp; Communications", "leadership",
+    ("JackD", "Jack Donaldson", "Head of Marketing &amp; Communications", "leadership",
      "Jack is a dynamic marketing and communications leader with a proven record of driving brand growth, elevating storytelling and delivering measurable results across global markets. His experience spans London, New York and Sydney, blending creative vision with commercial precision for the world's leading banks and fintechs."),
     ("Brett", "Brett Maclagan", "Principal", "principals",
      "Brett has over 25 years of global strategy and operational banking, telecoms and aviation experience at one of the world's leading management consultancies and one of the GCC's leading consulting firms. He brings deep expertise in operating model design, delivery acceleration and execution discipline."),
