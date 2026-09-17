@@ -79,7 +79,7 @@ One accent word per heading. Never two. Never in body text.
 
 ### Labels
 
-Section eyebrows and metadata are 12 px, bold, uppercase, tracked 0.14em, in teal 2. Plain text only: **no dot, bullet, icon or line before the label.** Examples: `OUR APPROACH`, `CASE STUDY`, `SMART OPS / MCUBED`.
+Section eyebrows and metadata are 12 px, bold, uppercase, tracked 0.14em, in teal 2. Plain text only: **no dot, bullet, icon or line before the label.** Examples: `OUR APPROACH`, `CASE STUDY`, `SMART OPS`.
 
 ---
 

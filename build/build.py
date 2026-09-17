@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import SITE, NAV, STATS, CLIENT_LOGOS, ICONS, SERVICES, CASES, TEAM, INSIGHTS, WHITEPAPERS  # noqa
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "25"
+V = "26"
 TODAY = datetime.date.today().isoformat()
 
 PHOTOS = {"hero": (1024, 640), "smartops": (1200, 700)}  # portrait hero; every other photo is 1536x1024 landscape
@@ -409,7 +409,7 @@ def build_home():
       <p class="section-note section-note--light">Strategy survives contact with reality because we never leave the room.</p>
     </div>
     <ol class="steps">{steps_html}</ol>
-    <p class="section-more section-more--row reveal"><a href="/approach.html" class="btn btn-teal">How we work</a><a href="/approach.html#smartops" class="link-arrow link-arrow--light">Smart Ops, our M³ framework <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+    <p class="section-more section-more--row reveal"><a href="/approach.html" class="btn btn-teal">How we work</a><a href="/approach.html#smartops" class="link-arrow link-arrow--light">Smart Ops, our operations method <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
   </div>
 </section>
 
@@ -645,7 +645,7 @@ def build_approach():
               ("CRO", "Chief Risk Officer", "Regulatory compliance, operational resilience and risk governance frameworks.", "<strong>Operational resilience and risk governance.</strong> Basel III compliance. Third-party risk protocols. AML/KYC remediation across the GCC. 70% reduction in ESG processing time with full IFRS S1/S2 compliance."),
               ("CFO", "Chief Financial Officer", "Profitability improvement, cost control and synergy realisation.", "<strong>Cost optimisation and synergy tracking.</strong> $25M cost savings. SAR 4.75M annual HR synergies with a 6 to 12 month payback. $1.1bn RWA reduction releasing $150M of capital.")]
     csuite_html = "".join(f'''<div class="csuite-row reveal{D[i]}"><div class="csuite-role"><span class="csuite-role-title">{r}</span><span class="csuite-role-sub">{sub}</span></div><div class="csuite-col"><p class="csuite-col-label">Your challenge</p><p class="csuite-pain">{pain}</p></div><div class="csuite-col"><p class="csuite-col-label">How we help</p><p class="csuite-solution">{sol}</p></div></div>''' for i, (r, sub, pain, sol) in enumerate(csuite))
-    pillars = [("The M³ framework", "A structured enterprise process management tool capturing flows, controls and risks, creating a living digital twin of your operations."),
+    pillars = [("Map the operation first", "Every process, control and risk in scope is captured in one structured, living model of how the work really gets done, so the waste is visible before anything is changed."),
                ("Lean, then automation", "Lean principles eliminate waste first, then we digitise. Every automation dollar delivers real ROI rather than encoding inefficiency at scale."),
                ("Pod-based delivery", "Cross-functional pods of process engineers, developers and change agents run rapid transformation sprints with measurable weekly outcomes."),
                ("Granular diagnostics", "Proprietary tooling identifies value-destructive activity at the process level, ensuring ROI on every transformation dollar and gold-standard SOPs for compliance.")]
@@ -695,13 +695,12 @@ def build_approach():
 </section>
 
 <section class="smartops" id="smartops">
-  <span class="smartops-display" aria-hidden="true">M³</span>
   <div class="container">
     <div class="smartops-grid">
       <div class="smartops-left">
-        {label("Smart Ops / MCubed", True)}
+        {label("Smart Ops", True)}
         <h2 class="t-title t-title--light reveal">Our proprietary approach to operations <em>excellence</em>.</h2>
-        <p class="t-lead t-lead--light reveal reveal-d1">The M³ framework creates a digital twin of your bank's operations, applying Lean first to eliminate waste, then automating. We prevent the costly mistake of digitising the mess.</p>
+        <p class="t-lead t-lead--light reveal reveal-d1">Smart Ops maps your bank's operations end to end, applies Lean first to eliminate waste, and only then automates. We prevent the costly mistake of digitising the mess.</p>
         <div class="pillars">{pillars_html}</div>
       </div>
       <div class="smartops-right">
@@ -729,7 +728,7 @@ def build_approach():
 {cta_band()}
 '''
     return page("/approach.html", "Our Approach | How Aspiro Works",
-                "Strategy, design and implementation by one team. A fixed-fee diagnostic, quick wins inside the first month, and the Smart Ops M³ framework.", "Approach", body)
+                "Strategy, design and implementation by one team. A fixed-fee diagnostic, quick wins inside the first month, and Smart Ops, our method for operations.", "Approach", body)
 
 
 def build_work():

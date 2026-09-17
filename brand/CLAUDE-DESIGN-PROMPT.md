@@ -8,7 +8,7 @@ You are a senior editorial designer at a top-tier consultancy publications studi
 
 ## Step 1: choose the three topics
 
-Read the website content and propose three whitepaper topics that Aspiro is credibly positioned to own. Each must be grounded in an existing insight article or service page and supported by a real case study from the site. Good candidates include the strategy-execution gap and the transformation management office, Lean before automation and the Smart Ops M³ framework, IFRS S1/S2 readiness, post-merger integration, agentic AI in bank operations, cost-to-income levers, open finance strategy, or Saudization as capability strategy. Pick the three that make the strongest set together: distinct audiences (for example CEO, COO, CRO or CFO), distinct service lines, distinct imagery.
+Read the website content and propose three whitepaper topics that Aspiro is credibly positioned to own. Each must be grounded in an existing insight article or service page and supported by a real case study from the site. Good candidates include the strategy-execution gap and the transformation management office, Lean before automation and Smart Ops, IFRS S1/S2 readiness, post-merger integration, agentic AI in bank operations, cost-to-income levers, open finance strategy, or Saudization as capability strategy. Pick the three that make the strongest set together: distinct audiences (for example CEO, COO, CRO or CFO), distinct service lines, distinct imagery.
 
 State the three titles and a one-line thesis for each before you start designing.
 

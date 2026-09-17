@@ -328,22 +328,16 @@ TEAM = [
      "Punit has over 20 years of strategic and operational banking and consultancy experience at one of India's and the GCC's major banks and one of the GCC's leading management consultancies. He works across business and technology change with a focus on practical, outcome-oriented implementation."),
     ("Lasse", "Lasse Hall", "Partner", "leadership",
      "Lasse has over 25 years of strategic, operational and technical implementation experience in investment banking and wealth management at one of the leading Swiss banks and one of the major GCC banks. He specialises in front-to-back transformation, platform modernisation and delivery across complex product and client landscapes."),
-    ("Murray", "Murray Falconer", "Partner", "leadership",
-     "Murray has over 25 years of strategic and operational banking and technology experience at one of the world's leading management consultancies and one of the GCC's largest banks. His track record includes digital transformation, core systems change, integration planning and high-stakes delivery leadership."),
     ("Chis", "Chris Renardson", "Partner", "leadership",
      "Chris has over 30 years of strategic and operational leadership experience at one of the GCC's major sovereign wealth funds and one of the GCC's leading listed corporations. He advises on enterprise performance, value creation and strategic change in large, complex organisations."),
-    ("Ben", "Ben Almond", "Partner", "leadership",
-     "Ben has over 25 years of strategic and operational experience at one of the UK's leading management consultancies and one of the GCC's largest independent consulting firms. He supports executive teams on transformation strategy, programme governance and measurable implementation outcomes."),
     ("David", "David Goodyear", "Partner", "leadership",
      "David has over 25 years of strategic and operational banking and consultancy experience at one of South Africa's and the GCC's major banks and one of Europe's and the GCC's major management consultancies. He focuses on end-to-end transformation, capability uplift and operational performance in financial services."),
+    ("Jack", "Jack Donaldson", "Head of Marketing &amp; Communications", "leadership",
+     "Jack is a dynamic marketing and communications leader with a proven record of driving brand growth, elevating storytelling and delivering measurable results across global markets. His experience spans London, New York and Sydney, blending creative vision with commercial precision for the world's leading banks and fintechs."),
     ("Brett", "Brett Maclagan", "Principal", "principals",
      "Brett has over 25 years of global strategy and operational banking, telecoms and aviation experience at one of the world's leading management consultancies and one of the GCC's leading consulting firms. He brings deep expertise in operating model design, delivery acceleration and execution discipline."),
-    ("Arup", "Arup Basu", "Principal", "principals",
-     "Arup has over 25 years of strategic and operational banking and consultancy experience at one of India's and the GCC's major banks and one of the world's leading management consultancies. He has led strategic programmes spanning growth, risk, operations and technology transformation."),
     ("Gaurav", "Gaurav Diwan", "Principal", "principals",
      "Gaurav has over 20 years of strategic and operational banking and consultancy experience at one of Europe's major banks and one of the GCC's leading management consultancies. His experience covers transformation, operating model enhancement and large-scale programme execution."),
-    ("Sanduni", "Sanduni Fernando", "Principal", "principals",
-     "Sanduni has over 17 years of strategic and operational banking and technology experience at one of the GCC's largest banks and one of the GCC's leading management consultancies. She supports clients on strategy execution, operational uplift and complex transformation delivery."),
     ("Ashish", "Ashish Malhotra", "Principal", "principals",
      "Ashish has over 20 years of strategic and operational banking and technology experience at one of India's major banks and one of the GCC's largest banks. He has delivered major initiatives in banking operations, systems and process transformation."),
     ("Sunil", "Sunil Arora", "Principal", "principals",
@@ -398,7 +392,7 @@ INSIGHTS = [
 <p>There is a particular kind of automation programme that every operations leader in the region will recognise. It starts with a vendor demonstration, a proof of concept in a friendly department and a business case that promises a headcount saving. Eighteen months later there are two hundred bots, a team of twelve maintaining them, and a process that is no better understood than it was at the start.</p>
 <p>The programme did not fail because the technology was poor. It failed because the process it automated was never redesigned. Automation encoded the exceptions, the re-keying and the four-way reconciliation, and made them permanent.</p>
 <h2>Build the digital twin first</h2>
-<p>Our Smart Ops framework, which we call M&sup3;, begins with a digital twin of the operation: a structured, living model of every process, control and risk in scope. It is an enterprise process management tool rather than a Visio diagram, and it tells you where the value-destroying activity actually sits.</p>
+<p>Our Smart Ops method begins with a digital twin of the operation: a structured, living model of every process, control and risk in scope. It is an enterprise process management tool rather than a Visio diagram, and it tells you where the value-destroying activity actually sits.</p>
 <p>What it reveals is consistent. Between a third and a half of the effort in a typical GCC bank back office is rework, waiting, duplicate control or manual transfer between systems. None of that should be automated. It should be removed.</p>
 <h2>Lean, then digitise</h2>
 <p>Only when the process has been simplified do we apply automation, and at that point the economics change entirely. The automation footprint is smaller, the bots are simpler, and each one delivers a measurable return because it is doing work that has to be done rather than work that should never have existed.</p>
@@ -627,7 +621,7 @@ WHITEPAPERS = [
         "series": "Point of view · 2026",
         "cat": "Smart Ops",
         "audience": "For operations and technology leaders",
-        "dek": "Why the sequencing of Lean and automation decides whether the digital budget compounds or evaporates, and the M³ framework that puts the process before the tool.",
+        "dek": "Why the sequencing of Lean and automation decides whether the digital budget compounds or evaporates, and a method that puts the process before the tool.",
         "stat": ("$25M", "Cost savings realised through front-to-back Lean before automation"),
         "pages": 4, "size": "1.9 MB",
         "insight": "lean-before-automation",
