@@ -4184,3 +4184,59 @@ a.case {
     animation: none;
   }
 }
+
+.section-more--row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.link-arrow--light {
+  color: #fff;
+}
+
+.link-arrow--light:hover {
+  color: var(--teal-bright);
+}
+
+/* The hidden attribute must always win over component display rules */
+[hidden] {
+  display: none !important;
+}
+
+/* Insights toolbar: let controls shrink on small screens */
+.ins-controls,
+.ins-select,
+.ins-search {
+  min-width: 0;
+}
+
+.ins-select select {
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1024px) {
+  .ins-select {
+    flex: 0 1 46%;
+  }
+
+  .ins-select select {
+    width: 100%;
+  }
+
+  .ins-search,
+  .ins-search:focus-within {
+    flex: 1 1 0;
+    width: auto;
+  }
+
+  .ins-types {
+    margin-left: -12px;
+  }
+
+  .ins-summary {
+    padding-inline: var(--gutter);
+  }
+}

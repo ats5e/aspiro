@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import SITE, NAV, STATS, CLIENT_LOGOS, ICONS, SERVICES, CASES, TEAM, INSIGHTS, WHITEPAPERS  # noqa
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "23"
+V = "25"
 TODAY = datetime.date.today().isoformat()
 
 PHOTOS = {"hero": (1024, 640), "smartops": (1200, 700)}  # portrait hero; every other photo is 1536x1024 landscape
@@ -409,7 +409,7 @@ def build_home():
       <p class="section-note section-note--light">Strategy survives contact with reality because we never leave the room.</p>
     </div>
     <ol class="steps">{steps_html}</ol>
-    <p class="section-more reveal"><a href="/approach.html" class="btn btn-teal">How we work</a></p>
+    <p class="section-more section-more--row reveal"><a href="/approach.html" class="btn btn-teal">How we work</a><a href="/approach.html#smartops" class="link-arrow link-arrow--light">Smart Ops, our M³ framework <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
   </div>
 </section>
 
@@ -421,29 +421,6 @@ def build_home():
     </div>
     <div class="cases-grid">{cases}</div>
     <p class="section-more reveal"><a href="/work.html" class="btn btn-ghost">All case studies</a></p>
-  </div>
-</section>
-
-<section class="smartops">
-  <span class="smartops-display" aria-hidden="true">M³</span>
-  <div class="container">
-    <div class="smartops-grid">
-      <div class="smartops-left">
-        {label("Smart Ops / MCubed", True)}
-        <h2 class="t-title t-title--light reveal">Our proprietary approach to operations <em>excellence</em>.</h2>
-        <p class="t-lead t-lead--light reveal reveal-d1">The M³ framework creates a digital twin of your bank's operations, applying Lean first to eliminate waste, then automating. We prevent the costly mistake of digitising the mess.</p>
-        <p class="reveal reveal-d2"><a href="/approach.html#smartops" class="btn btn-teal">Explore Smart Ops</a></p>
-      </div>
-      <div class="smartops-right">
-        <figure class="smartops-media reveal">{picture("smartops", "Layered precision-cut glass panels lit in violet and teal", "(max-width: 900px) 100vw, 45vw")}</figure>
-        <div class="outcomes">
-          <div class="outcome reveal"><p class="outcome-num">$25M</p><p class="outcome-desc">Cost savings realised in a single global bank engagement.</p></div>
-          <div class="outcome reveal reveal-d1"><p class="outcome-num">$1.1bn</p><p class="outcome-desc">RWA reduction, releasing $150M of capital.</p></div>
-          <div class="outcome reveal reveal-d2"><p class="outcome-num">70%</p><p class="outcome-desc">Reduction in manual processing time.</p></div>
-          <div class="outcome reveal reveal-d3"><p class="outcome-num">Weeks</p><p class="outcome-desc">Time to first measurable ROI.</p></div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -471,7 +448,7 @@ def build_home():
 {GATE_DIALOG}
 {cta_band()}
 '''
-    return page("/index.html", "Aspiro — Management Consultancy for GCC Financial Services",
+    return page("/index.html", "Aspiro | Management Consultancy for GCC Financial Services",
                 "Aspiro is an independent, practitioner-led management consultancy engineering transformation outcomes for the GCC's most ambitious banks and financial institutions.",
                 None, body, jsonld=jsonld)
 
@@ -559,7 +536,7 @@ def build_about():
 {BIO_DIALOG}
 {cta_band()}
 '''
-    return page("/about.html", "About Aspiro — Independent GCC Financial Services Consultancy",
+    return page("/about.html", "About Aspiro | Independent GCC Financial Services Consultancy",
                 "Founded in Dubai in 2015, Aspiro is an independent, partner-owned management consultancy built by senior bankers for GCC financial institutions.", "About", body)
 
 
@@ -590,7 +567,7 @@ def build_services():
 </section>
 {cta_band()}
 '''
-    return page("/services.html", "Services — Aspiro Management Consultants",
+    return page("/services.html", "Services | Aspiro Management Consultants",
                 "Transformation, AI and digital, revenue and cost optimisation, risk and ESG, human capital and marketing for GCC financial institutions.", "Services", body)
 
 
@@ -646,7 +623,7 @@ def build_service_pages():
 </section>
 {cta_band()}
 '''
-        paths.append(page(f"/services/{s['slug']}.html", f"{s['name']} — Aspiro", H.unescape(s["summary"]).replace("<br>", " ")[:155], "Services", body))
+        paths.append(page(f"/services/{s['slug']}.html", f"{s['name']} | Aspiro", H.unescape(s["summary"]).replace("<br>", " ")[:155], "Services", body))
     return paths
 
 
@@ -751,7 +728,7 @@ def build_approach():
 </section>
 {cta_band()}
 '''
-    return page("/approach.html", "Our Approach — How Aspiro Works",
+    return page("/approach.html", "Our Approach | How Aspiro Works",
                 "Strategy, design and implementation by one team. A fixed-fee diagnostic, quick wins inside the first month, and the Smart Ops M³ framework.", "Approach", body)
 
 
@@ -787,7 +764,7 @@ def build_work():
 </section>
 {cta_band()}
 '''
-    return page("/work.html", "Our Work — Case Studies — Aspiro",
+    return page("/work.html", "Our Work | Case Studies | Aspiro",
                 "Case studies from Aspiro engagements: digital banking launch, $25M Lean savings, Saudi capital-markets execution, zero-disruption integration, automated ESG reporting.", "Work", body)
 
 
@@ -813,7 +790,7 @@ def build_people():
 {BIO_DIALOG}
 {cta_band("Work with people who have <em>sat in your seat</em>.", "Tell us about the challenge on your desk. A partner will come back to you within one business day.")}
 '''
-    return page("/people.html", "Our People — Aspiro Management Consultants",
+    return page("/people.html", "Our People | Aspiro Management Consultants",
                 "Meet the partners and principals of Aspiro: senior practitioners from the GCC's largest banks and the world's leading consultancies.", "People", body)
 
 
@@ -880,7 +857,7 @@ def build_insights_index():
 {GATE_DIALOG}
 {cta_band("Want a point of view on <em>your</em> agenda?", "A conversation with a partner costs nothing and usually saves a quarter.")}
 '''
-    return page("/insights.html", "Insights — Aspiro Management Consultants",
+    return page("/insights.html", "Insights | Aspiro Management Consultants",
                 "Practitioner perspectives and downloadable whitepapers on transformation, AI and automation, risk and ESG, cost and growth for GCC financial institutions.", "Insights", body)
 
 
@@ -943,7 +920,7 @@ def build_insight_pages():
 {GATE_DIALOG if wp else ""}
 {cta_band()}
 '''
-        paths.append(page(f"/insights/{i['slug']}.html", f"{i['title']} — Aspiro Insights", i["dek"][:155], "Insights", body,
+        paths.append(page(f"/insights/{i['slug']}.html", f"{i['title']} | Aspiro Insights", i["dek"][:155], "Insights", body,
                           og_image=f"/public/photos/{i['photo']}.jpg", jsonld=jsonld))
     return paths
 
@@ -958,7 +935,7 @@ def build_whitepapers():
 {GATE_DIALOG}
 {cta_band("Want a point of view on <em>your</em> agenda?", "A conversation with a partner costs nothing and usually saves a quarter.")}
 '''
-    return page("/whitepapers.html", "Whitepapers — Aspiro Management Consultants",
+    return page("/whitepapers.html", "Whitepapers | Aspiro Management Consultants",
                 "Download Aspiro points of view on execution, automation, IFRS S1/S2 disclosure, cost-to-income, Saudization and post-merger integration.", "Whitepapers", body)
 
 
@@ -1007,7 +984,7 @@ def build_contact():
   </div>
 </section>
 '''
-    return page("/contact.html", "Contact Aspiro — Dubai, Riyadh, London",
+    return page("/contact.html", "Contact Aspiro | Dubai, Riyadh, London",
                 "Talk to an Aspiro partner about your transformation, automation, risk, cost or growth agenda. Offices in Dubai, Riyadh and London.", None, body, body_class="header-on-dark")
 
 
@@ -1032,7 +1009,7 @@ def build_privacy():
     {"".join(f"<h2>{h}</h2><p>{p}</p>" for h, p in sections)}
   </div></div>
 </section>'''
-    return page("/privacy-policy.html", "Privacy Policy — Aspiro Management Consultants",
+    return page("/privacy-policy.html", "Privacy Policy | Aspiro Management Consultants",
                 "How Aspiro Management Consultants collects, uses and protects personal information.", None, body, noindex=True)
 
 
@@ -1043,7 +1020,7 @@ def build_404():
   <p class="nf-text">The page you're looking for has moved or never existed. Let's get you back on track.</p>
   <a href="/" class="btn btn-primary btn-lg">Back to home</a>
 </div></section>'''
-    return page("/404.html", "Page not found — Aspiro", "Page not found.", None, body, noindex=True)
+    return page("/404.html", "Page not found | Aspiro", "Page not found.", None, body, noindex=True)
 
 
 def build_sitemap(paths):
