@@ -35,6 +35,14 @@ STATS = [
     ("24+", "Major transformation programmes delivered"),
 ]
 
+# Home page brand film, hosted on Mux. To swap the video, change "mux_id".
+# The poster is the still shown before someone presses play.
+FILM = {
+    "mux_id": "JohMeVmgTnmfoiNcxNElegJkZgIm1L2W8jtqKW01DuR00",
+    "title": "We Are Aspiro",
+    "poster": "film-poster",
+}
+
 CLIENT_LOGOS = [
     ("Mashreq", "Mashreq"), ("Emirates-NBD", "Emirates NBD"), ("Alrajhi-Bank", "Al Rajhi Bank"),
     ("HSBC", "HSBC"), ("Riyad-Bank", "Riyad Bank"), ("Rakbank", "RAKBANK"), ("SAB-Invest", "SAB Invest"),

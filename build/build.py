@@ -3,10 +3,10 @@
 import os, sys, re, datetime, html as H
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from content import SITE, NAV, STATS, CLIENT_LOGOS, ICONS, SERVICES, CASES, TEAM, INSIGHTS, WHITEPAPERS  # noqa
+from content import SITE, NAV, STATS, CLIENT_LOGOS, FILM, ICONS, SERVICES, CASES, TEAM, INSIGHTS, WHITEPAPERS  # noqa
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "26"
+V = "27"
 TODAY = datetime.date.today().isoformat()
 
 PHOTOS = {"hero": (1024, 640), "smartops": (1200, 700)}  # portrait hero; every other photo is 1536x1024 landscape
@@ -333,6 +333,24 @@ def clients_section():
 </section>'''
 
 
+def film():
+    """Click-to-play brand film. The Mux player only loads once someone presses play."""
+    from urllib.parse import quote
+    t = quote(FILM["title"])
+    src = f'https://player.mux.com/{FILM["mux_id"]}?metadata-video-title={t}&video-title={t}&accent-color=%2340b8a2&autoplay=any'
+    p = FILM["poster"]
+    return f'''<figure class="film reveal" data-film="{H.escape(src)}" data-film-title="{H.escape(FILM['title'])}">
+      <picture>
+        <source type="image/webp" srcset="/public/photos/{p}-900.webp 900w, /public/photos/{p}.webp 1920w" sizes="(max-width: 1280px) 100vw, 1280px" />
+        <img src="/public/photos/{p}.jpg" srcset="/public/photos/{p}-900.jpg 900w, /public/photos/{p}.jpg 1920w" sizes="(max-width: 1280px) 100vw, 1280px" alt="" width="1920" height="1080" loading="lazy" />
+      </picture>
+      <button type="button" class="film-play" aria-label="Play the Aspiro film">
+        <span class="film-play-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span>
+        <span class="film-play-label">Watch the film</span>
+      </button>
+    </figure>'''
+
+
 def stats_row(cls="hero-stats"):
     return f'<div class="container {cls} reveal reveal-d3" role="list" aria-label="Key facts">' + "".join(
         f'<div class="h-stat" role="listitem"><div class="h-stat-num" data-count="{n.replace(",", "")}">{n}</div><div class="h-stat-label">{l}</div></div>'
@@ -386,7 +404,7 @@ def build_home():
         <a href="/about.html" class="link-arrow reveal reveal-d2">More about Aspiro <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
-    <figure class="about-media reveal">{picture("about", "Financial district skyline at blue hour reflected in calm water", "(max-width: 1280px) 100vw, 1280px", pos="center 55%")}</figure>
+    {film()}
   </div>
 </section>
 

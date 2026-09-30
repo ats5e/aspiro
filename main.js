@@ -561,6 +561,23 @@
   });
 
   /* ─────────────────────────────────────────────
+     BRAND FILM (load the player only on play)
+     ───────────────────────────────────────────── */
+  $$('[data-film]').forEach(fig => {
+    const btn = $('.film-play', fig);
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = fig.dataset.film;
+      f.title = fig.dataset.filmTitle || 'Video';
+      f.allow = 'accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      fig.replaceChildren(f);
+      f.focus();
+    });
+  });
+
+  /* ─────────────────────────────────────────────
      FOOTER YEAR
      ───────────────────────────────────────────── */
   $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
