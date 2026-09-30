@@ -85,7 +85,7 @@
       <p class="article-byline">By Aspiro Management Consultants. Aspiro is an independent, practitioner-led consultancy for GCC financial institutions.</p>
     </div>
     <aside class="article-aside">
-      
+      <div class="aside-card aside-card--wp"><h4>Whitepaper</h4><p class="aside-wp-title">Agents need an <em>operating</em> model</p><p>For chief operating officers. 6 pages.</p><button type="button" class="btn btn-primary btn-sm" data-gate data-wp-slug="agents-need-an-operating-model" data-wp-title="Agents need an operating model" data-wp-file="/public/whitepapers/agents-need-an-operating-model.pdf">Download PDF</button></div>
       <div class="share"><h4>Share</h4>
           <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://aspiro.me/insights/agentic-ai-bank-operations.html" target="_blank" rel="noopener">LinkedIn</a>
           <a href="mailto:?subject=Agentic AI in bank operations: where the value actually lands&amp;body=https://aspiro.me/insights/agentic-ai-bank-operations.html">Email</a>
@@ -129,6 +129,27 @@
   </div>
 </section>
 
+<dialog class="bio-dialog gate-dialog" id="gate-dialog" aria-labelledby="gate-title">
+  <div class="gate-inner">
+    <button class="bio-close" type="button" aria-label="Close" data-gate-close><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <p class="label">Download the whitepaper</p>
+    <h3 id="gate-title" data-gate-title>Whitepaper</h3>
+    <p class="gate-note">Tell us who you are and the PDF will download straight away. We will only use your details to follow up on this paper.</p>
+    <form class="gate-form" id="gate-form" novalidate data-endpoint="https://formspree.io/f/mgavwrwg">
+      <input type="hidden" name="whitepaper" data-gate-slug />
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+      <div class="form-row">
+        <div class="field"><label for="g-name">Name</label><input id="g-name" name="name" type="text" autocomplete="name" required /></div>
+        <div class="field"><label for="g-company">Organisation</label><input id="g-company" name="company" type="text" autocomplete="organization" required /></div>
+      </div>
+      <div class="field"><label for="g-email">Work email</label><input id="g-email" name="email" type="email" autocomplete="email" required /></div>
+      <div class="field"><label for="g-role">Role</label><input id="g-role" name="role" type="text" autocomplete="organization-title" /></div>
+      <label class="gate-consent"><input type="checkbox" name="consent" required /> <span>I agree to Aspiro contacting me about this paper and related insights, per the <a href="/privacy-policy.html" target="_blank" rel="noopener">privacy policy</a>.</span></label>
+      <div class="form-foot"><button type="submit" class="btn btn-primary btn-lg">Get the PDF</button></div>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</dialog>
 
 <section class="cta-band">
   <div class="container cta-band-inner">
