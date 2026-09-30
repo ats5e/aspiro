@@ -363,6 +363,84 @@ TEAM = [
 # ---------------------------------------------------------------------------
 INSIGHTS = [
     {
+        "slug": "financial-crime-alert-volumes",
+        "cat": "Risk & ESG",
+        "date": "2026-09-23",
+        "read": 6,
+        "photo": "work-hero", "pos": "center",
+        "title": "Financial crime compliance: more alerts is not more control",
+        "dek": "Transaction monitoring in many GCC banks produces more alerts than any team can investigate well. Tuning, segmentation and better case work improve both effectiveness and cost.",
+        "quote": "An alert that nobody has time to investigate properly is not a control. It is a liability with a timestamp.",
+        "body": """
+<p>Regulatory expectations on financial crime in the region have risen sharply in recent years, and banks have responded in the most visible way available: more rules, more scenarios, lower thresholds and larger investigation teams. The result in many institutions is a monitoring system that generates far more alerts than it can handle, the large majority of which turn out to be nothing.</p>
+<p>It feels safe. It is not. When analysts are measured on how many alerts they close, they close alerts. The genuinely suspicious case sits in the same queue as hundreds of false positives, and receives the same few minutes of attention.</p>
+<h2>Why alert volumes keep growing</h2>
+<p><strong>Rules are added and never removed.</strong> Each finding from an audit or regulator adds a scenario. Nobody tests whether older scenarios still produce anything useful, so the rule set only ever grows.</p>
+<p><strong>Thresholds ignore the customer.</strong> A single threshold applied to a salaried retail customer and a trading company will be wrong for both. Without customer segmentation, the system cannot tell unusual behaviour from normal behaviour.</p>
+<p><strong>Data quality undermines everything.</strong> Incomplete KYC records, inconsistent customer identifiers and missing transaction detail generate alerts that exist only because the data is poor.</p>
+<h2>Tune with evidence</h2>
+<p>Effective tuning is a controlled, documented exercise, not a quiet raising of thresholds. It tests scenarios against historic outcomes, samples below the threshold to confirm nothing material is being missed, and records the rationale for every change. Done well, it reduces noise and improves detection at the same time, and it gives the bank a defensible story for the regulator.</p>
+<h2>Redesign the investigation</h2>
+<p>Much of an analyst's time goes on gathering information rather than judging it: pulling statements, checking screening results, assembling the customer's history. That assembly work is well suited to automation and, increasingly, to AI agents working under human supervision. The analyst's time moves to the decision, which is where it should have been all along.</p>
+<h2>Govern it like a model</h2>
+<p>Transaction monitoring is a model and should be governed as one: an inventory of scenarios, periodic validation, clear ownership and an audit trail for every change. SAMA, the CBUAE and the QCB will ask how the system was calibrated. The answer should be a document, not a recollection.</p>
+<h2>Three questions for the MLRO</h2>
+<p>What proportion of alerts led to a suspicious activity report last year? When was each scenario last validated against outcomes? And how much of an analyst's day is spent gathering information rather than making a judgement? The answers show whether the function is controlling risk or processing volume.</p>
+""",
+        "related": ["operational-resilience-tprm", "agentic-ai-bank-operations"],
+    },
+    {
+        "slug": "customer-acquisition-economics",
+        "cat": "Marketing & Growth",
+        "date": "2026-09-16",
+        "read": 5,
+        "photo": "svc-marketing", "pos": "center",
+        "title": "Acquisition cost is the number bank marketing rarely measures",
+        "dek": "GCC banks spend heavily to win new customers and rarely know what each one costs, or whether it ever pays back. Unit economics turn a marketing budget into an investment case.",
+        "quote": "If you cannot say what a customer costs to win, you cannot say whether you should win them.",
+        "body": """
+<p>Ask a bank's marketing team how the last campaign performed and you will hear about reach, impressions and accounts opened. Ask what it cost to acquire a customer who is still active a year later, and the room usually goes quiet. The number exists in pieces across marketing, finance and operations. Almost nobody puts it together.</p>
+<p>That gap matters more every year. Competition for younger GCC customers is fierce, digital challengers and super-apps are spending to win them, and incumbents are matching that spend without knowing what it returns.</p>
+<h2>Accounts opened is the wrong measure</h2>
+<p>An account opened is not a customer won. Many new accounts are never funded, and many funded accounts go quiet within months. A campaign that looks successful on openings can be deeply unprofitable once activation and retention are counted. The unit that matters is the funded, active customer, measured by channel and by segment.</p>
+<h2>The funnel leaks at onboarding</h2>
+<p>The most expensive moment in acquisition is the one after the customer has decided to join. Every day between application and a usable account is a day in which they can change their mind. When we helped a local bank launch its digital proposition, onboarding fell from days to minutes. That changes acquisition economics as much as any media plan, because the bank stops paying to attract customers it then loses in its own process.</p>
+<h2>Know the payback, segment by segment</h2>
+<p>Some segments repay acquisition cost within months. Others never do. Without a view of lifetime value set against the cost to acquire and serve, marketing spend flows to the segments that are easiest to reach, not the ones worth reaching. Payback by segment is the single most useful number a bank marketing leader can bring to the executive committee.</p>
+<h2>What to measure from Monday</h2>
+<p>Three measures change the conversation. Cost per funded, active customer by channel. Activation within the first ninety days, by segment. And payback period on acquisition spend. None requires new technology. Each requires marketing, finance and operations to agree on one definition and report against it every month.</p>
+<p>Once those numbers exist, the marketing budget stops being a line to be defended and becomes an investment to be allocated. That is a much stronger position to argue from.</p>
+""",
+        "related": ["pricing-fastest-revenue-lever", "open-finance-incumbents"],
+    },
+    {
+        "slug": "core-banking-modernisation",
+        "cat": "Transformation",
+        "date": "2026-09-09",
+        "read": 6,
+        "photo": "approach", "pos": "center",
+        "title": "Core banking replacement is a business decision, not an IT project",
+        "dek": "Several GCC banks are replacing or modernising their core platforms. The programmes that succeed are led by the business, sequenced by value and honest about what the old system was really doing.",
+        "quote": "The old core is not just a system. It is fifteen years of business rules that nobody wrote down.",
+        "body": """
+<p>Core banking replacement has a reputation, and it is mostly deserved. Programmes run late, budgets double and the new platform goes live with half the products it was meant to carry. Yet the case for modernisation in the region has rarely been stronger. Digital-only propositions, instant payment schemes and open finance all ask more of the core than platforms designed for branch banking can give.</p>
+<p>The banks that get through it well have one thing in common. They treat the core as a business decision with a technology component, not the other way round.</p>
+<h2>Three ways core programmes go wrong</h2>
+<p><strong>The big-bang ambition.</strong> One migration weekend, every product, every customer. It looks efficient on the plan. In practice it concentrates all of the risk into a single event and gives the programme no way to learn before it matters.</p>
+<p><strong>Migrating the product catalogue as it is.</strong> Most banks carry hundreds of product variants, many with a handful of customers. Configuring each of them on the new platform is where time and money disappear. The rationalisation decision belongs to the business, and it has to be made before the build, not during it.</p>
+<p><strong>Undocumented business rules.</strong> The legacy core holds years of fee logic, exceptions and regulatory workarounds. Nobody fully knows what it does until something breaks in testing. Programmes that skip the discovery work pay for it later, at a much higher rate.</p>
+<h2>Lead with the business case, not the vendor</h2>
+<p>Vendor selection is usually the first visible step, and it is often taken too early. The better sequence starts with the outcomes: which propositions the bank needs to launch, which costs it needs to remove and which regulatory obligations the current platform cannot meet. The target architecture follows from that, and the vendor follows from the architecture.</p>
+<p>This is also where ownership is settled. If the programme sponsor sits in technology alone, product rationalisation and process redesign will be treated as someone else's problem. A business sponsor with authority over the product catalogue changes the economics of the whole programme.</p>
+<h2>Modernise progressively</h2>
+<p>Replacement does not have to mean a single cut-over. Many institutions are building a modern digital layer alongside the existing core and moving products and segments across in waves. When we helped a local bank launch a digital-only proposition, a cloud-native platform ran alongside the existing bank. Customers were onboarded in minutes, and the bank learned what the new platform could do before committing its whole book to it.</p>
+<p>Each wave should carry a business outcome, a defined product set and a clear decommissioning step. A programme that adds a new platform without retiring the old one has increased its cost base, not reduced it.</p>
+<h2>Three questions before you sign</h2>
+<p>Which products will not move, and who has agreed to retire them? What does the current core do that nobody has documented? And what is the first business outcome the new platform will deliver, and when? If those answers are clear, the technology decision becomes much easier.</p>
+""",
+        "related": ["strategy-execution-gap", "agentic-ai-bank-operations"],
+    },
+    {
         "slug": "strategy-execution-gap",
         "cat": "Transformation",
         "date": "2026-09-02",
@@ -580,33 +658,6 @@ INSIGHTS = [
         "related": ["ifrs-s1-s2-gcc-banks", "open-finance-incumbents"],
     },
     {
-        "slug": "core-banking-modernisation",
-        "cat": "Transformation",
-        "date": "2026-04-29",
-        "read": 6,
-        "photo": "approach", "pos": "center",
-        "title": "Core banking replacement is a business decision, not an IT project",
-        "dek": "Several GCC banks are replacing or modernising their core platforms. The programmes that succeed are led by the business, sequenced by value and honest about what the old system was really doing.",
-        "quote": "The old core is not just a system. It is fifteen years of business rules that nobody wrote down.",
-        "body": """
-<p>Core banking replacement has a reputation, and it is mostly deserved. Programmes run late, budgets double and the new platform goes live with half the products it was meant to carry. Yet the case for modernisation in the region has rarely been stronger. Digital-only propositions, instant payment schemes and open finance all ask more of the core than platforms designed for branch banking can give.</p>
-<p>The banks that get through it well have one thing in common. They treat the core as a business decision with a technology component, not the other way round.</p>
-<h2>Three ways core programmes go wrong</h2>
-<p><strong>The big-bang ambition.</strong> One migration weekend, every product, every customer. It looks efficient on the plan. In practice it concentrates all of the risk into a single event and gives the programme no way to learn before it matters.</p>
-<p><strong>Migrating the product catalogue as it is.</strong> Most banks carry hundreds of product variants, many with a handful of customers. Configuring each of them on the new platform is where time and money disappear. The rationalisation decision belongs to the business, and it has to be made before the build, not during it.</p>
-<p><strong>Undocumented business rules.</strong> The legacy core holds years of fee logic, exceptions and regulatory workarounds. Nobody fully knows what it does until something breaks in testing. Programmes that skip the discovery work pay for it later, at a much higher rate.</p>
-<h2>Lead with the business case, not the vendor</h2>
-<p>Vendor selection is usually the first visible step, and it is often taken too early. The better sequence starts with the outcomes: which propositions the bank needs to launch, which costs it needs to remove and which regulatory obligations the current platform cannot meet. The target architecture follows from that, and the vendor follows from the architecture.</p>
-<p>This is also where ownership is settled. If the programme sponsor sits in technology alone, product rationalisation and process redesign will be treated as someone else's problem. A business sponsor with authority over the product catalogue changes the economics of the whole programme.</p>
-<h2>Modernise progressively</h2>
-<p>Replacement does not have to mean a single cut-over. Many institutions are building a modern digital layer alongside the existing core and moving products and segments across in waves. When we helped a local bank launch a digital-only proposition, a cloud-native platform ran alongside the existing bank. Customers were onboarded in minutes, and the bank learned what the new platform could do before committing its whole book to it.</p>
-<p>Each wave should carry a business outcome, a defined product set and a clear decommissioning step. A programme that adds a new platform without retiring the old one has increased its cost base, not reduced it.</p>
-<h2>Three questions before you sign</h2>
-<p>Which products will not move, and who has agreed to retire them? What does the current core do that nobody has documented? And what is the first business outcome the new platform will deliver, and when? If those answers are clear, the technology decision becomes much easier.</p>
-""",
-        "related": ["strategy-execution-gap", "agentic-ai-bank-operations"],
-    },
-    {
         "slug": "pricing-fastest-revenue-lever",
         "cat": "Marketing & Growth",
         "date": "2026-04-15",
@@ -627,57 +678,6 @@ INSIGHTS = [
 <p>Pricing gains erode unless somebody owns them. A pricing committee, an exceptions policy with limits by role and a quarterly review of waivers are unglamorous but essential. The revenue recovered in the first year is the easy part. Keeping it is the discipline.</p>
 """,
         "related": ["cost-to-income-levers", "open-finance-incumbents"],
-    },
-    {
-        "slug": "customer-acquisition-economics",
-        "cat": "Marketing & Growth",
-        "date": "2026-04-01",
-        "read": 5,
-        "photo": "svc-marketing", "pos": "center",
-        "title": "Acquisition cost is the number bank marketing rarely measures",
-        "dek": "GCC banks spend heavily to win new customers and rarely know what each one costs, or whether it ever pays back. Unit economics turn a marketing budget into an investment case.",
-        "quote": "If you cannot say what a customer costs to win, you cannot say whether you should win them.",
-        "body": """
-<p>Ask a bank's marketing team how the last campaign performed and you will hear about reach, impressions and accounts opened. Ask what it cost to acquire a customer who is still active a year later, and the room usually goes quiet. The number exists in pieces across marketing, finance and operations. Almost nobody puts it together.</p>
-<p>That gap matters more every year. Competition for younger GCC customers is fierce, digital challengers and super-apps are spending to win them, and incumbents are matching that spend without knowing what it returns.</p>
-<h2>Accounts opened is the wrong measure</h2>
-<p>An account opened is not a customer won. Many new accounts are never funded, and many funded accounts go quiet within months. A campaign that looks successful on openings can be deeply unprofitable once activation and retention are counted. The unit that matters is the funded, active customer, measured by channel and by segment.</p>
-<h2>The funnel leaks at onboarding</h2>
-<p>The most expensive moment in acquisition is the one after the customer has decided to join. Every day between application and a usable account is a day in which they can change their mind. When we helped a local bank launch its digital proposition, onboarding fell from days to minutes. That changes acquisition economics as much as any media plan, because the bank stops paying to attract customers it then loses in its own process.</p>
-<h2>Know the payback, segment by segment</h2>
-<p>Some segments repay acquisition cost within months. Others never do. Without a view of lifetime value set against the cost to acquire and serve, marketing spend flows to the segments that are easiest to reach, not the ones worth reaching. Payback by segment is the single most useful number a bank marketing leader can bring to the executive committee.</p>
-<h2>What to measure from Monday</h2>
-<p>Three measures change the conversation. Cost per funded, active customer by channel. Activation within the first ninety days, by segment. And payback period on acquisition spend. None requires new technology. Each requires marketing, finance and operations to agree on one definition and report against it every month.</p>
-<p>Once those numbers exist, the marketing budget stops being a line to be defended and becomes an investment to be allocated. That is a much stronger position to argue from.</p>
-""",
-        "related": ["pricing-fastest-revenue-lever", "open-finance-incumbents"],
-    },
-    {
-        "slug": "financial-crime-alert-volumes",
-        "cat": "Risk & ESG",
-        "date": "2026-03-18",
-        "read": 6,
-        "photo": "work-hero", "pos": "center",
-        "title": "Financial crime compliance: more alerts is not more control",
-        "dek": "Transaction monitoring in many GCC banks produces more alerts than any team can investigate well. Tuning, segmentation and better case work improve both effectiveness and cost.",
-        "quote": "An alert that nobody has time to investigate properly is not a control. It is a liability with a timestamp.",
-        "body": """
-<p>Regulatory expectations on financial crime in the region have risen sharply in recent years, and banks have responded in the most visible way available: more rules, more scenarios, lower thresholds and larger investigation teams. The result in many institutions is a monitoring system that generates far more alerts than it can handle, the large majority of which turn out to be nothing.</p>
-<p>It feels safe. It is not. When analysts are measured on how many alerts they close, they close alerts. The genuinely suspicious case sits in the same queue as hundreds of false positives, and receives the same few minutes of attention.</p>
-<h2>Why alert volumes keep growing</h2>
-<p><strong>Rules are added and never removed.</strong> Each finding from an audit or regulator adds a scenario. Nobody tests whether older scenarios still produce anything useful, so the rule set only ever grows.</p>
-<p><strong>Thresholds ignore the customer.</strong> A single threshold applied to a salaried retail customer and a trading company will be wrong for both. Without customer segmentation, the system cannot tell unusual behaviour from normal behaviour.</p>
-<p><strong>Data quality undermines everything.</strong> Incomplete KYC records, inconsistent customer identifiers and missing transaction detail generate alerts that exist only because the data is poor.</p>
-<h2>Tune with evidence</h2>
-<p>Effective tuning is a controlled, documented exercise, not a quiet raising of thresholds. It tests scenarios against historic outcomes, samples below the threshold to confirm nothing material is being missed, and records the rationale for every change. Done well, it reduces noise and improves detection at the same time, and it gives the bank a defensible story for the regulator.</p>
-<h2>Redesign the investigation</h2>
-<p>Much of an analyst's time goes on gathering information rather than judging it: pulling statements, checking screening results, assembling the customer's history. That assembly work is well suited to automation and, increasingly, to AI agents working under human supervision. The analyst's time moves to the decision, which is where it should have been all along.</p>
-<h2>Govern it like a model</h2>
-<p>Transaction monitoring is a model and should be governed as one: an inventory of scenarios, periodic validation, clear ownership and an audit trail for every change. SAMA, the CBUAE and the QCB will ask how the system was calibrated. The answer should be a document, not a recollection.</p>
-<h2>Three questions for the MLRO</h2>
-<p>What proportion of alerts led to a suspicious activity report last year? When was each scenario last validated against outcomes? And how much of an analyst's day is spent gathering information rather than making a judgement? The answers show whether the function is controlling risk or processing volume.</p>
-""",
-        "related": ["operational-resilience-tprm", "agentic-ai-bank-operations"],
     },
 ]
 
