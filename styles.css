@@ -726,18 +726,33 @@ textarea {
 }
 
 .client-logo {
-  height: 40px;
+  height: 56px;
   width: auto;
-  max-width: 150px;
+  max-width: 210px;
   object-fit: contain;
   filter: grayscale(1);
-  opacity: 0.6;
+  opacity: 0.8;
   transition: filter 0.3s, opacity 0.3s;
 }
 
 .client-logo:hover {
   filter: none;
   opacity: 1;
+}
+
+.client-logo--square {
+  height: 80px;
+}
+
+@media (max-width: 600px) {
+  .client-logo {
+    height: 44px;
+    max-width: 160px;
+  }
+
+  .client-logo--square {
+    height: 62px;
+  }
 }
 
 /* ============================================================

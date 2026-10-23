@@ -29,10 +29,10 @@ NAV = [
 ]
 
 STATS = [
-    ("100+", "Years of senior leadership experience"),
+    ("1,000+", "Years of senior leadership experience"),
     ("8,000+", "Specialists in our global network"),
     ("100%", "Independent and investor-free"),
-    ("24+", "Major transformation programmes delivered"),
+    ("93+", "Major transformation programmes delivered"),
 ]
 
 # Home page brand film, hosted on Mux. To swap the video, change "mux_id".
@@ -74,7 +74,7 @@ SERVICES = [
         "photo_pos": "center",
         "summary": "Leading end-to-end transformations across banking, capital markets and financial services, from vision through to value realisation, by practitioners who have held the roles they now advise on.",
         "tags": ["M&A execution", "Target operating model", "PMO &amp; programme management", "Vendor selection"],
-        "intro": "Most transformation programmes in the region do not fail for lack of ambition. They fail in the gap between the strategy the Board approved and the organisation that has to deliver it. We close that gap.",
+        "intro": "Most transformation programmes do not fail for lack of ambition. They fail in the gap between the strategy the Board approved and the organisation that has to deliver it. We close that gap.",
         "body": [
             ("Strategy that survives contact with reality",
              "We start from the executive agenda, not a framework. Whether the mandate is a Vision 2030 growth plan, a merger, a new market entry or a wholesale operating-model reset, we validate the business case before capital is committed, translate intent into a target operating model that names owners and dates, and stay to run the programme office that delivers it."),
@@ -101,9 +101,9 @@ SERVICES = [
         "short": "AI, Automation<br>&amp; Digital",
         "photo": "svc-digital",
         "photo_pos": "center",
-        "summary": "Implementing next-generation AI and automation that creates genuine competitive advantage, from intelligent workflows to cloud-native digital banking ecosystems built for scale.",
-        "tags": ["RPA &amp; AI automation", "Open banking &amp; PSD2", "AI risk analytics", "Digital transformation"],
-        "intro": "The region's banks have no shortage of technology. What they lack is a disciplined route from pilot to production, and a way of automating that does not simply encode yesterday's inefficiency at scale.",
+        "summary": "Enabling AI across the enterprise and delivering next-generation automation that creates genuine competitive advantage, from customer journeys to cloud-native digital banking ecosystems built for scale.",
+        "tags": ["Agentic AI automation", "AI enablement", "Open banking &amp; PSD2", "AI analytics", "Digital transformation"],
+        "intro": "Banks have no shortage of technology. What they lack is a disciplined route from pilot to production, and a way of automating that does not simply encode yesterday's inefficiency at scale.",
         "body": [
             ("Lean first, then automate",
              "Our Smart Ops framework builds a digital twin of the operation before a single bot is deployed. Waste is removed from the process first, controls are designed in, and only then is automation applied. The result is automation that pays back in weeks rather than a growing estate of bots maintaining a broken process."),
@@ -115,9 +115,9 @@ SERVICES = [
              "With SAMA's open banking framework and the CBUAE's open finance regulation now live, incumbents face a choice between compliance and advantage. We help banks design the API strategy, partner model and data governance that turns a regulatory obligation into new distribution."),
         ],
         "capabilities": [
-            "Smart Ops and process digital twin", "Intelligent automation and RPA", "Agentic AI deployment and governance",
+            "Smart Ops and process digital twin", "AI enablement and adoption", "Agentic AI automation and governance",
             "Digital banking proposition design", "Cloud-native architecture", "Open banking and open finance strategy",
-            "AI risk analytics", "Technology partner and vendor management",
+            "AI analytics", "Technology partner and vendor management",
         ],
         "outcomes": [("Minutes", "Customer onboarding time, down from days"), ("70%", "Reduction in manual processing time"), ("Weeks", "Time to first measurable ROI through quick-fix deployment")],
         "cases": ["digital-banking-launch", "automated-esg"],
@@ -137,7 +137,7 @@ SERVICES = [
             ("Front-to-back Lean",
              "A comprehensive Lean review of a global bank's primary loans and credit processes across London and New York eliminated manual waste, optimised risk-weighted asset allocation and released capital. Twenty-five million dollars of cost was taken out and 1.1 billion dollars of RWA reduction released 150 million dollars of capital, through disciplined process redesign rather than headcount theatre."),
             ("Cost-to-income, lever by lever",
-             "We decompose the cost-to-income ratio into the handful of levers that actually move it in a GCC bank: operations productivity, technology run cost, third-party spend, distribution footprint and the revenue denominator. Each lever gets an owner, a baseline and a monthly tracking cadence."),
+             "We decompose the cost-to-income ratio into the handful of levers that actually move it in a bank: operations productivity, technology run cost, third-party spend, distribution footprint and the revenue denominator. Each lever gets an owner, a baseline and a monthly tracking cadence."),
             ("Strategic sourcing and third-party spend",
              "Third-party spend is often the largest addressable cost pool and the least governed. We run category strategies, renegotiate the contracts that matter, and put in place the demand management that stops the saving leaking back."),
             ("Revenue and pricing",
@@ -159,14 +159,14 @@ SERVICES = [
         "short": "Risk, Control<br>&amp; ESG",
         "photo": "svc-risk-esg",
         "photo_pos": "center",
-        "summary": "Building robust governance frameworks and automated sustainability reporting to meet the GCC's rapidly evolving regulatory environment, from Basel III through to IFRS S1/S2.",
+        "summary": "Building robust governance frameworks and automated sustainability reporting to meet a rapidly evolving regulatory environment, from Basel III through to IFRS S1/S2.",
         "tags": ["ESG reporting (IFRS S1/S2)", "ESG national agenda framework", "AML / KYC remediation", "Basel III compliance", "Third-party risk management"],
-        "intro": "The regulatory agenda in the GCC is moving faster than most control functions can absorb. We help risk, compliance and finance leaders meet it with frameworks that are robust, automated where they should be, and defensible in front of the regulator.",
+        "intro": "The regulatory agenda is moving faster than most control functions can absorb. We help risk, compliance and finance leaders meet it with frameworks that are robust, automated where they should be, and defensible in front of the regulator.",
         "body": [
             ("ESG and sustainability reporting",
              "IFRS S1 and S2 adoption, UAE Decree-Law No. 11 and national sustainability agendas have turned ESG from a communications exercise into a reporting obligation with audit-grade expectations. At a large UAE bank we replaced manual, spreadsheet-based data collection with automated real-time dashboards, cutting processing time by 70 percent and saving over 1,200 hours a year."),
             ("Financial crime remediation",
-             "AML and KYC remediation programmes across the GCC, delivered by practitioners who have run financial crime operations. We fix the backlog, then fix the process that created it, so the remediation does not need to be repeated."),
+             "AML and KYC remediation programmes, delivered by practitioners who have run financial crime operations. We fix the backlog, then fix the process that created it, so the remediation does not need to be repeated."),
             ("Prudential and operational resilience",
              "Basel III implementation, ICAAP and ILAAP uplift, operational resilience frameworks and third-party risk management protocols that satisfy SAMA, CBUAE and QCB expectations without paralysing the business."),
             ("Risk governance that works",
@@ -188,21 +188,21 @@ SERVICES = [
         "short": "Human Capital<br>&amp; Change",
         "photo": "svc-human-capital",
         "photo_pos": "center",
-        "summary": "Managing the people dimension of transformation with the care it demands: workforce transitions, culture change, Saudization strategy and skills mapping that preserves capability while realising synergies.",
-        "tags": ["Workforce transition", "Saudization strategy", "Culture change", "Skills gap analysis"],
-        "intro": "Every transformation is ultimately a change in what people do on Monday morning. We treat the people workstream as the critical path it is, with the rigour of a synergy model and the care that institutions in this region rightly expect.",
+        "summary": "Managing the people dimension of transformation with the care it demands: workforce transitions, culture change, capability building and skills mapping that preserves capability while realising synergies.",
+        "tags": ["Workforce transition", "Capability building", "Culture change", "Skills gap analysis"],
+        "intro": "Every transformation is ultimately a change in what people do on Monday morning. We treat the people workstream as the critical path it is, with the rigour of a synergy model and the care that institutions rightly expect.",
         "body": [
             ("Workforce transition and synergy realisation",
              "For a non-bank financial institution merger we built a granular HR synergy model validating SAR 4.75 million of annual recurring savings across three scenarios, securing Board and SAMA approval with a six-to-twelve-month payback. Harmonisation logic, selection processes and retention of critical capability were designed together, not sequentially."),
-            ("Saudization and nationalisation strategy",
-             "Nitaqat targets and Emiratisation commitments are strategic constraints, not HR footnotes. We build workforce plans that meet them through capability building and role redesign, with the skills mapping and development pathways that make national talent a competitive advantage."),
+            ("Workforce and capability strategy",
+             "Workforce targets, including national talent commitments, are strategic constraints, not HR footnotes. We build workforce plans that meet them through capability building and role redesign, with the skills mapping and development pathways that make talent a competitive advantage."),
             ("Culture and change leadership",
              "Culture change that starts with what leaders do differently, measured through behaviours rather than surveys. Change management embedded in the transformation office, so adoption is planned with the same discipline as delivery."),
             ("Organisation design",
              "Spans, layers, role clarity and decision rights redesigned around the target operating model, with the grading and reward implications worked through before announcement rather than after."),
         ],
         "capabilities": [
-            "HR synergy modelling and realisation", "Workforce transition and selection", "Saudization and Emiratisation strategy",
+            "HR synergy modelling and realisation", "Workforce transition and selection", "Workforce planning and nationalisation",
             "Skills gap analysis and capability building", "Culture change", "Organisation design",
             "Change management and adoption", "Leadership alignment",
         ],
@@ -217,9 +217,9 @@ SERVICES = [
         "short": "Marketing<br>&amp; Growth",
         "photo": "svc-marketing",
         "photo_pos": "center",
-        "summary": "Proposition, pricing and go-to-market for financial institutions that need to win the next generation of GCC customers, grounded in commercial evidence rather than creative instinct alone.",
+        "summary": "Proposition, pricing and go-to-market for financial institutions that need to win the next generation of customers, grounded in commercial evidence rather than creative instinct alone.",
         "tags": ["Proposition design", "Pricing studies", "Customer acquisition", "Segment strategy"],
-        "intro": "Growth in GCC financial services is now a proposition contest. Digital challengers, super-apps and regional expansion have raised the bar on what customers expect from a bank, an insurer or a broker. We help incumbents compete on evidence.",
+        "intro": "Growth in financial services is now a proposition contest. Digital challengers, super-apps and cross-border expansion have raised the bar on what customers expect from a bank, an insurer or a broker. We help incumbents compete on evidence.",
         "body": [
             ("Proposition and segment strategy",
              "Which segments to win, what to offer them and how to be different from the bank next door. We combine customer research with product economics so the proposition is both desirable and profitable, and we have helped launch digital-only propositions that won the next generation of customers."),
@@ -235,7 +235,7 @@ SERVICES = [
             "Customer acquisition economics", "Partnership and ecosystem models", "Customer journey design",
             "Brand positioning", "Marketing effectiveness measurement",
         ],
-        "outcomes": [("Minutes", "Onboarding for a newly launched digital proposition"), ("Next-gen", "GCC customers won by a digital-only launch"), ("Evidence", "Pricing and proposition decisions grounded in data")],
+        "outcomes": [("Minutes", "Onboarding for a newly launched digital proposition"), ("Next-gen", "Customers won by a digital-only launch"), ("Evidence", "Pricing and proposition decisions grounded in data")],
         "cases": ["digital-banking-launch", "saudi-capital-markets"],
     },
 ]
@@ -250,7 +250,7 @@ CASES = [
         "metric": "Minutes",
         "metric_sub": "Customer onboarding, down from days",
         "title": "Omnichannel strategy and digital banking launch",
-        "client": "Local bank, GCC",
+        "client": "Domestic bank",
         "summary": "Enabled a local bank to launch a competitive digital-only proposition: cloud-native architecture, WhatsApp banking and instant onboarding.",
         "challenge": "A local bank was losing the next generation of customers to digital challengers and neighbouring incumbents. Onboarding took days, the branch-led model was expensive, and the technology estate could not support a modern proposition.",
         "did": "Designed the omnichannel strategy and digital-only proposition, selected and architected a cloud-native platform, launched WhatsApp banking and instant digital onboarding, and ran the programme through to launch with cost-to-income impact tracked from day one.",
@@ -274,10 +274,10 @@ CASES = [
         "slug": "saudi-capital-markets",
         "cat": "Strategy execution",
         "metric": "Top 5",
-        "metric_sub": "Market position in KSA · 6 initiatives ahead of schedule",
-        "title": "TMO-led strategic execution for a Saudi capital-markets institution",
-        "client": "Newly merged capital-markets institution, KSA",
-        "summary": "Positioned a newly merged capital-markets institution for a Top 5 position in KSA by 2027, delivering six key initiatives ahead of Board-committed dates.",
+        "metric_sub": "Target market position · 6 initiatives ahead of schedule",
+        "title": "TMO-led strategic execution for a capital-markets institution",
+        "client": "Newly merged capital-markets institution",
+        "summary": "Positioned a newly merged capital-markets institution for a Top 5 position in its market by 2027, delivering six key initiatives ahead of Board-committed dates.",
         "challenge": "Two merged institutions, one Board-approved Vision 2027 strategy, and no delivery engine capable of turning it into results with the visibility the Board and regulator expected.",
         "did": "Established a transformation management office as the single source of truth for scope, benefits and risk, prioritised the initiative portfolio, and ran delivery with rigorous governance and executive-grade reporting.",
         "outcome": "Six key initiatives delivered ahead of Board-committed dates, full executive visibility of execution and risk, and the institution on track for its Top 5 ambition.",
@@ -289,7 +289,7 @@ CASES = [
         "metric": "Zero",
         "metric_sub": "Disruption · 200,000+ customers · $205M of businesses",
         "title": "Transformation PMO for a multi-business integration",
-        "client": "Financial group, GCC",
+        "client": "Diversified financial group",
         "summary": "PMO-led integration of asset management, retail brokerage, margin lending and wealth management with legal-day readiness and a seamless day-one customer experience.",
         "challenge": "Four businesses, 205 million dollars of value and more than 200,000 customers had to be integrated to a fixed legal day, with no tolerance for customer disruption or regulatory surprise.",
         "did": "Ran the integration PMO: legal-day readiness across every function, transparent governance to the steering committee and regulator, customer-migration planning and day-one command centre.",
@@ -302,7 +302,7 @@ CASES = [
         "metric": "70%",
         "metric_sub": "Reduction in processing time · 1,200+ hours saved",
         "title": "Automated ESG reporting and compliance",
-        "client": "Large UAE bank",
+        "client": "Large national bank",
         "summary": "Replaced manual Excel-based ESG collection with Alteryx-powered real-time dashboards, with full compliance to IFRS S1/S2, UAE Decree-Law No. 11 and global standards.",
         "challenge": "ESG data was collected by hand across dozens of business units into spreadsheets, consuming thousands of hours a year and producing numbers nobody could fully defend as IFRS S1/S2 reporting approached.",
         "did": "Designed the ESG data model and control framework, automated collection and calculation using Alteryx, and delivered real-time dashboards mapped to IFRS S1/S2, UAE Decree-Law No. 11 and global standards.",
@@ -315,8 +315,8 @@ CASES = [
         "metric": "SAR 4.75M",
         "metric_sub": "Annual recurring HR synergies · 6 to 12 month payback",
         "title": "HR synergy realisation for an NBFI merger",
-        "client": "Non-bank financial institution, KSA",
-        "summary": "Granular HR synergy model validating SAR 4.75M in annual savings across three scenarios, securing Board and SAMA regulatory approval.",
+        "client": "Non-bank financial institution",
+        "summary": "Granular HR synergy model validating SAR 4.75M in annual savings across three scenarios, securing Board and regulatory approval.",
         "challenge": "A merger business case depended on people synergies that had been estimated top-down. The Board and SAMA needed a defensible, bottom-up model before approval, and the institution needed to keep the capability that made the deal worth doing.",
         "did": "Built a role-by-role synergy model across three scenarios, designed the harmonisation and selection logic, and prepared the Board and regulatory submissions.",
         "outcome": "SAR 4.75 million of annual recurring savings validated, a six-to-twelve-month payback, and approval from both the Board and SAMA.",
@@ -329,33 +329,33 @@ CASES = [
 # ---------------------------------------------------------------------------
 TEAM = [
     ("William", "William Higgins", "Managing Partner", "leadership",
-     "William has spent the last decade deeply embedded in the GCC financial sector, partnering with all of the major banks in the region on their most critical transformation journeys. This is built on a distinguished global career in senior C-suite roles at NatWest and ABN AMRO, where he managed multi-billion dollar P&amp;Ls and teams of over 15,000 people."),
+     "William has spent the last decade partnering with major banks on their most critical transformation journeys. This is built on a distinguished global career in senior C-suite roles at NatWest and ABN AMRO, where he managed multi-billion dollar P&amp;Ls and teams of over 15,000 people."),
     ("Colin", "Colin Macdonald", "Executive Chairman", "leadership",
-     "Colin has been a leading figure in GCC and international banking, serving as Deputy CEO of a major GCC bank, Group CEO of a major investment bank and Regional Head of a major full-service international bank. His leadership has guided large institutions through complex transformations and strategic shifts. With deep governance, risk and execution experience, Colin brings board-level and operational perspectives to Aspiro's client work."),
+     "Colin has been a leading figure in international banking, serving as Deputy CEO of a major bank, Group CEO of a major investment bank and Regional Head of a major full-service international bank. His leadership has guided large institutions through complex transformations and strategic shifts. With deep governance, risk and execution experience, Colin brings board-level and operational perspectives to Aspiro's client work."),
     ("Punit", "Punit Khanna", "Partner", "leadership",
-     "Punit has over 20 years of strategic and operational banking and consultancy experience at one of India's and the GCC's major banks and one of the GCC's leading management consultancies. He works across business and technology change with a focus on practical, outcome-oriented implementation."),
+     "Punit has over 20 years of strategic and operational banking and consultancy experience at a major international bank and a leading management consultancy. He works across business and technology change with a focus on practical, outcome-oriented implementation."),
     ("Lasse", "Lasse Hall", "Partner", "leadership",
-     "Lasse has over 25 years of strategic, operational and technical implementation experience in investment banking and wealth management at one of the leading Swiss banks and one of the major GCC banks. He specialises in front-to-back transformation, platform modernisation and delivery across complex product and client landscapes."),
+     "Lasse has over 25 years of strategic, operational and technical implementation experience in investment banking and wealth management at one of the leading Swiss banks and another major bank. He specialises in front-to-back transformation, platform modernisation and delivery across complex product and client landscapes."),
     ("Chis", "Chris Renardson", "Partner", "leadership",
-     "Chris has over 30 years of strategic and operational leadership experience at one of the GCC's major sovereign wealth funds and one of the GCC's leading listed corporations. He advises on enterprise performance, value creation and strategic change in large, complex organisations."),
+     "Chris has over 30 years of strategic and operational leadership experience at one of the world's major sovereign wealth funds and a leading listed corporation. He advises on enterprise performance, value creation and strategic change in large, complex organisations."),
     ("David", "David Goodyear", "Partner", "leadership",
-     "David has over 25 years of strategic and operational banking and consultancy experience at one of South Africa's and the GCC's major banks and one of Europe's and the GCC's major management consultancies. He focuses on end-to-end transformation, capability uplift and operational performance in financial services."),
+     "David has over 25 years of strategic and operational banking and consultancy experience at one of South Africa's major banks and one of Europe's major management consultancies. He focuses on end-to-end transformation, capability uplift and operational performance in financial services."),
     ("Jack-Donaldson", "Jack Donaldson", "Head of Marketing &amp; Communications", "leadership",
      "Jack is a dynamic marketing and communications leader with a proven record of driving brand growth, elevating storytelling and delivering measurable results across global markets. His experience spans London, New York and Sydney, blending creative vision with commercial precision for the world's leading banks and fintechs."),
     ("Brett", "Brett Maclagan", "Principal", "principals",
-     "Brett has over 25 years of global strategy and operational banking, telecoms and aviation experience at one of the world's leading management consultancies and one of the GCC's leading consulting firms. He brings deep expertise in operating model design, delivery acceleration and execution discipline."),
+     "Brett has over 25 years of global strategy and operational banking, telecoms and aviation experience at one of the world's leading management consultancies and a leading independent consulting firm. He brings deep expertise in operating model design, delivery acceleration and execution discipline."),
     ("Gaurav", "Gaurav Diwan", "Principal", "principals",
-     "Gaurav has over 20 years of strategic and operational banking and consultancy experience at one of Europe's major banks and one of the GCC's leading management consultancies. His experience covers transformation, operating model enhancement and large-scale programme execution."),
+     "Gaurav has over 20 years of strategic and operational banking and consultancy experience at one of Europe's major banks and a leading management consultancy. His experience covers transformation, operating model enhancement and large-scale programme execution."),
     ("Ashish", "Ashish Malhotra", "Principal", "principals",
-     "Ashish has over 20 years of strategic and operational banking and technology experience at one of India's major banks and one of the GCC's largest banks. He has delivered major initiatives in banking operations, systems and process transformation."),
+     "Ashish has over 20 years of strategic and operational banking and technology experience at two major banks, including one of India's largest. He has delivered major initiatives in banking operations, systems and process transformation."),
     ("Sunil", "Sunil Arora", "Principal", "principals",
-     "Sunil has over 20 years of strategic and operational banking and technology experience at one of India's major banks and one of the GCC's largest banks. He works at the intersection of business change and technology enablement for financial institutions."),
+     "Sunil has over 20 years of strategic and operational banking and technology experience at two major banks, including one of India's largest. He works at the intersection of business change and technology enablement for financial institutions."),
     ("Clark", "Clark Fisher", "Principal", "principals",
-     "Clark has over 15 years of strategic and operational banking and technology experience at one of the GCC's largest independent consulting firms and one of the GCC's largest banks. He supports transformation design and delivery across critical banking workstreams."),
+     "Clark has over 15 years of strategic and operational banking and technology experience at a large independent consulting firm and a major bank. He supports transformation design and delivery across critical banking workstreams."),
     ("Yusuf", "Yusuf Tarajia", "Senior Associate", "principals",
-     "Yusuf has over 10 years of strategic and operational banking and technology experience at one of the GCC's largest independent consulting firms and one of the GCC's largest banks. His focus includes analysis, delivery management and execution support for transformation programmes."),
+     "Yusuf has over 10 years of strategic and operational banking and technology experience at a large independent consulting firm and a major bank. His focus includes analysis, delivery management and execution support for transformation programmes."),
     ("Ayesha", "Ayesha Azhar", "Associate", "principals",
-     "Ayesha has over 10 years of strategic and operational banking and consultancy experience at one of the GCC's major independent consulting firms and one of the GCC's largest banks. She supports strategy and implementation delivery with a strong focus on practical outcomes."),
+     "Ayesha has over 10 years of strategic and operational banking and consultancy experience at a major independent consulting firm and a major bank. She supports strategy and implementation delivery with a strong focus on practical outcomes."),
 ]
 
 # ---------------------------------------------------------------------------
@@ -369,7 +369,7 @@ INSIGHTS = [
         "read": 6,
         "photo": "work-hero", "pos": "center",
         "title": "Financial crime compliance: more alerts is not more control",
-        "dek": "Transaction monitoring in many GCC banks produces more alerts than any team can investigate well. Tuning, segmentation and better case work improve both effectiveness and cost.",
+        "dek": "Transaction monitoring in many banks produces more alerts than any team can investigate well. Tuning, segmentation and better case work improve both effectiveness and cost.",
         "quote": "An alert that nobody has time to investigate properly is not a control. It is a liability with a timestamp.",
         "body": """
 <p>Regulatory expectations on financial crime in the region have risen sharply in recent years, and banks have responded in the most visible way available: more rules, more scenarios, lower thresholds and larger investigation teams. The result in many institutions is a monitoring system that generates far more alerts than it can handle, the large majority of which turn out to be nothing.</p>
@@ -396,7 +396,7 @@ INSIGHTS = [
         "read": 5,
         "photo": "svc-marketing", "pos": "center",
         "title": "Acquisition cost is the number bank marketing rarely measures",
-        "dek": "GCC banks spend heavily to win new customers and rarely know what each one costs, or whether it ever pays back. Unit economics turn a marketing budget into an investment case.",
+        "dek": "Banks spend heavily to win new customers and rarely know what each one costs, or whether it ever pays back. Unit economics turn a marketing budget into an investment case.",
         "quote": "If you cannot say what a customer costs to win, you cannot say whether you should win them.",
         "body": """
 <p>Ask a bank's marketing team how the last campaign performed and you will hear about reach, impressions and accounts opened. Ask what it cost to acquire a customer who is still active a year later, and the room usually goes quiet. The number exists in pieces across marketing, finance and operations. Almost nobody puts it together.</p>
@@ -420,7 +420,7 @@ INSIGHTS = [
         "read": 6,
         "photo": "approach", "pos": "center",
         "title": "Core banking replacement is a business decision, not an IT project",
-        "dek": "Several GCC banks are replacing or modernising their core platforms. The programmes that succeed are led by the business, sequenced by value and honest about what the old system was really doing.",
+        "dek": "Many banks are replacing or modernising their core platforms. The programmes that succeed are led by the business, sequenced by value and honest about what the old system was really doing.",
         "quote": "The old core is not just a system. It is fifteen years of business rules that nobody wrote down.",
         "body": """
 <p>Core banking replacement has a reputation, and it is mostly deserved. Programmes run late, budgets double and the new platform goes live with half the products it was meant to carry. Yet the case for modernisation in the region has rarely been stronger. Digital-only propositions, instant payment schemes and open finance all ask more of the core than platforms designed for branch banking can give.</p>
@@ -447,7 +447,7 @@ INSIGHTS = [
         "read": 6,
         "photo": "ins-strategy-execution-gap", "pos": "center",
         "title": "Why strategy dies in the gap between the Board and the front line",
-        "dek": "GCC banks do not lack ambition. They lack a delivery engine that survives the second quarter. Here is what separates the programmes that land from the ones that quietly stall.",
+        "dek": "Banks do not lack ambition. They lack a delivery engine that survives the second quarter. Here is what separates the programmes that land from the ones that quietly stall.",
         "quote": "A strategy the organisation cannot execute is a wish with a budget attached.",
         "body": """
 <p>Every bank in the region has a strategy. Most of them are good. They have been benchmarked, stress-tested by advisers and approved by a Board that understands the market. And yet, two years on, the same institutions are commissioning the same strategy again, because the first one was never really executed.</p>
@@ -495,7 +495,7 @@ INSIGHTS = [
         "date": "2026-08-05",
         "read": 6,
         "photo": "ins-ifrs-s1-s2-gcc-banks", "pos": "center",
-        "title": "IFRS S1 and S2 are here. Most GCC sustainability data is not ready.",
+        "title": "IFRS S1 and S2 are here. Most sustainability data is not ready.",
         "dek": "Sustainability reporting has moved from the communications team to the audit committee. The institutions that treat it as a data and control problem will be the ones that sleep at night.",
         "quote": "If your ESG number lives in a spreadsheet, it is an opinion, not a disclosure.",
         "body": """
@@ -518,8 +518,8 @@ INSIGHTS = [
         "date": "2026-07-22",
         "read": 7,
         "photo": "ins-post-merger-day-one", "pos": "center",
-        "title": "Day one is not the finish line: lessons from GCC bank integrations",
-        "dek": "The region has seen a wave of consolidation. The integrations that created value shared a small number of habits, and they were all in place long before legal day.",
+        "title": "Day one is not the finish line: lessons from bank integrations",
+        "dek": "Financial services has seen a wave of consolidation. The integrations that created value shared a small number of habits, and they were all in place long before legal day.",
         "quote": "Legal day is a date. Integration is a decision you take every week for two years.",
         "body": """
 <p>Consolidation in GCC financial services has accelerated: bank mergers in Saudi Arabia and the UAE, the combination of capital-markets businesses, and the folding of asset management, brokerage and wealth units into single groups. The announcements make headlines. The integrations decide whether the value in the announcement is ever realised.</p>
@@ -534,30 +534,7 @@ INSIGHTS = [
 <p>Attrition in the twelve months after a merger is the silent synergy killer. The banks that protect their franchise over-invest in front-line communication, keep relationship managers stable through the transition and measure customer sentiment weekly. It is cheaper than winning the customers back.</p>
 <p>Integration is a two-year discipline that starts before signature. Treat day one as the midpoint and the value case has a chance.</p>
 """,
-        "related": ["strategy-execution-gap", "saudization-workforce-transition"],
-    },
-    {
-        "slug": "saudization-workforce-transition",
-        "cat": "Human capital",
-        "date": "2026-07-08",
-        "read": 5,
-        "photo": "ins-saudization-workforce-transition", "pos": "center",
-        "title": "Saudization as strategy: building national capability that competes",
-        "dek": "Nationalisation targets are treated as compliance in too many institutions. The leaders are using them to build a workforce advantage their competitors cannot buy.",
-        "quote": "A nationalisation target met by relabelling roles is a liability. One met by building capability is a moat.",
-        "body": """
-<p>Nitaqat in Saudi Arabia, Emiratisation targets in the UAE and equivalent programmes across the Gulf have been part of the operating environment for years. Most financial institutions meet them. Far fewer treat them as the strategic lever they are.</p>
-<p>The difference shows up in the numbers. Institutions that approach nationalisation as a quota fill roles and watch attrition erode the ratio. Those that approach it as capability building end up with a workforce that is younger, more digitally native and more committed than the expatriate-heavy model it replaced.</p>
-<h2>Start from the skills the strategy needs</h2>
-<p>The mistake is to start from the ratio. The better starting point is the target operating model: which capabilities does the bank need in three years, in data, risk, digital product and client coverage? A skills gap analysis against that model tells you where national talent can be developed, where it must be hired and where the role itself should be redesigned.</p>
-<h2>Design the pathway, not just the hire</h2>
-<p>A graduate programme that feeds people into roles with no progression is a retention problem waiting to happen. The institutions doing this well design multi-year pathways with rotations, certification and visible sponsorship from the executive committee. They measure time-to-competence, not just headcount.</p>
-<h2>Handle transition with care</h2>
-<p>Workforce transition in a merger or transformation is where nationalisation strategy meets its hardest test. Harmonisation logic, selection processes and the retention of critical expatriate knowledge during the handover have to be designed together. Done well, a transition accelerates the national talent agenda. Done badly, it costs capability the institution cannot replace.</p>
-<h2>The measure that matters</h2>
-<p>Track the share of leadership roles held by nationals who were developed internally. It is the only number that tells you whether the programme is building capability or counting heads.</p>
-""",
-        "related": ["post-merger-day-one", "strategy-execution-gap"],
+        "related": ["strategy-execution-gap", "cost-to-income-levers"],
     },
     {
         "slug": "agentic-ai-bank-operations",
@@ -566,7 +543,7 @@ INSIGHTS = [
         "read": 8,
         "photo": "ins-agentic-ai-bank-operations", "pos": "center",
         "title": "Agentic AI in bank operations: where the value actually lands",
-        "dek": "Beyond the demos, a small number of use cases are delivering hard returns in regional banks. They share three characteristics, and none of them is the sophistication of the model.",
+        "dek": "Beyond the demos, a small number of use cases are delivering hard returns in banks. They share three characteristics, and none of them is the sophistication of the model.",
         "quote": "The winning question is not what the agent can do. It is which process has a baseline, an owner and a regulator who will accept the answer.",
         "body": """
 <p>Agentic AI, systems that can plan, act across tools and complete multi-step work with limited supervision, has moved from research into the operating plans of every major bank in the region. The demonstrations are impressive. The production results are more uneven, and the pattern of where they succeed is instructive.</p>
@@ -616,7 +593,7 @@ INSIGHTS = [
         "date": "2026-05-27",
         "read": 6,
         "photo": "ins-open-finance-incumbents", "pos": "center",
-        "title": "Open finance in the Gulf: compliance obligation or distribution strategy?",
+        "title": "Open finance: compliance obligation or distribution strategy?",
         "dek": "SAMA's open banking framework and the CBUAE's open finance regulation give incumbents a choice. Most are choosing compliance. A few are choosing advantage.",
         "quote": "The API you expose to satisfy the regulator is the same API a competitor will use to reach your customers.",
         "body": """
@@ -641,7 +618,7 @@ INSIGHTS = [
         "read": 6,
         "photo": "ins-operational-resilience-tprm", "pos": "center",
         "title": "Operational resilience and third-party risk: the questionnaire is not a control",
-        "dek": "As GCC regulators sharpen their expectations on resilience and outsourcing, the annual vendor questionnaire looks increasingly like a ritual. What good looks like is more demanding and more useful.",
+        "dek": "As regulators sharpen their expectations on resilience and outsourcing, the annual vendor questionnaire looks increasingly like a ritual. What good looks like is more demanding and more useful.",
         "quote": "You cannot outsource a process to a vendor and outsource the accountability with it.",
         "body": """
 <p>The dependence of regional banks on third parties has grown faster than the frameworks that govern it. Core banking in the cloud, payments processed by fintech partners, KYC run on external platforms and entire operations functions delivered by outsourcers. Regulators across the Gulf have noticed, and their expectations on operational resilience and third-party risk management now go well beyond a signed contract and an annual questionnaire.</p>
@@ -663,7 +640,7 @@ INSIGHTS = [
         "date": "2026-04-15",
         "read": 5,
         "photo": "ins-pricing-fastest-revenue-lever", "pos": "center",
-        "title": "Pricing is the fastest revenue lever most GCC banks never pull deliberately",
+        "title": "Pricing is the fastest revenue lever most banks never pull deliberately",
         "dek": "Fee structures set years ago, rate cards that follow the competitor and bundles nobody has costed. A disciplined pricing study routinely finds revenue that costs nothing to deliver.",
         "quote": "Every bank has a pricing strategy. Most of them are just unaware of what it is.",
         "body": """
@@ -693,7 +670,7 @@ WHITEPAPERS = [
         "series": "Point of view · Volume II · 2026",
         "cat": "AI &amp; Digital",
         "audience": "For chief operating officers",
-        "dek": "Agentic AI is moving from demonstration to production in GCC banks. The returns go to institutions that give every agent a baseline, an owner and controls the regulator will accept.",
+        "dek": "Agentic AI is moving from demonstration to production in banks. The returns go to institutions that give every agent a baseline, an owner and controls the regulator will accept.",
         "stat": ("70%", "Reduction in processing time once a UAE bank measured, redesigned and automated"),
         "pages": 6, "size": "0.8 MB",
         "insight": "agentic-ai-bank-operations",
@@ -707,7 +684,7 @@ WHITEPAPERS = [
         "series": "Point of view · Volume II · 2026",
         "cat": "Marketing &amp; Growth",
         "audience": "For retail and commercial banking heads",
-        "dek": "Most GCC banks set price once and let waivers, legacy tariffs and uncollected fees decide the rest. Where the revenue leaks, and the governance that keeps it.",
+        "dek": "Most banks set price once and let waivers, legacy tariffs and uncollected fees decide the rest. Where the revenue leaks, and the governance that keeps it.",
         "stat": ("Five", "Places revenue leaks between the tariff and the ledger"),
         "pages": 6, "size": "0.9 MB",
         "insight": "pricing-fastest-revenue-lever",
@@ -721,7 +698,7 @@ WHITEPAPERS = [
         "series": "Point of view · 2026",
         "cat": "Transformation",
         "audience": "For chief executives",
-        "dek": "Why execution certainty, not another strategy refresh, is the scarce asset on the GCC board agenda, and how a Transformation Management Office changes the physics of delivery.",
+        "dek": "Why execution certainty, not another strategy refresh, is the scarce asset on the board agenda, and how a Transformation Management Office changes the physics of delivery.",
         "stat": ("Top 5", "Market positioning in KSA, six initiatives ahead of Board dates"),
         "pages": 4, "size": "1.8 MB",
         "insight": "strategy-execution-gap",
@@ -763,25 +740,11 @@ WHITEPAPERS = [
         "series": "Point of view · Volume II · 2026",
         "cat": "Cost optimisation",
         "audience": "For finance and digital officers",
-        "dek": "As GCC interest margins compress, the cost-to-income ratio becomes the margin you can control. Four levers on the ratio, with the evidence in numbers.",
+        "dek": "As interest margins compress, the cost-to-income ratio becomes the margin you can control. Four levers on the ratio, with the evidence in numbers.",
         "stat": ("32.0%", "GCC average cost-to-income ratio, H1 2025"),
         "pages": 6, "size": "2.6 MB",
         "insight": "cost-to-income-levers",
         "service": "revenue-cost",
-    },
-    {
-        "slug": "saudization-is-a-capability-strategy",
-        "photo": "svc-human-capital", "pos": "center",
-        "title": "Saudization is a <em>capability</em> strategy",
-        "plain": "Saudization is a capability strategy",
-        "series": "Point of view · Volume II · 2026",
-        "cat": "Human capital",
-        "audience": "For human capital leaders",
-        "dek": "Why the institutions that treat nationalisation as workforce design will out-hire, out-retain and out-perform those that treat it as compliance.",
-        "stat": ("SAR 4.75M", "Annual HR synergies validated by Board and SAMA"),
-        "pages": 6, "size": "2.4 MB",
-        "insight": "saudization-workforce-transition",
-        "service": "human-capital",
     },
     {
         "slug": "the-first-hundred-days-decide-the-deal",

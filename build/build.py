@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import SITE, NAV, STATS, CLIENT_LOGOS, FILM, ICONS, SERVICES, CASES, TEAM, INSIGHTS, WHITEPAPERS  # noqa
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "27"
+V = "28"
 TODAY = datetime.date.today().isoformat()
 
 PHOTOS = {"hero": (1024, 640), "smartops": (1200, 700)}  # portrait hero; every other photo is 1536x1024 landscape
@@ -127,7 +127,7 @@ def footer():
       <div class="footer-inner footer-inner--4">
         <div class="footer-brand">
           <a href="/" class="logo" aria-label="Aspiro home"><img class="logo-img" src="/public/LogoAspiro.png" alt="Aspiro" width="464" height="120" /></a>
-          <p>Independent management consultancy engineering transformation outcomes for GCC financial services since {SITE['founded']}. Practitioner-led. Investor-free.</p>
+          <p>Independent enterprise transformation and digital partner, delivering outcomes for financial services since {SITE['founded']}. Practitioner-led. Investor-free.</p>
           <p class="footer-strap"><em>Leading with clarity.<br>Delivering the difference.</em></p>
         </div>
         <div class="footer-col"><h4>Services</h4><ul>{svc}</ul></div>
@@ -323,12 +323,18 @@ BIO_DIALOG = '''
 </dialog>'''
 
 
+# Square logos read smaller than wide ones at the same height, so they get extra height.
+SQUARE_LOGOS = {"Mashreq"}
+NUM_WORDS = {4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten", 11: "Eleven", 12: "Twelve"}
+
+
 def clients_section():
-    imgs = "".join(f'<img class="client-logo" src="/public/bank-logos/{f}.webp" alt="{a}" loading="lazy" />' for f, a in CLIENT_LOGOS)
-    imgs2 = "".join(f'<img class="client-logo" src="/public/bank-logos/{f}.webp" alt="" loading="lazy" />' for f, a in CLIENT_LOGOS)
+    cls = lambda f: "client-logo client-logo--square" if f in SQUARE_LOGOS else "client-logo"
+    imgs = "".join(f'<img class="{cls(f)}" src="/public/bank-logos/{f}.webp?v={V}" alt="{a}" loading="lazy" />' for f, a in CLIENT_LOGOS)
+    imgs2 = "".join(f'<img class="{cls(f)}" src="/public/bank-logos/{f}.webp?v={V}" alt="" loading="lazy" />' for f, a in CLIENT_LOGOS)
     return f'''
 <section class="clients" aria-label="Clients">
-  <div class="container"><p class="clients-title">Trusted by leading financial institutions across the GCC and beyond</p></div>
+  <div class="container"><p class="clients-title">Trusted by leading financial institutions</p></div>
   <div class="marquee" aria-hidden="true"><div class="marquee-track"><div class="marquee-group">{imgs}</div><div class="marquee-group" aria-hidden="true">{imgs2}</div></div></div>
 </section>'''
 
@@ -370,19 +376,19 @@ def build_home():
              ("02", "Design", "The <em>how</em>", "Translating strategic intent into detailed operating models."),
              ("03", "Implementation", "The <em>now</em>", "Ensuring strategy survives contact with reality.")]
     steps_html = "".join(f'''<li class="step step--compact reveal{D[i]}"><div class="step-top"><span class="step-label">{lab}</span><span class="step-num">{n}</span></div><h3 class="step-name">{name}</h3><p class="step-quote">{q}</p></li>''' for i, (n, lab, name, q) in enumerate(steps))
-    jsonld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"ProfessionalService","name":"{SITE['name']}","alternateName":"Aspiro","url":"{SITE['domain']}/","logo":"{SITE['domain']}/public/icon-512.png","image":"{SITE['domain']}/public/og-image.jpg","foundingDate":"{SITE['founded']}","description":"Independent, practitioner-led management consultancy engineering transformation outcomes for GCC financial institutions.","email":"{SITE['email']}","telephone":"{SITE['phone_tel']}","address":{{"@type":"PostalAddress","streetAddress":"Office 102-031, Montana Building, Al Karama","addressLocality":"Dubai","addressCountry":"AE"}},"areaServed":["AE","SA","QA","GB"],"sameAs":["{SITE['linkedin']}"]}}</script>'''
+    jsonld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"ProfessionalService","name":"{SITE['name']}","alternateName":"Aspiro","url":"{SITE['domain']}/","logo":"{SITE['domain']}/public/icon-512.png","image":"{SITE['domain']}/public/og-image.jpg","foundingDate":"{SITE['founded']}","description":"Independent, practitioner-led enterprise transformation and digital partner delivering outcomes for financial institutions.","email":"{SITE['email']}","telephone":"{SITE['phone_tel']}","address":{{"@type":"PostalAddress","streetAddress":"Office 102-031, Montana Building, Al Karama","addressLocality":"Dubai","addressCountry":"AE"}},"areaServed":["AE","SA","QA","GB"],"sameAs":["{SITE['linkedin']}"]}}</script>'''
     body = f'''
 <section class="hero" id="home" aria-label="Introduction">
   <div class="container hero-inner">
     <div class="hero-copy">
       <h1 class="hero-headline reveal">We engineer <span class="word-slot" aria-hidden="true"><span class="word-slot-inner">clarity</span></span><span class="sr-only">clarity</span> for the most ambitious financial institutions.</h1>
-      <p class="hero-tagline reveal reveal-d1">Independent. Practitioner-led. Investor-free. We move from strategy to execution fast, so outcomes land sooner rather than later.</p>
+      <p class="hero-tagline reveal reveal-d1">Independent. Practitioner-led. Investor-free. We don't stop at the strategy. We deliver it, with AI and automation built in, so outcomes land sooner rather than later.</p>
       <div class="hero-actions reveal reveal-d2">
         <a href="/contact.html" class="btn btn-primary btn-lg">Start a conversation</a>
         <a href="/work.html" class="btn btn-ghost btn-lg">See our work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
-    <figure class="hero-media reveal reveal-d1">{picture("hero", "Glass office tower at dusk in a Gulf financial district", "(max-width: 900px) 100vw, 42vw", priority=True)}</figure>
+    <figure class="hero-media reveal reveal-d1">{picture("hero", "Glass office tower at dusk in a financial district", "(max-width: 900px) 100vw, 42vw", priority=True)}</figure>
   </div>
   {stats_row()}
 </section>
@@ -394,11 +400,11 @@ def build_home():
       <div class="about-left">
         {label("Who we are")}
         <h2 class="t-title reveal">We don't just advise.<br>We <em>engineer</em> outcomes.</h2>
-        <p class="t-lead reveal reveal-d1">Aspiro is an independent management consultancy, founded in Dubai in {SITE['founded']}, that helps GCC financial institutions transform, grow and thrive.</p>
+        <p class="t-lead reveal reveal-d1">Aspiro is an independent enterprise transformation and digital partner, founded in {SITE['founded']}, that helps financial institutions transform, grow and thrive.</p>
       </div>
       <div class="about-right">
         <div class="about-body">
-          <p class="reveal">We reject the heavy-infrastructure model of the 20th century. We do not maintain passive global hubs. We deploy active practitioner teams wherever you are, coordinated by senior leadership deeply rooted in the GCC.</p>
+          <p class="reveal">We reject the heavy-infrastructure model of the 20th century. We do not maintain passive global hubs. We deploy active practitioner teams wherever you are, coordinated by senior leadership with decades inside the industry.</p>
           <p class="reveal reveal-d1">Born independent, with no external investors, we reject the "land and expand" model of traditional firms. Our advice serves your interests alone. We are practitioners who have sat in your seat.</p>
         </div>
         <a href="/about.html" class="link-arrow reveal reveal-d2">More about Aspiro <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -412,7 +418,7 @@ def build_home():
   <div class="container">
     <div class="section-head section-head--split reveal">
       <div>{label("What we do")}<h2 class="t-title">Six practices. One accountable team.</h2></div>
-      <p class="section-note">End-to-end capability across the financial services value chain, every practice led by people who have held the roles they advise on.</p>
+      <p class="section-note">End-to-end capability across the financial services value chain, from AI enablement to delivery, every practice led by people who have held the roles they advise on.</p>
     </div>
     <div class="svc-cards">{services}</div>
     <p class="section-more reveal"><a href="/services.html" class="btn btn-ghost">All services</a></p>
@@ -435,7 +441,7 @@ def build_home():
   <div class="container">
     <div class="section-head section-head--split reveal">
       <div>{label("Our work")}<h2 class="t-title">Outcomes delivered.<br>Results that <em>speak</em>.</h2></div>
-      <p class="section-note">A selection of recent engagements across the region's largest banks, capital-markets institutions and insurers.</p>
+      <p class="section-note">A selection of recent engagements for leading banks, capital-markets institutions and insurers.</p>
     </div>
     <div class="cases-grid">{cases}</div>
     <p class="section-more reveal"><a href="/work.html" class="btn btn-ghost">All case studies</a></p>
@@ -446,7 +452,7 @@ def build_home():
   <div class="container">
     <div class="section-head section-head--split reveal">
       <div>{label("Insights")}<h2 class="t-title">Perspectives from the <em>practitioners</em>.</h2></div>
-      <p class="section-note">Points of view on the questions GCC financial services leaders are asking now.</p>
+      <p class="section-note">Points of view on the questions financial services leaders are asking now.</p>
     </div>
     <div class="insights-grid">{insights}</div>
     <p class="section-more reveal"><a href="/insights.html" class="btn btn-ghost">All insights</a></p>
@@ -457,7 +463,7 @@ def build_home():
   <div class="container">
     <div class="section-head section-head--split reveal">
       <div>{label("Whitepapers")}<h2 class="t-title">Points of view, in <em>depth</em>.</h2></div>
-      <p class="section-note">Six short papers for the executive agenda: execution, automation, disclosure, efficiency, nationalisation and integration.</p>
+      <p class="section-note">{NUM_WORDS.get(len(WHITEPAPERS), len(WHITEPAPERS))} short papers for the executive agenda: AI, pricing, execution, automation, disclosure, efficiency and integration.</p>
     </div>
     <div class="wp-grid">{"".join(wp_card(w, D[i], compact=True) for i, w in enumerate(WHITEPAPERS[:3]))}</div>
     <p class="section-more reveal"><a href="/insights.html#whitepapers" class="btn btn-ghost">All whitepapers</a></p>
@@ -466,23 +472,23 @@ def build_home():
 {GATE_DIALOG}
 {cta_band()}
 '''
-    return page("/index.html", "Aspiro | Management Consultancy for GCC Financial Services",
-                "Aspiro is an independent, practitioner-led management consultancy engineering transformation outcomes for the GCC's most ambitious banks and financial institutions.",
+    return page("/index.html", "Aspiro | Enterprise Transformation and Digital Partner",
+                "Aspiro is an independent, practitioner-led enterprise transformation and digital partner delivering outcomes for ambitious banks and financial institutions.",
                 None, body, jsonld=jsonld)
 
 
 def build_about():
     pillars = [("Independent", "No external investors, no alliance obligations, no referral fees. Our advice serves your interests alone."),
                ("Practitioner-led", "Every engagement is led by people who have run banks, not just advised them. Veterans with 20+ years, augmented by modern data science."),
-               ("Outcome-based", "We are measured on results that land on the P&amp;L, the balance sheet and the regulator's desk, not on slides delivered.")]
+               ("Outcome-based", "We are measured on results that land on the P&amp;L, the balance sheet and the customer experience, not on slides delivered.")]
     pillars_html = "".join(f'<article class="pillar-card reveal{D[i]}"><span class="adv-num">0{i + 1}</span><h3>{t}</h3><p>{p}</p></article>' for i, (t, p) in enumerate(pillars))
     leaders = "".join(person_card(*t[:3], t[4], D[i]) for i, t in enumerate(TEAM[:4]))
     offices = [("Dubai", "Headquarters", "Office 102-031, Montana Building<br>Al Karama, Dubai, UAE"),
-               ("Riyadh", "Kingdom of Saudi Arabia", "Serving SAMA-regulated banks, capital-markets institutions and NBFIs across the Kingdom."),
+               ("Riyadh", "Kingdom of Saudi Arabia", "Senior practitioners on the ground for banks, capital-markets institutions and NBFIs."),
                ("London", "United Kingdom", "Access to global best practice and our international specialist network.")]
     offices_html = "".join(f'<div class="office reveal{D[i]}"><h3>{c}</h3><p class="office-sub">{s}</p><p>{d}</p></div>' for i, (c, s, d) in enumerate(offices))
     body = page_hero("About Aspiro", "Independent by design.<br>Practitioner-led by <em>conviction</em>.",
-                     "Founded in Dubai in 2015, Aspiro is a boutique management consultancy built by senior bankers for the financial institutions of the GCC.",
+                     "Founded in 2015, Aspiro is an enterprise transformation and digital partner built by senior bankers for financial institutions.",
                      photo="about-hero", pos="center") + f'''
 <section class="section">
   <div class="container">
@@ -492,9 +498,9 @@ def build_about():
         <h2 class="t-title reveal">Built by people who have <em>sat in your seat</em>.</h2>
       </div>
       <div class="about-right about-body">
-        <p class="reveal">Aspiro was founded in {SITE['founded']} by senior financial services executives who had spent their careers running businesses inside the region's largest banks. They had bought a great deal of consulting, and they had a clear view of what was wrong with it: junior teams, generic frameworks, and a commercial model that rewarded the length of the engagement rather than the outcome.</p>
-        <p class="reveal reveal-d1">We built the firm we had wanted to hire. Small enough to be led by partners on every engagement. Independent enough to say what is right rather than what is welcome. Connected enough, through an elastic network of more than 8,000 specialists, to bring global best practice to a GCC boardroom without the overhead of a global firm.</p>
-        <p class="reveal reveal-d2">A decade on, we have partnered with all of the major banks in the region and delivered more than 24 major transformation programmes. Our headquarters remain in Dubai, with a presence in Riyadh and London.</p>
+        <p class="reveal">Aspiro was founded in {SITE['founded']} by senior financial services executives who had spent their careers running businesses inside major banks. They had bought a great deal of consulting, and they had a clear view of what was wrong with it: junior teams, generic frameworks, and a commercial model that rewarded the length of the engagement rather than the outcome.</p>
+        <p class="reveal reveal-d1">We built the firm we had wanted to hire. Small enough to be led by partners on every engagement. Independent enough to say what is right rather than what is welcome. Connected enough, through an elastic network of more than 8,000 specialists, to bring global best practice to any boardroom without the overhead of a global firm.</p>
+        <p class="reveal reveal-d2">A decade on, we have delivered more than 93 major transformation programmes. Our headquarters remain in Dubai, with a presence in Riyadh and London.</p>
       </div>
     </div>
     <dl class="facts reveal">
@@ -526,7 +532,7 @@ def build_about():
     <div class="adv-grid">
       <article class="adv-card reveal"><div class="adv-num">01</div><h3>Practitioner-led wisdom</h3><p>Veterans with 20+ years in banking, not fresh graduates, augmented by AI-driven market insight. The scars of experience combined with the precision of modern data science.</p></article>
       <article class="adv-card reveal reveal-d1"><div class="adv-num">02</div><h3>Asymmetric speed via Smart Ops</h3><p>Agentic AI workflows and our proprietary Smart Ops framework compress the strategy-to-execution cycle. We move from diagnosis to deployment while competitors are still drafting the RFP.</p></article>
-      <article class="adv-card reveal reveal-d2"><div class="adv-num">03</div><h3>Global reach, local roots</h3><p>Green finance from London, payments architecture from Singapore, AI governance from Silicon Valley, delivered by a team whose senior leadership has spent decades in the GCC.</p></article>
+      <article class="adv-card reveal reveal-d2"><div class="adv-num">03</div><h3>Global reach, local roots</h3><p>Green finance from London, payments architecture from Singapore, AI governance from Silicon Valley, delivered by a team whose senior leadership has spent decades running banks.</p></article>
     </div>
     <div class="partner-note reveal">
       <p><strong>Our technology partner.</strong> Where an engagement requires software build and technology execution, we work with ATS5E, our strategic technology partner, so advisory depth and technical delivery come from one accountable team.</p>
@@ -537,7 +543,7 @@ def build_about():
 <section class="section section--dark">
   <div class="section-bg" aria-hidden="true">{picture("contact", "", "100vw", pos="center 70%")}</div>
   <div class="container">
-    <div class="section-head reveal">{label("Where we are", True)}<h2 class="t-title t-title--light">Based in the GCC. Operating wherever you are.</h2></div>
+    <div class="section-head reveal">{label("Where we are", True)}<h2 class="t-title t-title--light">Headquartered in Dubai. Operating wherever you are.</h2></div>
     <div class="office-grid">{offices_html}</div>
   </div>
 </section>
@@ -554,8 +560,8 @@ def build_about():
 {BIO_DIALOG}
 {cta_band()}
 '''
-    return page("/about.html", "About Aspiro | Independent GCC Financial Services Consultancy",
-                "Founded in Dubai in 2015, Aspiro is an independent, partner-owned management consultancy built by senior bankers for GCC financial institutions.", "About", body)
+    return page("/about.html", "About Aspiro | Independent Transformation and Digital Partner",
+                "Founded in 2015, Aspiro is an independent, partner-owned enterprise transformation and digital partner built by senior bankers for financial institutions.", "About", body)
 
 
 def build_services():
@@ -586,7 +592,7 @@ def build_services():
 {cta_band()}
 '''
     return page("/services.html", "Services | Aspiro Management Consultants",
-                "Transformation, AI and digital, revenue and cost optimisation, risk and ESG, human capital and marketing for GCC financial institutions.", "Services", body)
+                "Transformation, AI and digital, revenue and cost optimisation, risk and ESG, human capital and marketing for financial institutions.", "Services", body)
 
 
 def timeline():
@@ -658,9 +664,9 @@ def build_approach():
                   ("Transparent time and materials", "Where scope must flex, rates and effort are visible weekly, with no surprises at month end."),
                   ("Value-linked milestones", "Where outcomes can be measured, a portion of our fee is tied to them. We are comfortable being paid on results.")]
     commercial_html = "".join(f'<div class="principle-card reveal{D[i]}"><h3>{t}</h3><p>{p}</p></div>' for i, (t, p) in enumerate(commercial))
-    csuite = [("CEO", "Chief Executive Officer", "Growth strategy, legacy consolidation and M&amp;A execution at scale.", "<strong>M&amp;A integration and strategy execution.</strong> Led the integration of the Kingdom's largest lenders. Delivered a Vision 2027 strategy. Established the target operating model as the single source of truth, giving the CEO and Board full visibility of execution and risk."),
+    csuite = [("CEO", "Chief Executive Officer", "Growth strategy, legacy consolidation and M&amp;A execution at scale.", "<strong>M&amp;A integration and strategy execution.</strong> Led the integration of market-leading lenders. Delivered a Vision 2027 strategy. Established the target operating model as the single source of truth, giving the CEO and Board full visibility of execution and risk."),
               ("COO / CIO", "Operations &amp; Technology", "Operational efficiency, digitalisation at scale and platform scalability.", "<strong>Digital transformation and Smart Ops.</strong> Implemented omnichannel banking with cloud-native architecture, WhatsApp banking and instant onboarding. Reduced manual processing by 70% through automation."),
-              ("CRO", "Chief Risk Officer", "Regulatory compliance, operational resilience and risk governance frameworks.", "<strong>Operational resilience and risk governance.</strong> Basel III compliance. Third-party risk protocols. AML/KYC remediation across the GCC. 70% reduction in ESG processing time with full IFRS S1/S2 compliance."),
+              ("CRO", "Chief Risk Officer", "Regulatory compliance, operational resilience and risk governance frameworks.", "<strong>Operational resilience and risk governance.</strong> Basel III compliance. Third-party risk protocols. AML/KYC remediation. 70% reduction in ESG processing time with full IFRS S1/S2 compliance."),
               ("CFO", "Chief Financial Officer", "Profitability improvement, cost control and synergy realisation.", "<strong>Cost optimisation and synergy tracking.</strong> $25M cost savings. SAR 4.75M annual HR synergies with a 6 to 12 month payback. $1.1bn RWA reduction releasing $150M of capital.")]
     csuite_html = "".join(f'''<div class="csuite-row reveal{D[i]}"><div class="csuite-role"><span class="csuite-role-title">{r}</span><span class="csuite-role-sub">{sub}</span></div><div class="csuite-col"><p class="csuite-col-label">Your challenge</p><p class="csuite-pain">{pain}</p></div><div class="csuite-col"><p class="csuite-col-label">How we help</p><p class="csuite-solution">{sol}</p></div></div>''' for i, (r, sub, pain, sol) in enumerate(csuite))
     pillars = [("Map the operation first", "Every process, control and risk in scope is captured in one structured, living model of how the work really gets done, so the waste is visible before anything is changed."),
@@ -726,7 +732,7 @@ def build_approach():
         <div class="outcomes">
           <div class="outcome reveal"><p class="outcome-num">$25M</p><p class="outcome-desc">Cost savings realised through efficiency gains and waste reduction in a single global bank engagement.</p></div>
           <div class="outcome reveal reveal-d1"><p class="outcome-num">$1.1bn</p><p class="outcome-desc">RWA reduction from redesigned credit processes, releasing $150M of capital.</p></div>
-          <div class="outcome reveal reveal-d2"><p class="outcome-num">70%</p><p class="outcome-desc">Reduction in manual processing time through automation and intelligent workflow redesign.</p></div>
+          <div class="outcome reveal reveal-d2"><p class="outcome-num">70%</p><p class="outcome-desc">Reduction in manual processing time through automation and customer journey redesign.</p></div>
           <div class="outcome reveal reveal-d3"><p class="outcome-num">Weeks</p><p class="outcome-desc">Speed to value. ROI realised within weeks through quick-fix deployment.</p></div>
         </div>
       </div>
@@ -770,7 +776,7 @@ def build_work():
   </div>
 </article>''' for c in CASES)
     body = page_hero("Our work", "Outcomes delivered.<br>Results that <em>speak</em>.",
-                     "A selection of engagements across the region's largest banks, capital-markets institutions and insurers. Client names are withheld; the numbers are real.",
+                     "A selection of engagements for leading banks, capital-markets institutions and insurers. Client names are withheld; the numbers are real.",
                      photo="work-hero", pos="center") + f'''
 <section class="section"><div class="container"><div class="cases-grid">{cards}</div></div></section>
 <section class="section section--tint">
@@ -782,7 +788,7 @@ def build_work():
 {cta_band()}
 '''
     return page("/work.html", "Our Work | Case Studies | Aspiro",
-                "Case studies from Aspiro engagements: digital banking launch, $25M Lean savings, Saudi capital-markets execution, zero-disruption integration, automated ESG reporting.", "Work", body)
+                "Case studies from Aspiro engagements: digital banking launch, $25M Lean savings, capital-markets strategy execution, zero-disruption integration, automated ESG reporting.", "Work", body)
 
 
 def build_people():
@@ -808,7 +814,7 @@ def build_people():
 {cta_band("Work with people who have <em>sat in your seat</em>.", "Tell us about the challenge on your desk. A partner will come back to you within one business day.")}
 '''
     return page("/people.html", "Our People | Aspiro Management Consultants",
-                "Meet the partners and principals of Aspiro: senior practitioners from the GCC's largest banks and the world's leading consultancies.", "People", body)
+                "Meet the partners and principals of Aspiro: senior practitioners from major banks and the world's leading consultancies.", "People", body)
 
 
 def build_insights_index():
@@ -822,7 +828,7 @@ def build_insights_index():
     cards = "".join(insight_card(i, D[n % 3]) for n, i in enumerate(INSIGHTS))
     total = len(WHITEPAPERS) + len(INSIGHTS)
     body = page_hero("Insights", "Perspectives from the <em>practitioners</em>.",
-                     f"{len(WHITEPAPERS)} whitepapers and {len(INSIGHTS)} articles on the questions GCC financial services leaders are asking now: execution, automation, regulation, cost and growth. Written by people who have done the work.") + f'''
+                     f"{len(WHITEPAPERS)} whitepapers and {len(INSIGHTS)} articles on the questions financial services leaders are asking now: execution, automation, regulation, cost and growth. Written by people who have done the work.") + f'''
 <div class="ins-toolbar" data-ins-toolbar>
   <div class="container ins-toolbar-inner">
     <div class="ins-types" role="group" aria-label="Type">
@@ -875,7 +881,7 @@ def build_insights_index():
 {cta_band("Want a point of view on <em>your</em> agenda?", "A conversation with a partner costs nothing and usually saves a quarter.")}
 '''
     return page("/insights.html", "Insights | Aspiro Management Consultants",
-                "Practitioner perspectives and downloadable whitepapers on transformation, AI and automation, risk and ESG, cost and growth for GCC financial institutions.", "Insights", body)
+                "Practitioner perspectives and downloadable whitepapers on transformation, AI and automation, risk and ESG, cost and growth for financial institutions.", "Insights", body)
 
 
 def build_insight_pages():
@@ -915,7 +921,7 @@ def build_insight_pages():
   <div class="container"><figure class="article-hero reveal">{picture(i['photo'], '', '(max-width: 1280px) 100vw, 1280px', pos=i['pos'], priority=True)}</figure></div>
   <div class="container article-layout">
     <div class="article-body prose">{body_html}
-      <p class="article-byline">By {SITE['name']}. Aspiro is an independent, practitioner-led consultancy for GCC financial institutions.</p>
+      <p class="article-byline">By {SITE['name']}. Aspiro is an independent, practitioner-led transformation and digital partner for financial institutions.</p>
     </div>
     <aside class="article-aside">
       {wp_aside}
@@ -945,7 +951,7 @@ def build_insight_pages():
 def build_whitepapers():
     cards = "".join(wp_card(w, D[i % 2]) for i, w in enumerate(WHITEPAPERS))
     body = page_hero("Whitepapers", "Points of view, in <em>depth</em>.",
-                     "Six short papers on the questions GCC financial services leaders are asking now. Each one states an argument, shows the evidence, sets out a framework and closes with four moves you can make on Monday.") + f'''
+                     f"{NUM_WORDS.get(len(WHITEPAPERS), len(WHITEPAPERS))} short papers on the questions financial services leaders are asking now. Each one states an argument, shows the evidence, sets out a framework and closes with four moves you can make on Monday.") + f'''
 <section class="section">
   <div class="container"><div class="wp-grid wp-grid--index">{cards}</div></div>
 </section>
@@ -953,7 +959,7 @@ def build_whitepapers():
 {cta_band("Want a point of view on <em>your</em> agenda?", "A conversation with a partner costs nothing and usually saves a quarter.")}
 '''
     return page("/whitepapers.html", "Whitepapers | Aspiro Management Consultants",
-                "Download Aspiro points of view on execution, automation, IFRS S1/S2 disclosure, cost-to-income, Saudization and post-merger integration.", "Whitepapers", body)
+                "Download Aspiro points of view on execution, automation, IFRS S1/S2 disclosure, cost-to-income and post-merger integration.", "Whitepapers", body)
 
 
 def build_contact():
@@ -995,7 +1001,7 @@ def build_contact():
     <div class="section-head reveal">{label("Offices")}<h2 class="t-title">Dubai. Riyadh. London.</h2></div>
     <div class="office-grid office-grid--light">
       <div class="office reveal"><h3>Dubai</h3><p class="office-sub">Headquarters</p><p>{addr}</p><p><a class="link-arrow" href="https://maps.google.com/?q=Montana+Building,+Al+Karama,+Dubai" target="_blank" rel="noopener">Open in maps</a></p></div>
-      <div class="office reveal reveal-d1"><h3>Riyadh</h3><p class="office-sub">Kingdom of Saudi Arabia</p><p>Serving SAMA-regulated banks, capital-markets institutions and NBFIs across the Kingdom.</p></div>
+      <div class="office reveal reveal-d1"><h3>Riyadh</h3><p class="office-sub">Kingdom of Saudi Arabia</p><p>Senior practitioners on the ground for banks, capital-markets institutions and NBFIs.</p></div>
       <div class="office reveal reveal-d2"><h3>London</h3><p class="office-sub">United Kingdom</p><p>Access to global best practice and our international specialist network.</p></div>
     </div>
   </div>
